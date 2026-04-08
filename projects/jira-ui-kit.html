@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jira UI Kit | Ruvi Pitiyarachchi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .project-hero {
+      padding: 54px 0 40px;
+    }
+
+    .project-header {
+      margin-bottom: 36px;
+    }
+
+    .project-title {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    .project-summary {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--warm-mid);
+      max-width: 760px;
+    }
+
+    .project-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 24px 40px;
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--light-rule);
+    }
+
+    .meta-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .meta-value {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .metric-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 28px 0 0;
+    }
+
+    .metric-card {
+      padding: 24px 22px;
+      border: 1px solid var(--light-rule);
+      background: rgba(255, 252, 247, 0.82);
+    }
+
+    .metric-value {
+      display: block;
+      font-size: clamp(28px, 4vw, 40px);
+      line-height: 1;
+      color: var(--ink);
+      margin-bottom: 8px;
+    }
+
+    .metric-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+      line-height: 1.5;
+    }
+
+    .project-section {
+      margin-bottom: 88px;
+    }
+
+    .project-section-title {
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 28px;
+      color: var(--ink);
+    }
+
+    .project-section-text {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--ink);
+      max-width: 860px;
+      margin-bottom: 24px;
+    }
+
+    .project-section-text p {
+      margin-bottom: 24px;
+    }
+
+    .project-section-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+      text-decoration: none;
+      margin-bottom: 40px;
+      transition: color 0.2s;
+    }
+
+    .project-back:hover,
+    .project-back:focus-visible {
+      color: var(--ink);
+    }
+
+    .project-quote {
+      background: rgba(26, 23, 20, 0.04);
+      border-left: 3px solid var(--accent);
+      padding: 32px 36px;
+      margin: 40px 0;
+      font-size: 18px;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--ink);
+      max-width: 860px;
+    }
+
+    .phase-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 32px;
+    }
+
+    .phase-card {
+      border: 1px solid var(--light-rule);
+      background: rgba(255, 252, 247, 0.72);
+      padding: 24px;
+    }
+
+    .phase-kicker {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 14px;
+    }
+
+    .phase-title {
+      font-size: 24px;
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+      margin-bottom: 12px;
+    }
+
+    .phase-card p {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--ink);
+      margin: 0;
+    }
+
+    .subsection-block {
+      max-width: 860px;
+      margin-top: 36px;
+      padding-top: 28px;
+      border-top: 1px solid var(--light-rule);
+    }
+
+    .subsection-title {
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .subsection-list {
+      margin: 18px 0 0;
+      padding-left: 18px;
+      color: var(--ink);
+    }
+
+    .subsection-list li {
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .subsection-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .solution-grid,
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 16px;
+      margin-top: 28px;
+    }
+
+    .detail-card {
+      border: 1px solid var(--light-rule);
+      padding: 24px;
+      background: rgba(255, 252, 247, 0.72);
+    }
+
+    .detail-title {
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .detail-list {
+      margin: 0;
+      padding-left: 18px;
+      color: var(--ink);
+    }
+
+    .detail-list li {
+      margin-bottom: 10px;
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.7;
+    }
+
+    .detail-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .reflection-note {
+      padding: 28px 32px;
+      border: 1px solid var(--light-rule);
+      background: linear-gradient(180deg, rgba(255,252,247,0.9) 0%, rgba(249,244,237,0.8) 100%);
+      max-width: 860px;
+    }
+
+    .reflection-note p {
+      margin: 0;
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.75;
+      color: var(--ink);
+    }
+
+    /* Trial mode: remove box styling. Revert by removing `trial-flat` from body. */
+    body.trial-flat .metric-card,
+    body.trial-flat .phase-card,
+    body.trial-flat .detail-card,
+    body.trial-flat .reflection-note {
+      border: 0;
+      background: transparent;
+      padding: 0;
+    }
+
+    body.trial-flat .project-quote {
+      border-left: 1px solid var(--light-rule);
+      background: transparent;
+      padding: 0 0 0 16px;
+      margin: 28px 0;
+      font-style: normal;
+    }
+
+    body.trial-flat .metric-strip,
+    body.trial-flat .phase-grid,
+    body.trial-flat .solution-grid,
+    body.trial-flat .impact-grid {
+      gap: 28px;
+    }
+
+    body.trial-flat .phase-grid,
+    body.trial-flat .solution-grid,
+    body.trial-flat .impact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    @media (max-width: 860px) {
+      .metric-strip,
+      .phase-grid,
+      .solution-grid,
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .project-section {
+        margin-bottom: 64px;
+      }
+
+      .project-summary,
+      .project-section-text {
+        font-size: 16px;
+      }
+
+      .metric-card,
+      .phase-card,
+      .detail-card,
+      .reflection-note {
+        padding: 20px;
+      }
+
+      .project-quote {
+        padding: 24px 20px;
+        font-size: 16px;
+      }
+    }
+  </style>
+</head>
+<body class="page-project-detail">
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <aside class="sidebar" aria-label="Site navigation">
+    <div>
+      <p class="sidebar-name" aria-hidden="true">Ruvi Pitiyarachchi</p>
+      <p class="sidebar-title" aria-hidden="true">Product designer</p>
+      <nav aria-label="Page sections">
+        <ul class="sidebar-nav">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="sidebar-contact" role="contentinfo" aria-label="Contact information">
+      <a href="mailto:ruvi.pit@gmail.com" class="contact-link">
+        <svg width="11" height="9" viewBox="0 0 11 9" fill="none" aria-hidden="true" focusable="false">
+          <path d="M0.5 0.5H10.5V8.5H0.5V0.5Z" stroke="currentColor" stroke-width="0.8"/>
+          <path d="M0.5 0.5L5.5 5L10.5 0.5" stroke="currentColor" stroke-width="0.8"/>
+        </svg>
+        ruvi.pit@gmail.com
+      </a>
+      <a href="tel:+61 402 675 944" class="contact-link">
+        <svg width="10" height="11" viewBox="0 0 10 11" fill="none" aria-hidden="true" focusable="false">
+          <path d="M1 1.5C1 1.5 2 3.5 3.5 5C5 6.5 7 7.5 7 7.5L8.5 6L10 7.5L8 9.5C8 9.5 4 9 1.5 6.5C-1 4 0.5 1 0.5 1L1 1.5Z" stroke="currentColor" stroke-width="0.8"/>
+        </svg>
+        +61 402 675 944
+      </a>
+      <a href="https://www.linkedin.com/in/ruvip/" target="_blank" rel="noopener noreferrer" class="contact-link">
+        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true" focusable="false">
+          <rect x="0.5" y="0.5" width="10" height="10" stroke="currentColor" stroke-width="0.8"/>
+          <path d="M2 4.5V8.5M2 2.5V3M4 4.5V8.5M4 6C4 5 4.8 4.5 5.5 4.5C6.2 4.5 7 5 7 6V8.5" stroke="currentColor" stroke-width="0.8"/>
+        </svg>
+      </a>
+    </div>
+  </aside>
+
+  <header class="mobile-header" role="banner">
+    <span class="mobile-name">Ruvi Pitiyarachchi</span>
+    <button
+      class="mobile-menu-btn"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mobileNav"
+      id="mobileMenuBtn"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <nav id="mobileNav" class="mobile-nav" aria-label="Mobile navigation" hidden>
+    <a href="../index.html">Home <span aria-hidden="true">→</span></a>
+    <a href="../projects.html">Projects <span aria-hidden="true">→</span></a>
+    <a href="../about.html">About <span aria-hidden="true">→</span></a>
+    <div class="mobile-nav-contact">
+      <a href="mailto:ruvi.pit@gmail.com">ruvi.pit@gmail.com</a>
+      <a href="tel:+61402675944">+61 402 675 944</a>
+      <a href="https://www.linkedin.com/in/ruvip/" target="_blank" rel="noopener noreferrer">
+        LinkedIn <span class="visually-hidden">(opens in new tab)</span>
+      </a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <a href="../projects.html" class="project-back">← Back to projects</a>
+
+    <div class="project-hero">
+      <div class="project-header">
+        <h1 class="project-title">Jira UI Kit</h1>
+        <p class="project-summary">I led the development and rollout of the Jira UI Kit, a shared Figma library and design system resource created to give Jira teams a single source of truth. Starting in FY24H2 and launched in FY25H1, the kit scaled from 26 teams at launch to 96 teams, reaching 41.4k weekly inserts while improving product quality and accelerating design workflows for makers.</p>
+      </div>
+
+      <div class="project-meta">
+        <div class="meta-item">
+          <div class="meta-label">Timeline</div>
+          <div class="meta-value">Built in FY24H2, launched in FY25H1</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Role</div>
+          <div class="meta-value">Led development and rollout of the shared Figma library and contribution model</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Scope</div>
+          <div class="meta-value">Design system resource, adoption strategy, contribution model, backlog, templates, and enablement</div>
+        </div>
+      </div>
+
+      <div class="metric-strip" aria-label="Jira UI Kit metrics">
+        <div class="metric-card">
+          <span class="metric-value">96</span>
+          <span class="metric-label">Teams using the kit today</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value">41.4k</span>
+          <span class="metric-label">Weekly inserts across Jira teams</span>
+        </div>
+        <div class="metric-card">
+          <span class="metric-value">4.5 → 6</span>
+          <span class="metric-label">Figma confidence gain from the design sprint, out of 7</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="project-section">
+      <h2 class="project-section-title">Overview</h2>
+      <div class="project-section-text">
+        <p>As Jira consolidated its product experiences, design teams needed a shared system that could support consistency at scale. I led the work to establish the Jira UI Kit as that single source of truth in Figma: a practical, reusable resource that helped teams move faster without fragmenting the product experience.</p>
+        <p>The project was not just about creating a component library. It required defining how teams would contribute, how work would be prioritized, and how leadership and designers would stay aligned so the system remained valuable over time.</p>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2 class="project-section-title">Challenge</h2>
+      <div class="project-section-text">
+        <p>Before the Jira UI Kit, multiple libraries and kits were floating around the organization, including separate resources for Jira Work Management, Jira Software, and open tool chain teams. That fragmentation created inconsistency, duplicated effort, and uncertainty about which components and patterns teams should trust.</p>
+        <p>As part of Jira consolidation, a single source of truth was needed for designers. The challenge was not only to centralize the library, but to make it credible and useful enough that teams would actively adopt it instead of continuing with local workarounds.</p>
+      </div>
+
+      <div class="project-quote">
+        A shared kit only becomes a real design system when teams trust it enough to stop rebuilding the same patterns in parallel.
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2 class="project-section-title">Process</h2>
+      <div class="project-section-text">
+        <p>I approached the work as both a system-building and change-management problem. The library itself needed to be strong, but the operating model around it mattered just as much.</p>
+      </div>
+
+      <div class="phase-grid">
+        <article class="phase-card">
+          <div class="phase-kicker">Phase 01</div>
+          <h3 class="phase-title">Align the org</h3>
+          <p>I drove leadership alignment through cross-team syncs and consistent project updates, building shared visibility into the problem, the roadmap, and why a unified Jira kit mattered for product quality.</p>
+        </article>
+        <article class="phase-card">
+          <div class="phase-kicker">Phase 02</div>
+          <h3 class="phase-title">Build the foundation</h3>
+          <p>I helped shape the Jira UI Kit as a central Figma resource with reusable components, practical standards, and a structure teams could apply in real feature work rather than treat as reference-only documentation.</p>
+        </article>
+        <article class="phase-card">
+          <div class="phase-kicker">Phase 03</div>
+          <h3 class="phase-title">Create a contribution model</h3>
+          <p>I formulated the recruitment strategy for engaging designers already working on active features, developed a backlog to assign authors, and introduced templates and processes so contributions stayed consistent and maintainable.</p>
+        </article>
+        <article class="phase-card">
+          <div class="phase-kicker">Phase 04</div>
+          <h3 class="phase-title">Drive adoption</h3>
+          <p>I ran enablement activities including a design sprint that increased participant Figma confidence from 4.5 to 6 out of 7, helping teams build trust in the kit and use it more confidently in delivery.</p>
+        </article>
+      </div>
+
+      <div class="subsection-block">
+        <h3 class="subsection-title">Validation</h3>
+        <div class="project-section-text">
+          <p>Before broader rollout, we ran moderated usability testing on the new Jira UI Kit library in Figma to evaluate whether it suited makers' ways of working, met the target usability benchmark of an SEQ score of at least 5.5, and exposed areas for improvement.</p>
+          <p>We recruited 5 to 6 participants across business and software library users and asked them to complete representative tasks such as finding templates and components, creating a flow, and customising an existing component. The research confirmed that the overall direction was strong, while also surfacing specific usability issues in naming, examples, and guidance.</p>
+        </div>
+        <ul class="subsection-list">
+          <li>Participants found the kit beneficial and aligned with their current workflow, especially for creating flows and customising components, but they wanted more ready-made examples.</li>
+          <li>There were no major usability issues that changed the direction of the kit, and participants generally understood the architecture and the role of each file.</li>
+          <li>The main friction came from naming and context: task 2, finding the right template, scored 1.8 because participants struggled to distinguish between business and software views.</li>
+          <li>Tutorials were clearly helpful: one participant re-scored a task from 4 to 7 after using the guidance, which reinforced the need for stronger in-context help and clearer tutorial surfacing.</li>
+          <li>These findings directly informed follow-up work on naming conventions, asset labelling, example coverage, documentation, and tutorial visibility.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2 class="project-section-title">Solution</h2>
+      <div class="project-section-text">
+        <p>The Jira UI Kit became a shared Figma library and design system resource that balanced consistency with contribution. Rather than operating as a static library, it was structured as a living system supported by clear ownership, prioritization, and enablement.</p>
+      </div>
+
+      <div class="solution-grid">
+        <article class="detail-card">
+          <h3 class="detail-title">What teams received</h3>
+          <ul class="detail-list">
+            <li>A shared Figma library with reusable Jira components and patterns.</li>
+            <li>A clearer single source of truth across product areas that had previously relied on separate kits.</li>
+            <li>Templates and contribution workflows that made system participation easier.</li>
+          </ul>
+        </article>
+        <article class="detail-card">
+          <h3 class="detail-title">What made it sustainable</h3>
+          <ul class="detail-list">
+            <li>A contribution model that distributed ownership across designers close to feature work.</li>
+            <li>A backlog and author model to guide priorities and make maintenance visible.</li>
+            <li>Regular updates and leadership alignment so the kit stayed relevant and supported.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2 class="project-section-title">Impact</h2>
+      <div class="project-section-text">
+        <p>The strongest signal of success was sustained adoption. The Jira UI Kit launched with 26 teams and grew to 96 teams, showing that the library solved a real workflow problem and became embedded in how teams design.</p>
+        <p>Weekly inserts reached 41.4k, demonstrating regular reuse at scale. Beyond the headline numbers, the kit helped reduce duplication, improve product consistency, and give designers a more reliable starting point for feature work.</p>
+      </div>
+
+      <div class="impact-grid">
+        <article class="detail-card">
+          <h3 class="detail-title">Adoption</h3>
+          <ul class="detail-list">
+            <li>Grew from 26 teams at launch to 96 teams using the kit.</li>
+            <li>Established the kit as a shared Jira resource rather than a team-specific asset.</li>
+          </ul>
+        </article>
+        <article class="detail-card">
+          <h3 class="detail-title">Workflow improvement</h3>
+          <ul class="detail-list">
+            <li>Reached 41.4k weekly inserts, indicating broad reuse in active design work.</li>
+            <li>Improved Figma confidence in sprint participants from 4.5 to 6 out of 7.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2 class="project-section-title">Reflection</h2>
+      <div class="reflection-note">
+        <p>The biggest lesson from building design systems at scale is that strong governance matters as much as strong components. A robust contribution model, paired with leadership buy-in, is what keeps a system valuable and current over time. Without both, even a well-crafted library quickly drifts out of date and loses trust.</p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    const path = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.sidebar-nav a, .mobile-nav a').forEach((anchor) => {
+      anchor.removeAttribute('aria-current');
+      const target = anchor.getAttribute('href');
+      if (target === path || (target === 'index.html' && path === '')) {
+        anchor.setAttribute('aria-current', 'page');
+      }
+    });
+
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+
+    if (menuBtn && mobileNav) {
+      menuBtn.addEventListener('click', () => {
+        const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', String(!isOpen));
+
+        if (!isOpen) {
+          mobileNav.removeAttribute('hidden');
+          mobileNav.classList.add('open');
+          document.body.classList.add('no-scroll');
+        } else {
+          mobileNav.setAttribute('hidden', '');
+          mobileNav.classList.remove('open');
+          document.body.classList.remove('no-scroll');
+        }
+      });
+
+      mobileNav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => {
+          menuBtn.setAttribute('aria-expanded', 'false');
+          mobileNav.setAttribute('hidden', '');
+          mobileNav.classList.remove('open');
+          document.body.classList.remove('no-scroll');
+        });
+      });
+    }
+  </script>
+</body>
+</html>

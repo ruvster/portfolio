@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Broker digital | Ruvi Pitiyarachchi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    /* Project-specific styles */
+    .project-hero {
+      padding: 54px 0 40px;
+    }
+
+    .project-header {
+      margin-bottom: 60px;
+    }
+
+    .project-title {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    .project-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 32px 48px;
+      margin-bottom: 48px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--light-rule);
+    }
+
+    .meta-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .meta-value {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    /* Content sections */
+    .project-section {
+      margin-bottom: 80px;
+    }
+
+    .project-section-title {
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 32px;
+      color: var(--ink);
+    }
+
+    .project-section-text {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.72;
+      color: var(--ink);
+      max-width: 100%;
+      margin-bottom: 24px;
+    }
+
+    .project-section-text p {
+      margin-bottom: 24px;
+    }
+
+    .project-section-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    /* Images and figures */
+    .project-image {
+      width: 100%;
+      margin: 40px 0;
+      border-radius: 4px;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-image-hero {
+      max-width: 75%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .project-figure-image.project-image-hero {
+      max-width: 75%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .project-figure {
+      margin: 60px auto;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .project-figure-image {
+      width: auto;
+      max-width: 100%;
+      margin-bottom: 16px;
+      border-radius: 4px;
+      overflow: hidden;
+      display: block;
+    }
+
+    .project-figure-image img {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-figure-caption {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--warm-mid);
+      text-align: center;
+    }
+
+    /* Film-strip galleries (desktop + mobile) */
+    .project-grid-2,
+    .project-grid-3 {
+      display: flex;
+      gap: 8px;
+      margin: 40px 0;
+      width: 100%;
+      max-width: 100%;
+      overflow-x: hidden;
+      overflow-y: hidden;
+      scroll-snap-type: x proximity;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 8px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .project-grid-2.has-overflow,
+    .project-grid-3.has-overflow {
+      overflow-x: auto;
+    }
+
+    .project-grid-2::-webkit-scrollbar,
+    .project-grid-3::-webkit-scrollbar {
+      display: none;
+    }
+
+    .project-grid-tight {
+      gap: 8px;
+    }
+
+    .project-grid-2:has(> :nth-child(2):last-child),
+    .project-grid-3:has(> :nth-child(2):last-child) {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      justify-content: center;
+      overflow: visible;
+      padding-bottom: 0;
+    }
+
+    .project-grid-2.project-grid-tight:has(> :nth-child(2):last-child) {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .project-grid-2:has(> :nth-child(2):last-child) .project-figure,
+    .project-grid-3:has(> :nth-child(2):last-child) .project-figure {
+      flex: initial;
+    }
+
+    .project-grid-2 .project-figure,
+    .project-grid-3 .project-figure {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      flex: 0 0 clamp(280px, 30vw, 420px);
+      scroll-snap-align: start;
+    }
+
+    .project-grid-tight .project-figure {
+      flex-basis: clamp(220px, 24vw, 320px);
+    }
+
+    .project-grid-3.project-grid-4up .project-figure {
+      flex-basis: clamp(240px, 26vw, 340px);
+    }
+
+    .project-grid-3.project-grid-5up .project-figure {
+      flex-basis: clamp(220px, 22vw, 300px);
+    }
+
+    .project-grid-3.project-grid-5up > .project-figure,
+    .project-grid-3.project-grid-5up > .project-figure:nth-child(4),
+    .project-grid-3.project-grid-5up > .project-figure:nth-child(5) {
+      grid-column: auto;
+    }
+
+    .project-grid-2 .project-figure-image,
+    .project-grid-3 .project-figure-image {
+      width: 100%;
+      max-width: 100%;
+      height: 220px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      padding: 10px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px solid rgba(26, 23, 20, 0.14);
+    }
+
+    .project-grid-tight .project-figure-image {
+      height: 220px;
+    }
+
+    .project-grid-2 .project-figure-image img {
+      width: 100%;
+      max-width: 100%;
+      max-height: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+    }
+
+    .project-grid-3 .project-figure-image img {
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+    }
+
+    .project-grid-2 .project-figure-caption,
+    .project-grid-3 .project-figure-caption {
+      width: 100%;
+      text-align: center;
+    }
+
+    /* Quote/callout */
+    .project-quote {
+      background: rgba(26,23,20,0.04);
+      border-left: 3px solid var(--accent);
+      padding: 32px 36px;
+      margin: 48px 0;
+      font-size: 18px;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.65;
+      color: var(--ink);
+      max-width: 100%;
+    }
+
+    /* Link styling */
+    .project-link {
+      color: var(--accent);
+      text-decoration: none;
+      transition: color 0.2s;
+      border-bottom: 1px solid var(--accent);
+    }
+
+    .project-link:hover,
+    .project-link:focus-visible {
+      color: var(--accent-hover);
+      border-bottom-color: var(--accent-hover);
+    }
+
+    /* Back link */
+    .project-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+      text-decoration: none;
+      margin-bottom: 40px;
+      transition: color 0.2s;
+    }
+
+    .project-back:hover,
+    .project-back:focus-visible {
+      color: var(--ink);
+    }
+
+    /* Image Preview Modal */
+    .image-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(26, 23, 20, 0.9);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .image-modal.open {
+      display: flex;
+    }
+
+    .image-modal-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-modal-image {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .image-modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: rgba(245, 240, 232, 0.1);
+      border: 1px solid rgba(245, 240, 232, 0.3);
+      color: var(--cream);
+      width: 44px;
+      height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      font-size: 24px;
+      transition: background 0.2s, border-color 0.2s;
+      border-radius: 2px;
+    }
+
+    .image-modal-close:hover {
+      background: rgba(245, 240, 232, 0.2);
+      border-color: rgba(245, 240, 232, 0.6);
+    }
+
+    .image-modal-nav-zone {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 20%;
+      cursor: pointer;
+    }
+
+    .image-modal-prev-zone {
+      left: 0;
+    }
+
+    .image-modal-next-zone {
+      right: 0;
+    }
+
+    .image-modal-nav-zone:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .project-figure-image,
+    .project-image {
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .project-figure-image:hover,
+    .project-image:hover {
+      opacity: 0.9;
+    }
+
+    /* Responsive */
+    @media (max-width: 860px) {
+      .project-grid-2,
+      .project-grid-3 {
+        gap: 8px;
+      }
+
+      .project-grid-2:has(> :nth-child(2):last-child),
+      .project-grid-3:has(> :nth-child(2):last-child) {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .project-grid-2 .project-figure,
+      .project-grid-3 .project-figure {
+        flex-basis: clamp(260px, 64vw, 360px);
+      }
+
+      .project-grid-tight .project-figure {
+        flex-basis: clamp(240px, 58vw, 320px);
+      }
+
+      .project-meta {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .project-section {
+        margin-bottom: 60px;
+      }
+
+      .project-grid-2:has(> :nth-child(2):last-child),
+      .project-grid-3:has(> :nth-child(2):last-child) {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+      }
+
+      .project-section-title {
+        margin-bottom: 24px;
+      }
+
+      .project-section-text {
+        font-size: 16px;
+        margin-bottom: 20px;
+      }
+
+      .project-grid-2,
+      .project-grid-3 {
+        gap: 8px;
+        margin: 32px 0;
+      }
+
+      .project-grid-2 .project-figure,
+      .project-grid-3 .project-figure {
+        flex-basis: 78vw;
+      }
+
+      .project-grid-tight .project-figure {
+        flex-basis: 72vw;
+      }
+
+      .project-image {
+        margin: 32px 0;
+      }
+
+      .project-quote {
+        margin: 32px 0;
+        padding: 24px 20px;
+        font-size: 16px;
+      }
+    }
+
+    @media (max-width: 400px) {
+      .project-title {
+        margin-bottom: 10px;
+      }
+
+      .project-section-title {
+        font-size: 20px;
+        margin-bottom: 16px;
+      }
+
+      .project-section-text {
+        font-size: 15px;
+        line-height: 1.65;
+        margin-bottom: 16px;
+      }
+
+      .project-grid-2,
+      .project-grid-3 {
+        gap: 8px;
+        margin: 24px 0;
+      }
+
+      .project-grid-2 .project-figure,
+      .project-grid-3 .project-figure,
+      .project-grid-tight .project-figure {
+        flex-basis: 84vw;
+      }
+
+      .project-quote {
+        margin: 24px 0;
+        padding: 20px 16px;
+      }
+    }
+  </style>
+</head>
+<body class="page-project-detail">
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- SIDEBAR (desktop) -->
+  <aside class="sidebar" aria-label="Site navigation">
+    <div>
+      <p class="sidebar-name" aria-hidden="true">Ruvi Pitiyarachchi</p>
+      <p class="sidebar-title" aria-hidden="true">Product designer</p>
+      <nav aria-label="Page sections">
+        <ul class="sidebar-nav">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="sidebar-contact" role="contentinfo" aria-label="Contact information">
+      <a href="mailto:ruvi.pit@gmail.com" class="contact-link">
+        <svg width="11" height="9" viewBox="0 0 11 9" fill="none" aria-hidden="true" focusable="false">
+          <path d="M0.5 0.5H10.5V8.5H0.5V0.5Z" stroke="currentColor" stroke-width="0.8"/>
+          <path d="M0.5 0.5L5.5 5L10.5 0.5" stroke="currentColor" stroke-width="0.8"/>
+        </svg>
+        ruvi.pit@gmail.com
+      </a>
+      <a href="tel:+61 402 675 944" class="contact-link">
+        <svg width="10" height="11" viewBox="0 0 10 11" fill="none" aria-hidden="true" focusable="false">
+          <path d="M1 1.5C1 1.5 2 3.5 3.5 5C5 6.5 7 7.5 7 7.5L8.5 6L10 7.5L8 9.5C8 9.5 4 9 1.5 6.5C-1 4 0.5 1 0.5 1L1 1.5Z" stroke="currentColor" stroke-width="0.8"/>
+        </svg>
+        +61 402 675 944
+      </a>
+      <a href="https://www.linkedin.com/in/ruvip/" target="_blank" rel="noopener noreferrer" class="contact-link">
+        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true" focusable="false">
+          <rect x="0.5" y="0.5" width="10" height="10" stroke="currentColor" stroke-width="0.8"/>
+          <path d="M2 4.5V8.5M2 2.5V3M4 4.5V8.5M4 6C4 5 4.8 4.5 5.5 4.5C6.2 4.5 7 5 7 6V8.5" stroke="currentColor" stroke-width="0.8"/>
+        </svg>
+      </a>
+    </div>
+  </aside>
+
+  <!-- MOBILE HEADER -->
+  <header class="mobile-header" role="banner">
+    <span class="mobile-name">Ruvi Pitiyarachchi</span>
+    <button
+      class="mobile-menu-btn"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mobileNav"
+      id="mobileMenuBtn"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <!-- MOBILE NAV DRAWER -->
+  <nav id="mobileNav" class="mobile-nav" aria-label="Mobile navigation" hidden>
+    <a href="../index.html">Home <span aria-hidden="true">→</span></a>
+    <a href="../projects.html">Projects <span aria-hidden="true">→</span></a>
+    <a href="../about.html">About <span aria-hidden="true">→</span></a>
+    <div class="mobile-nav-contact">
+      <a href="mailto:ruvi.pit@gmail.com">ruvi.pit@gmail.com</a>
+      <a href="tel:+61402675944">+61 402 675 944</a>
+      <a href="https://www.linkedin.com/in/ruvip/" target="_blank" rel="noopener noreferrer">
+        LinkedIn <span class="visually-hidden">(opens in new tab)</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main id="main-content">
+
+    <!-- Back link -->
+    <a href="../projects.html" class="project-back">← Back to projects</a>
+
+    <!-- PROJECT HERO -->
+    <div class="project-hero">
+      <div class="project-header">
+        <h1 class="project-title">Broker Digital</h1>
+        <p style="font-size: 17px; font-weight: 300; color: var(--warm-mid); margin-top: 12px;">Designing a market-leading digital experience for ING mortgage brokers.</p>
+      </div>
+
+      <!-- PROJECT META -->
+      <div class="project-meta">
+        <div class="meta-item">
+          <div class="meta-label">Duration</div>
+          <div class="meta-value">February to December 2018</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">My role</div>
+          <div class="meta-value">Lead UX designer</div>
+        </div>
+        <!-- <div class="meta-item">
+          <div class="meta-label">Goal</div>
+          <div class="meta-value">deliver a market leading broker portal that empowered brokers to manage their application pipeline and client portfolio with ING, anywhere, anytime</div>
+        </div> -->
+      </div>
+    </div>
+
+    <!-- MY ROLE SECTION
+    <section class="project-section">
+      <h2 class="project-section-title">My role</h2>
+      <div class="project-section-text">
+        <p>I was the lead UX designer on this project, supporting 2 delivery teams, one onshore and offshore. I worked closely with a UX researcher for the 2nd round of usability testing (who left soon after) and a Visual designer to establish the overarching look and feel for the broker space.</p>
+      </div>
+    </section> -->
+
+    <!-- OVERVIEW SECTION -->
+    <section class="project-section">
+      <h2 class="project-section-title">Overview</h2>
+      <div class="project-section-text">
+        <p>ING mortgage brokers and their support staff currently write 85% of ING's mortgage business each year. Historically, ING has primarily competed on price to grow its mortgages portfolio which is unsustainable in a competitive environment.</p>
+        <p>ING with its strong customer advocacy (NPS) and broker affinity as a true challenger brand and alternative to the major banks, had an opportunity to successfully shift from a "price led" proposition to an "experience led" proposition by delivering a market leading digital capability, driving greater efficiency and empowerment for the broker and improving the broker and customer experience interacting with ING.</p>
+        <p>The current digital experience for brokers (via the existing broker website), did not meet the basic broker expectations of a digital bank and was not aligned to the experience offered to customers via the direct website.</p>
+      </div>
+
+      <div class="project-quote">
+        "The design of the ING broker portal is so old. It's such a frustrating & uninspiring experience."
+      </div>
+
+      <div class="project-grid-2 project-grid-tight">
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/sitemap-1.png" alt="Site map of the existing broker portal">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/sitemap-2.png" alt="Site map of the existing broker portal">
+          </div>
+        </div>
+      </div>
+
+      <div class="project-figure-caption" style="margin-top: -24px; ">Site map of the existing broker portal</div>
+      
+    </section>
+
+    <!-- PROBLEM SECTION -->
+    <section class="project-section">
+      <h2 class="project-section-title">The problem</h2>
+      <div class="project-section-text">
+        <!-- <p><strong>Improving the broker experience via digital solutions</strong></p> -->
+        <p>Brokers are generally time poor and constantly seeking ways to increase efficiencies when dealing with lenders enabling them to write more business and provide a better service experience for their customers. Additionally, brokers are always "on the go" and need access to information anywhere, anytime.</p>
+        <p>ING fell well below market parity with brokers expectations in this space and therefore, beyond pricing considerations, brokers prefer dealing with other lenders who simply make their lives easier.</p>
+      </div>
+
+      <div class="project-section-text">
+        <p>An example of the poor broker experience was reflected in the loan tracking capability which is critical to a broker in supporting their customer through the mortgage process. Loan tracking was unavailable on the broker website since the introduction of a new system in May 2016. Brokers only option to track deals was either via Back Channel Messages (BCMs) with limited information/access or contacting the Sales Support Unit (SSU) and waiting up to 45 mins to speak to an ING representative. Customer Operations SLAs had blown out up to 20 days in the past, increasing the importance for brokers to know how their loans are progressing.</p>
+        <p>The goal of the Broker Digital project was to <strong>deliver a market leading broker portal that empowered brokers to manage their application pipeline and client portfolio with ING, anywhere, anytime.</strong></p>
+      </div>
+
+      <div class="project-quote">
+        "I'm losing business because I can't provide updates to my clients about their ING mortgage applications."
+      </div>
+    </section>
+
+        <!-- PLAN SECTION -->
+    <section class="project-section">
+      <h2 class="project-section-title">The plan</h2>
+      <div class="project-section-text">
+        <!-- <p><strong>Improving the broker experience via digital solutions</strong></p> -->
+        <p>As the lead UX designer, I was tasked with mapping out the design strategy for the project. I first listed out the tasks that needed to be done, then mapped them to tentative project timelines.</p>
+      </div>
+      <div class="project-grid-3">
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/Plan-1.png" alt="Plan of design activities and timelines for the project">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/Plan-2.png" alt="Plan of design activities and timelines for the project">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/Plan-3.png" alt="Plan of design activities and timelines for the project">
+          </div>
+        </div>
+      </div>
+
+      <div class="project-figure-caption" style="margin-top: -24px; ">Plan of design activities and timelines for the project</div>
+      
+
+    </section>
+
+    <!-- RESEARCH SECTION -->
+    <section class="project-section">
+      <h2 class="project-section-title">Research</h2>
+      <div class="project-section-text">
+        <p>In 2014 an external agency had been hired to conduct research on the broker market. I used this research as a starting point to acquaint myself with the broker space. I walked through the customer journey with stakeholders to see if it still held true, then simplified it into a high level customer journey that was easily digestible.</p>
+      </div>
+
+      <div class="project-figure">
+        <div class="project-figure-image">
+          <img src="../assets/projects/broker-digital/journey-map.png" alt="External research - Customer Journey map for broker mortgage process">
+        </div>
+        <div class="project-figure-caption">External research - Customer Journey map</div>
+      </div>
+
+      <div class="project-figure">
+        <div class="project-figure-image project-image-hero">
+          <img src="../assets/projects/broker-digital/research-map.jpg" alt="Simple journey map">
+        </div>
+        <div class="project-figure-caption">Simplified customer journey map</div>
+      </div>
+        <p style="margin-top: 48px;"><strong>Stakeholder and broker interviews</strong></p>
+      <div class="project-section-text">
+        <p>Next the Product Owner and I arranged interviews with key business and project stakeholders to get a clear understanding of the business outcomes and vision for the broker space. We then arranged interviews with brokers to understand their current process and pain points to develop a deeper understanding of our target users.</p>
+      </div>
+
+      <div class="project-grid-3 project-grid-4up">
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/broker-1.jpg" alt="Stakeholder interview">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/broker-2.jpg" alt="Broker interview">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/broker-3.jpg" alt="Affinity mapping exercise">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/broker-4.jpg" alt="Design sprint workshop with sticky notes and sketches on wall">
+          </div>
+        </div>
+      </div>
+
+      <div class="project-figure-caption" style="margin-top: -8px;">Workshop and interview artifacts</div>
+    </section>
+
+    <!-- DESIGN PROCESS SECTION -->
+    <section class="project-section">
+        <p style="margin-top: 48px;"><strong>Design sprint - Pipeline tracking and password reset</strong></p>
+      <div class="project-section-text">
+        <p>We kicked off the project by holding a design sprint/ideation workshop for the first epic, Pipeline tracking. We invited all the relevant stakeholders and began by running them through the simplified journey to confirm its accuracy. The first day was all about establishing the vision for the project and gaining a common understanding of the current lay of the land.</p>
+        
+      <div class="project-grid-2 project-grid-tight">
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/workshop-1.jpg" alt="Workshop in action">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/workshop-2.jpeg" alt="Workshop in action">
+          </div>
+        </div>        
+        </div>
+
+      <div class="project-figure-caption" style="margin-top: -8px; margin-bottom: 32px;">Workshop in action</div>
+
+        <p>The second day we got to sketching and voting. We iterated till we settled on a couple of solutions that we could refine and take to testing. I found that the design sprint workshops were a great way to flesh out features as we had all the right people in the one room, saving time from running around to find the right person to answer something.</p>
+      </div>
+
+      <div class="project-grid-3 project-grid-5up">
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/sketch-1.jpg" alt="Solution sketch 1">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/sketch-2.jpg" alt="Solution sketch 2">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/sketch-3.jpg" alt="Solution sketch 3">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/sketch-4.jpg" alt="Solution sketch 4">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/sketch-5.jpg" alt="Solution sketch 5">
+          </div>
+        </div>
+      </div>
+
+      <div class="project-figure-caption" style="margin-top: -24px; margin-bottom: 48px;">Solution sketches for Application tracking</div>      
+
+      <div class="project-section-text">
+        <p>I then translated the sketches into a clickable prototype using Sketch and Invision. In preperation for usability testing I started writing the test script and setting up the equipment for testing.</p>
+      </div>
+
+      <div class="project-grid-3 project-grid-4up">
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/wireframe-1.png" alt="Clickable prototype screens">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/wireframe-2.png" alt="Clickable prototype screens">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/wireframe-3.png" alt="Clickable prototype screens">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/wireframe-4.png" alt="Clickable prototype screens">
+          </div>
+        </div>
+      </div>
+
+      <div class="project-figure-caption" style="margin-top: -8px;">Prototype screens</div>
+
+    </section>
+
+    <!-- CHANGE IN SCOPE SECTION -->
+    <section class="project-section">
+      <p style="margin-top: 48px;"><strong>Change in scope</strong></p>
+      <div class="project-section-text">
+        <p>In the middle of usability testing we were informed that the scope had changed due to security and technical requirements. We had to incorporate an on-boarding process to allow brokers to register to use the portal. With the proposed architectural solution, a broker needed a Login ID in addition to their existing Broker ID. We identified this as a key design problem, as we predicted there would be confusion around the two numbers as to when to use each one. To figure out solutions we held another design workshop.</p>
+      </div>
+
+      <div class="project-grid-3">
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/registration-1.png" alt="Registration flow sketch 1">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/registration-2.jpg" alt="Registration flow sketch 2">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/registration-3.jpg" alt="Registration flow sketch 3">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/registration-4.jpg" alt="Registration flow sketch 4">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/registration-5.jpg" alt="Registration flow sketch 5">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/registration-6.jpg" alt="Registration flow sketch 6">
+          </div>
+        </div>
+      </div>
+
+      <div class="project-figure-caption" style="margin-top: -24px; margin-bottom: 48px;">Solution sketches for the registration flow</div>
+
+      <div class="project-section-text">
+        <p>Again, I translated the sketches into wireframes and a clickable prototype. A potential solution to the two number problem was the "Remember me" functionality. By enabling this, the browser would persist the ID at every visit. Another small win we had was the replacement of the numeric keypad for passwords with an alphanumeric password. This allowed password managers to store the login information (we pushed risk and security to get this) making it easier to login.</p>
+      </div>
+
+      <div class="project-grid-3">
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/login-1.png" alt="Login flow sketch 1">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/login-2.png" alt="Login flow sketch 2">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/login-3.png" alt="Login flow sketch 3">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/login-4.png" alt="Login flow sketch 4">
+          </div>
+        </div>
+
+      </div>
+
+      <div class="project-figure-caption" style="margin-top: -24px; margin-bottom: 48px;">Solution sketches for the registration flow</div>
+
+     </section>
+
+    <!-- USABILITY TESTING SECTION -->
+    <section class="project-section">
+      <p style="margin-top: 48px;"><strong>Usability Testing - Round 2</strong></p>
+      <div class="project-section-text">
+        <p>For the next round of testing we wanted to understand what brokers currently go through in registering with a lender, test the new on-boarding process, gauge reaction to having to remember a Login ID for the portal which is separate from their Broker ID and retest the login process and clarity of the proposed portal design with the visual design applied. At this point a user researcher came on board to assist with the testing. We tested with 5 brokers, all from varying backgrounds in age, experience and tech savviness, and we took turns in being the facilitator and notetaker.</p>
+      </div>
+
+      <div class="project-grid-3">
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/vd-1.png" alt="Usability testing 1">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/vd-2.png" alt="Usability testing 2">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/vd-3.png" alt="Usability testing 3">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/vd-4.png" alt="Usability testing 4">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/vd-5.png" alt="Usability testing 5">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/vd-6.png" alt="Usability testing 6">
+          </div>
+        </div>
+      </div>
+
+      <div class="project-figure-caption" style="margin-top: -24px; margin-bottom: 48px;">Usability testing flow</div>
+
+
+
+      <div class="project-section-text">
+        <p>The general feedback on the entire process was that it was very easy. However, as predicted there was some confusion over the Login ID vs Broker ID. When participants were presented with the Login ID screen they assumed that the Login ID was the same as their Broker ID. When we probed them further on having two numbers the general consensus was "why do I have to remember an extra number when I'm not editing or transacting, but if I have to then it is what it is".</p>
+        <p>I created a slide pack to share the testing results. Below are excerpts that detail the findings.</p>
+      </div>
+
+      <div class="project-grid-3">
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/findings-1.png" alt="Usability testing 1">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/findings-2.png" alt="Usability testing 2">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/broker-digital/feedback.png" alt="Usability testing 3">
+          </div>
+        </div>
+    </section>
+
+    <!-- MVP RELEASE SECTION -->
+    <section class="project-section">
+      <h2 class="project-section-title">MVP Release</h2>
+      <div class="project-section-text">
+        <p>On August 29 the broker portal was released to a select number of brokers to get some early feedback. Below are some initial reactions to the portal.</p>
+      </div>
+
+
+      <div class="project-quote">
+        "This one is easy to read... looks reliable... can't compare with the current one at all"
+      </div>
+
+      <div class="project-quote">
+        "Any idiot will pick this up in about 5 mins, if they don't, you should take their license away"
+      </div>
+
+      <div class="project-quote">
+        "Overall 9 out of 10... it's user friendly, logical, got summary and detailed information... potentially a 10 but depends on the quality of the assessor notes"
+      </div>
+
+      <div class="project-quote">
+        "Very consistent with the ING banking site... good for brokers who also bank with ING"
+      </div>
+
+      <div class="project-image project-image-hero">
+        <img src="../assets/projects/broker-digital/hero.png" alt="Broker portal login screen MVP">
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Image Preview Modal -->
+  <div class="image-modal" id="imageModal">
+    <div class="image-modal-content">
+      <div class="image-modal-nav-zone image-modal-prev-zone" id="modalPrevZone" aria-hidden="true"></div>
+      <div class="image-modal-nav-zone image-modal-next-zone" id="modalNextZone" aria-hidden="true"></div>
+      <img class="image-modal-image" id="modalImage" src="" alt="">
+    </div>
+  </div>
+
+  <script>
+    // Set active page indicator
+    const path = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.sidebar-nav a, .mobile-nav a').forEach(a => {
+      a.removeAttribute('aria-current');
+      const target = a.getAttribute('href');
+      if (target === path || (target === 'index.html' && path === '')) {
+        a.setAttribute('aria-current', 'page');
+      }
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    if (menuBtn && mobileNav) {
+      menuBtn.addEventListener('click', () => {
+        const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', !isOpen);
+        
+        if (!isOpen) {
+          mobileNav.removeAttribute('hidden');
+          mobileNav.classList.add('open');
+          document.body.classList.add('no-scroll');
+        } else {
+          mobileNav.setAttribute('hidden', '');
+          mobileNav.classList.remove('open');
+          document.body.classList.remove('no-scroll');
+        }
+      });
+      
+      // Close menu when a link is clicked
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menuBtn.setAttribute('aria-expanded', 'false');
+          mobileNav.setAttribute('hidden', '');
+          mobileNav.classList.remove('open');
+          document.body.classList.remove('no-scroll');
+        });
+      });
+    }
+
+    // Image preview modal
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalPrevZone = document.getElementById('modalPrevZone');
+    const modalNextZone = document.getElementById('modalNextZone');
+    const filmGrids = Array.from(document.querySelectorAll('.project-grid-2, .project-grid-3'));
+
+    // Get all clickable images
+    const allImages = Array.from(document.querySelectorAll('.project-figure-image img, .project-image img'));
+    let currentImageIndex = -1;
+
+    function updateGridOverflowState() {
+      filmGrids.forEach(grid => {
+        // Enable horizontal scroll only when content actually exceeds the viewport width.
+        const hasOverflow = grid.scrollWidth > grid.clientWidth + 1;
+        grid.classList.toggle('has-overflow', hasOverflow);
+      });
+    }
+
+    window.addEventListener('resize', updateGridOverflowState);
+
+    // Add click handlers to all images
+    allImages.forEach((img, index) => {
+      img.addEventListener('load', updateGridOverflowState);
+
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentImageIndex = index;
+        showImage(currentImageIndex);
+      });
+    });
+
+    updateGridOverflowState();
+
+    function showImage(index) {
+      const img = allImages[index];
+      modalImage.src = img.src;
+      modalImage.alt = img.alt;
+      imageModal.classList.add('open');
+      document.body.classList.add('no-scroll');
+    }
+
+    function navigateImage(direction) {
+      const newIndex = currentImageIndex + direction;
+      if (newIndex >= 0 && newIndex < allImages.length) {
+        currentImageIndex = newIndex;
+        showImage(currentImageIndex);
+      }
+    }
+
+    // Invisible edge navigation zones
+    modalPrevZone.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navigateImage(-1);
+    });
+
+    modalNextZone.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navigateImage(1);
+    });
+
+    // Close modal when clicking outside the image
+    imageModal.addEventListener('click', (e) => {
+      if (e.target === imageModal) {
+        imageModal.classList.remove('open');
+        document.body.classList.remove('no-scroll');
+      }
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => {
+      if (!imageModal.classList.contains('open')) return;
+      
+      switch(e.key) {
+        case 'Escape':
+          imageModal.classList.remove('open');
+          document.body.classList.remove('no-scroll');
+          break;
+        case 'ArrowLeft':
+          e.preventDefault();
+          navigateImage(-1);
+          break;
+        case 'ArrowRight':
+          e.preventDefault();
+          navigateImage(1);
+          break;
+      }
+    });
+  </script>
+</body>
+</html>

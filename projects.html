@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ruvi Pitiyarachchi — Product designer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-projects">
+
+  <!-- SKIP LINK -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- SIDEBAR (desktop) -->
+  <aside class="sidebar" aria-label="Site navigation">
+    <div>
+      <p class="sidebar-name" aria-hidden="true">Ruvi Pitiyarachchi</p>
+      <p class="sidebar-title" aria-hidden="true">Product designer</p>
+      <nav aria-label="Page sections">
+        <ul class="sidebar-nav">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="projects.html" aria-current="page">Projects</a></li>
+          <li><a href="about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="sidebar-contact" role="contentinfo" aria-label="Contact information">
+      <a href="mailto:ruvi.pit@gmail.com" class="contact-link">
+        <svg width="11" height="9" viewBox="0 0 11 9" fill="none" aria-hidden="true" focusable="false">
+          <path d="M0.5 0.5H10.5V8.5H0.5V0.5Z" stroke="currentColor" stroke-width="0.8"/>
+          <path d="M0.5 0.5L5.5 5L10.5 0.5" stroke="currentColor" stroke-width="0.8"/>
+        </svg>
+        ruvi.pit@gmail.com
+      </a>
+      <a href="tel:+61 402 675 944" class="contact-link">
+        <svg width="10" height="11" viewBox="0 0 10 11" fill="none" aria-hidden="true" focusable="false">
+          <path d="M1 1.5C1 1.5 2 3.5 3.5 5C5 6.5 7 7.5 7 7.5L8.5 6L10 7.5L8 9.5C8 9.5 4 9 1.5 6.5C-1 4 0.5 1 0.5 1L1 1.5Z" stroke="currentColor" stroke-width="0.8"/>
+        </svg>
+        +61 402 675 944
+      </a>
+      <a href="https://www.linkedin.com/in/ruvip/" target="_blank" rel="noopener noreferrer" class="contact-link">
+        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true" focusable="false">
+          <rect x="0.5" y="0.5" width="10" height="10" stroke="currentColor" stroke-width="0.8"/>
+          <path d="M2 4.5V8.5M2 2.5V3M4 4.5V8.5M4 6C4 5 4.8 4.5 5.5 4.5C6.2 4.5 7 5 7 6V8.5" stroke="currentColor" stroke-width="0.8"/>
+        </svg>
+        LinkedIn <span class="visually-hidden">(opens in new tab)</span>
+      </a>
+    </div>
+  </aside>
+
+  <!-- MOBILE HEADER -->
+  <header class="mobile-header" role="banner">
+    <span class="mobile-name">Ruvi Pitiyarachchi</span>
+    <button
+      class="mobile-menu-btn"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mobileNav"
+      id="mobileMenuBtn"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <!-- MOBILE NAV DRAWER -->
+  <nav id="mobileNav" class="mobile-nav" aria-label="Mobile navigation" hidden>
+    <a href="index.html" class="mobile-nav-link">Home <span aria-hidden="true">→</span></a>
+    <a href="projects.html" class="mobile-nav-link">Projects <span aria-hidden="true">→</span></a>
+    <a href="about.html" class="mobile-nav-link">About <span aria-hidden="true">→</span></a>
+    <div class="mobile-nav-contact">
+      <a href="mailto:ruvi.pit@gmail.com">ruvi.pit@gmail.com</a>
+      <a href="tel:+61402675944">+61 402 675 944</a>
+      <a href="https://www.linkedin.com/in/ruvip/" target="_blank" rel="noopener noreferrer">
+        LinkedIn <span class="visually-hidden">(opens in new tab)</span>
+      </a>
+    </div>
+  </nav>
+
+  <!-- MAIN -->
+  <main id="main-content">
+<!-- PROJECTS -->
+    <section id="projects" aria-labelledby="projects-heading">
+      <h2 class="section-heading" id="projects-heading">Projects</h2>
+      <div class="work-grid">
+        <a href="projects/jira-ui-kit.html" class="work-card">
+          <div class="card-bg"></div>
+          <div class="card-content" style="background: linear-gradient(to top, rgba(10, 7, 5, 0.92) 0%, rgba(10, 7, 5, 0.76) 44%, rgba(10, 7, 5, 0.42) 68%, rgba(10, 7, 5, 0.12) 100%);">
+            <span class="card-tag">Design System • Figma • 2025</span>
+            <h3 class="card-title">Jira UI kit</h3>
+            <p class="card-brief">Leading the rollout of Jira's shared Figma library to improve product quality and speed up design workflows.</p>
+          </div>
+          <div class="card-arrow">→</div>
+        </a>
+        <a href="projects/broker-digital.html" class="work-card">
+          <div class="card-bg" style="background: #1d140d url('assets/projects/broker-digital/hero.png') center 24% / 88% auto no-repeat;"></div>
+          <div class="card-content" style="background: linear-gradient(to top, rgba(10, 7, 5, 0.92) 0%, rgba(10, 7, 5, 0.76) 44%, rgba(10, 7, 5, 0.42) 68%, rgba(10, 7, 5, 0.12) 100%);">
+            <span class="card-tag">Product • Product design • 2018</span>
+            <h3 class="card-title">Broker digital</h3>
+            <p class="card-brief">Designing a market-leading digital experience for ING mortgage brokers.</p>
+          </div>
+          <div class="card-arrow">→</div>
+        </a>
+        <a href="projects/global-innovation-bootcamp.html" class="work-card">
+          <div class="card-bg" style="background: #1a2b18 url('assets/projects/global-innovation-bootcamp/group.JPG') center 40% / cover no-repeat;"></div>
+          <div class="card-content" style="background: linear-gradient(to top, rgba(10, 7, 5, 0.92) 0%, rgba(10, 7, 5, 0.76) 44%, rgba(10, 7, 5, 0.42) 68%, rgba(10, 7, 5, 0.12) 100%);">
+            <span class="card-tag">Innovation • Design lead • 2018</span>
+            <h3 class="card-title">Global innovation bootcamp</h3>
+            <p class="card-brief">Aggy - an agricultural knowledge platform born from ING's global innovation program.</p>
+          </div>
+          <div class="card-arrow">→</div>
+        </a>
+        <a href="projects/siri-balance.html" class="work-card">
+          <div class="card-bg" style="background: linear-gradient(140deg, #1a2026 0%, #243344 50%, #d46a17 100%);"></div>
+          <div class="card-content" style="background: linear-gradient(to top, rgba(10, 7, 5, 0.92) 0%, rgba(10, 7, 5, 0.76) 44%, rgba(10, 7, 5, 0.42) 68%, rgba(10, 7, 5, 0.12) 100%);">
+            <span class="card-tag">Voice UX • Product design • 2017</span>
+            <h3 class="card-title">Hey Siri, what's my balance?</h3>
+            <p class="card-brief">Designing ING's Siri voice banking MVP to help customers check account balances hands-free.</p>
+          </div>
+          <div class="card-arrow">→</div>
+        </a>
+      </div>
+    </section>
+
+    
+  </main>
+  <script>
+    // Set active page indicator
+    const path = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.sidebar-nav a, .mobile-nav a').forEach(a => {
+      a.removeAttribute('aria-current');
+      const target = a.getAttribute('href');
+      if (target === path || (target === 'index.html' && path === '')) {
+        a.setAttribute('aria-current', 'page');
+      }
+    });
+
+    // Mobile menu toggle
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+    
+    if (menuBtn && mobileNav) {
+      menuBtn.addEventListener('click', () => {
+        const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', !isOpen);
+        
+        if (!isOpen) {
+          mobileNav.removeAttribute('hidden');
+          mobileNav.classList.add('open');
+          document.body.classList.add('no-scroll');
+        } else {
+          mobileNav.setAttribute('hidden', '');
+          mobileNav.classList.remove('open');
+          document.body.classList.remove('no-scroll');
+        }
+      });
+      
+      // Close menu when a link is clicked
+      mobileNav.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+          menuBtn.setAttribute('aria-expanded', 'false');
+          mobileNav.setAttribute('hidden', '');
+          mobileNav.classList.remove('open');
+          document.body.classList.remove('no-scroll');
+        });
+      });
+    }
+  </script>
+</body>
+</html>

@@ -87,8 +87,8 @@
 <!-- PROJECTS -->
     <section id="projects" aria-labelledby="projects-heading">
       <h2 class="section-heading" id="projects-heading">Projects</h2>
-      <div class="work-grid">
-        <div class="work-card work-card--wip" aria-label="Jira UI kit — work in progress, coming soon">
+      <div class="work-grid" role="list">
+        <div class="work-card work-card--wip" role="listitem" aria-label="Jira UI kit — work in progress, coming soon">
           <div class="card-bg"></div>
           <span class="card-wip-banner" aria-hidden="true">In progress</span>
           <div class="card-content" style="background: linear-gradient(to top, rgba(10, 7, 5, 0.92) 0%, rgba(10, 7, 5, 0.76) 44%, rgba(10, 7, 5, 0.42) 68%, rgba(10, 7, 5, 0.12) 100%);">
@@ -97,25 +97,25 @@
             <p class="card-brief">Leading the rollout of Jira's design system to improve product quality and speed up design workflows.</p>
           </div>
         </div>
-        <a href="projects/broker-digital.html" class="work-card">
+        <a href="projects/broker-digital.html" class="work-card" role="listitem">
           <div class="card-bg" style="background: #1d140d url('assets/projects/broker-digital/hero.png') center 24% / 88% auto no-repeat;"></div>
           <div class="card-content" style="background: linear-gradient(to top, rgba(10, 7, 5, 0.92) 0%, rgba(10, 7, 5, 0.76) 44%, rgba(10, 7, 5, 0.42) 68%, rgba(10, 7, 5, 0.12) 100%);">
             <span class="card-tag">Product • Product design • 2018</span>
             <h3 class="card-title">Broker digital</h3>
             <p class="card-brief">Designing a market-leading digital experience for ING mortgage brokers.</p>
           </div>
-          <div class="card-arrow">→</div>
+          <div class="card-arrow" aria-hidden="true">→</div>
         </a>
-        <a href="projects/global-innovation-bootcamp.html" class="work-card">
+        <a href="projects/global-innovation-bootcamp.html" class="work-card" role="listitem">
           <div class="card-bg" style="background: #1a2b18 url('assets/projects/global-innovation-bootcamp/group.JPG') center 40% / cover no-repeat;"></div>
           <div class="card-content" style="background: linear-gradient(to top, rgba(10, 7, 5, 0.92) 0%, rgba(10, 7, 5, 0.76) 44%, rgba(10, 7, 5, 0.42) 68%, rgba(10, 7, 5, 0.12) 100%);">
             <span class="card-tag">Innovation • Design lead • 2018</span>
             <h3 class="card-title">Global innovation bootcamp</h3>
             <p class="card-brief">Aggy - an agricultural knowledge platform born from ING's global innovation program.</p>
           </div>
-          <div class="card-arrow">→</div>
+          <div class="card-arrow" aria-hidden="true">→</div>
         </a>
-        <a href="projects/siri-balance.html" class="work-card">
+        <a href="projects/siri-balance.html" class="work-card" role="listitem">
           <div class="card-bg" style="background: linear-gradient(140deg, #1a2026 0%, #243344 50%, #d46a17 100%);"></div>
           <div class="card-content" style="background: linear-gradient(to top, rgba(10, 7, 5, 0.92) 0%, rgba(10, 7, 5, 0.76) 44%, rgba(10, 7, 5, 0.42) 68%, rgba(10, 7, 5, 0.12) 100%);">
             <span class="card-tag">Voice UX • Product design • 2017</span>
@@ -124,7 +124,7 @@
 
 </p>
           </div>
-          <div class="card-arrow">→</div>
+          <div class="card-arrow" aria-hidden="true">→</div>
         </a>
       </div>
     </section>
@@ -147,29 +147,36 @@
     const mobileNav = document.getElementById('mobileNav');
     
     if (menuBtn && mobileNav) {
+      const closeMobileMenu = () => {
+        menuBtn.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('hidden', '');
+        mobileNav.classList.remove('open');
+        document.body.classList.remove('no-scroll');
+      };
+
       menuBtn.addEventListener('click', () => {
         const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
-        menuBtn.setAttribute('aria-expanded', !isOpen);
-        
+        menuBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+
         if (!isOpen) {
           mobileNav.removeAttribute('hidden');
           mobileNav.classList.add('open');
           document.body.classList.add('no-scroll');
         } else {
-          mobileNav.setAttribute('hidden', '');
-          mobileNav.classList.remove('open');
-          document.body.classList.remove('no-scroll');
+          closeMobileMenu();
         }
       });
-      
+
       // Close menu when a link is clicked
       mobileNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          menuBtn.setAttribute('aria-expanded', 'false');
-          mobileNav.setAttribute('hidden', '');
-          mobileNav.classList.remove('open');
-          document.body.classList.remove('no-scroll');
-        });
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+          closeMobileMenu();
+          menuBtn.focus();
+        }
       });
     }
   </script>

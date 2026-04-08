@@ -542,7 +542,7 @@
         </svg>
         +61 402 675 944
       </a>
-      <a href="https://www.linkedin.com/in/ruvip/" target="_blank" rel="noopener noreferrer" class="contact-link">
+      <a href="https://www.linkedin.com/in/ruvip/" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="LinkedIn (opens in new tab)">
         <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true" focusable="false">
           <rect x="0.5" y="0.5" width="10" height="10" stroke="currentColor" stroke-width="0.8"/>
           <path d="M2 4.5V8.5M2 2.5V3M4 4.5V8.5M4 6C4 5 4.8 4.5 5.5 4.5C6.2 4.5 7 5 7 6V8.5" stroke="currentColor" stroke-width="0.8"/>
@@ -585,7 +585,7 @@
   <main id="main-content">
 
     <!-- Back link -->
-    <a href="../projects.html" class="project-back">← Back to projects</a>
+    <a href="../projects.html" class="project-back"><span aria-hidden="true">←</span> Back to projects</a>
 
     <!-- PROJECT HERO -->
     <div class="project-hero">
@@ -1032,29 +1032,36 @@
     const mobileNav = document.getElementById('mobileNav');
     
     if (menuBtn && mobileNav) {
+      const closeMobileMenu = () => {
+        menuBtn.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('hidden', '');
+        mobileNav.classList.remove('open');
+        document.body.classList.remove('no-scroll');
+      };
+
       menuBtn.addEventListener('click', () => {
         const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
-        menuBtn.setAttribute('aria-expanded', !isOpen);
-        
+        menuBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+
         if (!isOpen) {
           mobileNav.removeAttribute('hidden');
           mobileNav.classList.add('open');
           document.body.classList.add('no-scroll');
         } else {
-          mobileNav.setAttribute('hidden', '');
-          mobileNav.classList.remove('open');
-          document.body.classList.remove('no-scroll');
+          closeMobileMenu();
         }
       });
-      
+
       // Close menu when a link is clicked
       mobileNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          menuBtn.setAttribute('aria-expanded', 'false');
-          mobileNav.setAttribute('hidden', '');
-          mobileNav.classList.remove('open');
-          document.body.classList.remove('no-scroll');
-        });
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+          closeMobileMenu();
+          menuBtn.focus();
+        }
       });
     }
 
@@ -1079,14 +1086,26 @@
 
     window.addEventListener('resize', updateGridOverflowState);
 
-    // Add click handlers to all images
+    // Add click and keyboard handlers to all images
     allImages.forEach((img, index) => {
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('role', 'button');
+      img.setAttribute('aria-haspopup', 'dialog');
+
       img.addEventListener('load', updateGridOverflowState);
 
       img.addEventListener('click', (e) => {
         e.stopPropagation();
         currentImageIndex = index;
         showImage(currentImageIndex);
+      });
+
+      img.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          currentImageIndex = index;
+          showImage(currentImageIndex);
+        }
       });
     });
 

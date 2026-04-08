@@ -108,13 +108,12 @@
         <div class="about-photo">
           <figure>
             <img src="assets/ruvi-photo.png" alt="Ruvi Pitiyarachchi">
-            <figcaption>It me!</figcaption>
           </figure>
         </div>
       </div>
 
       <div style="text-align: center;">
-        <a href="assets/ruvi-pitiyarachchi-cv.pdf" download="ruvi-pitiyarachchi-cv.pdf" style="display: inline-block; background: var(--ink); color: var(--cream); font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 300; letter-spacing: 0.14em; text-transform: uppercase; text-decoration: none; padding: 14px 32px; min-height: 48px; border-radius: 24px; transition: background 0.25s;">Download CV</a>
+        <a href="assets/ruvi-pitiyarachchi-cv.pdf" download="ruvi-pitiyarachchi-cv.pdf" class="cta-btn">Download CV</a>
       </div>
     </section>
 
@@ -258,29 +257,36 @@
     const mobileNav = document.getElementById('mobileNav');
     
     if (menuBtn && mobileNav) {
+      const closeMobileMenu = () => {
+        menuBtn.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('hidden', '');
+        mobileNav.classList.remove('open');
+        document.body.classList.remove('no-scroll');
+      };
+
       menuBtn.addEventListener('click', () => {
         const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
-        menuBtn.setAttribute('aria-expanded', !isOpen);
-        
+        menuBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+
         if (!isOpen) {
           mobileNav.removeAttribute('hidden');
           mobileNav.classList.add('open');
           document.body.classList.add('no-scroll');
         } else {
-          mobileNav.setAttribute('hidden', '');
-          mobileNav.classList.remove('open');
-          document.body.classList.remove('no-scroll');
+          closeMobileMenu();
         }
       });
-      
+
       // Close menu when a link is clicked
       mobileNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-          menuBtn.setAttribute('aria-expanded', 'false');
-          mobileNav.setAttribute('hidden', '');
-          mobileNav.classList.remove('open');
-          document.body.classList.remove('no-scroll');
-        });
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+          closeMobileMenu();
+          menuBtn.focus();
+        }
       });
     }
 

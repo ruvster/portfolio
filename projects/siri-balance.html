@@ -218,6 +218,69 @@
       margin-bottom: 0;
     }
 
+    .image-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(26, 23, 20, 0.9);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .image-modal.open {
+      display: flex;
+    }
+
+    .image-modal-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-modal-image {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .image-modal-nav-zone {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 20%;
+      cursor: pointer;
+    }
+
+    .image-modal-prev-zone {
+      left: 0;
+    }
+
+    .image-modal-next-zone {
+      right: 0;
+    }
+
+    .image-modal-nav-zone:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .project-image img {
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .project-image img:hover {
+      opacity: 0.9;
+    }
+
     @media (max-width: 600px) {
       .project-section {
         margin-bottom: 60px;
@@ -451,13 +514,21 @@
       </div>
     </section>
 
-    <section class="project-section">
+    <!-- <section class="project-section">
       <h2 class="project-section-title">Reflection</h2>
       <div class="project-quote">
         In emerging spaces, a tightly scoped MVP can still create strong customer value when it is evidence-led, designed for trust, and treated as a platform for learning rather than a final state.
       </div>
-    </section>
+    </section> -->
   </main>
+
+  <div class="image-modal" id="imageModal" aria-hidden="true">
+    <div class="image-modal-content">
+      <div class="image-modal-nav-zone image-modal-prev-zone" id="modalPrevZone" aria-hidden="true"></div>
+      <div class="image-modal-nav-zone image-modal-next-zone" id="modalNextZone" aria-hidden="true"></div>
+      <img class="image-modal-image" id="modalImage" src="" alt="">
+    </div>
+  </div>
 
   <script>
     const path = window.location.pathname.split('/').pop() || 'index.html';
@@ -497,6 +568,80 @@
         });
       });
     }
+
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalPrevZone = document.getElementById('modalPrevZone');
+    const modalNextZone = document.getElementById('modalNextZone');
+    const allImages = Array.from(document.querySelectorAll('.project-image img'));
+    let currentImageIndex = -1;
+
+    function showImage(index) {
+      const img = allImages[index];
+      if (!img) return;
+
+      modalImage.src = img.src;
+      modalImage.alt = img.alt;
+      imageModal.classList.add('open');
+      imageModal.setAttribute('aria-hidden', 'false');
+      document.body.classList.add('no-scroll');
+    }
+
+    function closeImageModal() {
+      imageModal.classList.remove('open');
+      imageModal.setAttribute('aria-hidden', 'true');
+      document.body.classList.remove('no-scroll');
+    }
+
+    function navigateImage(direction) {
+      const newIndex = currentImageIndex + direction;
+      if (newIndex >= 0 && newIndex < allImages.length) {
+        currentImageIndex = newIndex;
+        showImage(currentImageIndex);
+      }
+    }
+
+    allImages.forEach((img, index) => {
+      img.addEventListener('click', (event) => {
+        event.stopPropagation();
+        currentImageIndex = index;
+        showImage(currentImageIndex);
+      });
+    });
+
+    modalPrevZone.addEventListener('click', (event) => {
+      event.stopPropagation();
+      navigateImage(-1);
+    });
+
+    modalNextZone.addEventListener('click', (event) => {
+      event.stopPropagation();
+      navigateImage(1);
+    });
+
+    imageModal.addEventListener('click', (event) => {
+      if (event.target === imageModal) {
+        closeImageModal();
+      }
+    });
+
+    document.addEventListener('keydown', (event) => {
+      if (!imageModal.classList.contains('open')) return;
+
+      switch (event.key) {
+        case 'Escape':
+          closeImageModal();
+          break;
+        case 'ArrowLeft':
+          event.preventDefault();
+          navigateImage(-1);
+          break;
+        case 'ArrowRight':
+          event.preventDefault();
+          navigateImage(1);
+          break;
+      }
+    });
   </script>
 </body>
 </html>

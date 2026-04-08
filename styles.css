@@ -69,7 +69,6 @@
       background-size: 200px 200px;
       pointer-events: none;
       z-index: 9999;
-      aria-hidden: true;
     }
 
     /* ── GLOBAL FOCUS STYLE ── */
@@ -303,7 +302,7 @@
 
     /* ── HERO ── */
     .hero {
-      padding: 54px 0 80px;
+      padding: 200px 0 200px;
       /* border-bottom: 1px solid var(--light-rule);
       margin-bottom: 80px; */
       opacity: 0;
@@ -326,10 +325,10 @@
       line-height: 1.0;
       letter-spacing: -0.02em;
       color: var(--ink);
-      margin-bottom: 0;
+      margin-bottom: 16px;
     }
 
-    .hero-name em { font-style: normal; color: var(--ink); }
+    .hero-name em { font-style: normal; color: var(--accent); font-weight: 400; }
 
     .hero-role {
       font-family: 'DM Mono', monospace;
@@ -364,7 +363,7 @@
     }
 
     .hero-bio {
-      font-size: 20px;
+      font-size: 22px;
       font-weight: 300;
       line-height: 1.65;
       color: var(--ink);
@@ -402,14 +401,69 @@
     }
 
     .section-heading::after {
-      content: '';
-      flex: 1;
-      height: 1px;
-      background: var(--light-rule);
+      display: none;
     }
 
-    .page-projects .section-heading::after {
-      display: none;
+    /* ── ABOUT ── */
+    .about-intro {
+      display: flex;
+      align-items: stretch;
+      gap: 32px;
+      margin-bottom: 80px;
+    }
+
+    .about-copy {
+      flex: 1.35;
+      min-width: 0;
+    }
+
+    .about-copy > p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--warm-mid);
+      margin-bottom: 16px;
+    }
+
+    .about-copy > p:last-of-type {
+      margin-bottom: 0;
+    }
+
+    .about-fun-wrap {
+      margin-top: 20px;
+      width: 100%;
+    }
+
+    .about-photo {
+      flex: 1;
+      min-width: 260px;
+      border-radius: 0;
+      overflow: hidden;
+    }
+
+    .about-photo figure {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      width: 100%;
+      height: 100%;
+    }
+
+    .about-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      flex: 1;
+    }
+
+    .about-photo figcaption {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--warm-mid);
+      text-align: center;
+      padding: 12px 16px;
+      background: rgba(26,23,20,0.02);
     }
 
     /* ── WORK GRID ── */
@@ -467,7 +521,7 @@
       justify-content: flex-end;
       /* Reserve space for the bottom-right arrow so text never overlaps it. */
       padding: 24px 74px 24px 24px;
-      background: linear-gradient(to top, rgba(0,0,0,0.76) 0%, rgba(0,0,0,0.1) 55%, transparent 100%);
+      background: linear-gradient(to top, rgba(0,0,0,0.88) 0%, rgba(0,0,0,0.45) 55%, rgba(0,0,0,0.08) 100%);
     }
 
     .card-index {
@@ -504,7 +558,7 @@
       font-size: 11px;
       font-family: 'DM Mono', monospace;
       font-weight: 300;
-      color: rgba(255,255,255,0.7);
+      color: rgba(255,255,255,0.82);
       letter-spacing: 0.04em;
     }
 
@@ -522,6 +576,33 @@
       font-size: 14px;
       transition: background 0.2s, border-color 0.2s, color 0.2s;
       pointer-events: none; /* card handles the click */
+    }
+
+    /* ── WIP card ── */
+    .work-card--wip {
+      cursor: default;
+      pointer-events: none;
+    }
+
+    .work-card--wip .card-bg {
+      filter: brightness(0.6) saturate(0.4);
+    }
+
+    .card-wip-banner {
+      position: absolute;
+      top: 16px;
+      left: 18px;
+      z-index: 2;
+      font-family: 'DM Mono', monospace;
+      font-size: 9px;
+      font-weight: 300;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.12);
+      border: 1px solid rgba(255,255,255,0.25);
+      padding: 4px 9px;
+      backdrop-filter: blur(6px);
     }
 
     .work-card:hover .card-arrow,
@@ -931,6 +1012,179 @@
 
     .skill-list li::before { content: '·'; position: absolute; left: 3px; color: var(--accent); font-weight: 700; }
 
+    /* ── FUN CARD ── */
+    .fun-card {
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(26,23,20,0.1);
+      border-left: 3px solid var(--accent);
+      background: linear-gradient(180deg, rgba(240,170,112,0.16) 0%, rgba(26,23,20,0.01) 38%);
+      padding: 24px 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      justify-content: flex-start;
+    }
+
+    .fun-card::before {
+      content: '';
+      position: absolute;
+      right: -26px;
+      top: -34px;
+      width: 120px;
+      height: 120px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, rgba(240,170,112,0.55), rgba(240,170,112,0.08) 70%);
+      pointer-events: none;
+    }
+
+    .fun-card::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(184,98,30,0.2) 1px, transparent 1px);
+      background-size: 12px 12px;
+      opacity: 0.2;
+      pointer-events: none;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.32), transparent 55%);
+    }
+
+    .fun-card > * {
+      position: relative;
+      z-index: 1;
+    }
+
+    .fun-card-top {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .fun-emoji {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: 1px solid rgba(184,98,30,0.25);
+      background: rgba(245,240,232,0.85);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      line-height: 1;
+      transform: rotate(-6deg);
+      box-shadow: 0 2px 8px rgba(26,23,20,0.08);
+      transition: transform 0.25s ease, opacity 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .fun-card-label {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.55;
+      letter-spacing: 0;
+      color: var(--warm-mid);
+      margin: 0;
+      max-width: 30ch;
+    }
+
+    .fun-card-activity {
+      font-size: clamp(36px, 4vw, 44px);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.02em;
+      color: var(--ink);
+      margin: 2px 0 2px;
+      transition: opacity 0.25s ease, transform 0.25s ease;
+    }
+
+    .fun-card-note {
+      font-size: 16px;
+      line-height: 1.65;
+      color: var(--warm-mid);
+      margin: 0;
+      transition: opacity 0.25s ease;
+    }
+
+    .fun-card-btn {
+      margin-top: 10px;
+      align-self: flex-start;
+      border: 1px solid var(--light-rule);
+      background: transparent;
+      color: var(--ink);
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 11px 16px;
+      min-height: 42px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .fun-card-btn:hover,
+    .fun-card-btn:focus-visible {
+      border-color: var(--ink);
+      color: var(--cream);
+      background: var(--ink);
+    }
+
+    .fun-card.is-switching .fun-card-activity {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+
+    .fun-card.is-switching .fun-emoji {
+      opacity: 0;
+      transform: translateY(-4px) rotate(10deg) scale(0.88);
+    }
+
+    .fun-card.is-switching .fun-card-note {
+      opacity: 0;
+    }
+
+    @media (max-width: 600px) {
+      .fun-card {
+        padding: 18px;
+      }
+
+      .fun-card::before {
+        width: 90px;
+        height: 90px;
+      }
+
+      .fun-emoji {
+        width: 32px;
+        height: 32px;
+        font-size: 18px;
+      }
+
+      .fun-card-label {
+        font-size: 15px;
+      }
+
+      .fun-card-activity {
+        font-size: clamp(30px, 9vw, 38px);
+      }
+
+      .fun-card-note {
+        font-size: 15px;
+      }
+
+      .fun-card-btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .fun-card-activity,
+      .fun-card-note,
+      .fun-card-btn {
+        transition: none !important;
+      }
+    }
+
     /* ── EDUCATION ── */
     .edu-entry { margin-bottom: 26px; }
     .edu-degree { font-size: 16px; font-weight: 300; color: var(--ink); margin-bottom: 3px; }
@@ -988,6 +1242,21 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    @media (prefers-reduced-motion: reduce) {
+      .card-bg,
+      .card-arrow,
+      .cta-btn,
+      .cs-overlay,
+      .cs-panel {
+        transition: none !important;
+      }
+
+      .work-card:hover .card-bg,
+      .work-card:focus-visible .card-bg {
+        transform: none;
+      }
+    }
+
     /* ── RESPONSIVE ─────────────────────────────────────────── */
 
     /* Large — tighten padding */
@@ -1000,16 +1269,19 @@
       .sidebar { display: none; }
       .mobile-header { display: flex; }
       main { margin-left: 0; padding: 0 32px 100px; }
-      .hero { padding: 60px 0 56px; }
+      .hero { padding: 80px 0 100px; }
       .hero-top { flex-direction: column; gap: 20px; }
       .hero-photo { width: min(100%, 280px); flex: 0 0 auto; }
+      .about-intro { flex-direction: column; gap: 24px; margin-bottom: 60px; }
+      .about-photo { min-width: 0; }
+      .about-photo img { height: auto; }
       section, .hero { scroll-margin-top: 70px; }
     }
 
     /* Small — single column work grid, tighter spacing */
     @media (max-width: 600px) {
       main { padding: 0 20px 80px; }
-      .hero { padding: 48px 0 48px; }
+      .hero { padding: 60px 0 80px; }
       .hero-bio { font-size: 17px; }
       .work-grid { grid-template-columns: 1fr; }
       .work-card { aspect-ratio: 3/2; }

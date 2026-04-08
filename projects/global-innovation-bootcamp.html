@@ -127,7 +127,8 @@
       display: block;
     }
 
-    .project-figure-image img {
+    .project-figure-image img,
+    .project-figure-image video {
       width: auto;
       max-width: 100%;
       height: auto;
@@ -185,6 +186,39 @@
 
     .project-grid-tight {
       gap: 8px;
+    }
+
+    .project-grid-hug {
+      display: grid;
+      grid-template-columns: repeat(2, max-content);
+      justify-content: center;
+      gap: 16px;
+      width: fit-content;
+      max-width: 100%;
+      margin-left: auto;
+      margin-right: auto;
+      overflow: visible;
+      padding-bottom: 0;
+    }
+
+    .project-grid-hug .project-figure {
+      flex: initial;
+    }
+
+    .project-grid-hug .project-figure-image {
+      width: auto;
+      max-width: min(44vw, 620px);
+      height: auto;
+      min-height: 220px;
+    }
+
+    .project-grid-hug .project-figure-image img,
+    .project-grid-hug .project-figure-image video {
+      width: auto;
+      max-width: min(44vw, 620px);
+      height: auto;
+      max-height: 420px;
+      object-fit: contain;
     }
 
     .project-grid-2:has(> :nth-child(2):last-child),
@@ -263,6 +297,17 @@
       object-fit: contain;
       object-position: center;
       display: block;
+    }
+
+    .project-grid-2 .project-figure-image video,
+    .project-grid-3 .project-figure-image video {
+      width: 100%;
+      max-width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: center;
+      display: block;
+      background: #000;
     }
 
     .project-grid-2 .project-figure-caption,
@@ -410,6 +455,18 @@
       .project-meta {
         grid-template-columns: 1fr;
         gap: 24px;
+      }
+
+      .project-grid-hug {
+        grid-template-columns: 1fr;
+        width: 100%;
+      }
+
+      .project-grid-hug .project-figure-image,
+      .project-grid-hug .project-figure-image img,
+      .project-grid-hug .project-figure-image video {
+        width: 100%;
+        max-width: 100%;
       }
     }
 
@@ -716,7 +773,7 @@
       <div class="project-section-text">
         <p>Our initial solution was to provide a data sharing platform on which a farmer would share data about its farming practices to which a supplier could then utilise to produce a personalised report back to the farmer highlighting areas of improvement. Partners could also use the platform as a way to provide its data gathering technologies like crop sensors. With this in mind our first experiment was to design a sample report which would be put in front of a farmer to gauge their reaction. I worked closely with the team to first sketch out a template for the report, then designed it in Sketch.</p>
       </div>
-    <div class="project-grid-2 project-grid-tight">
+    <div class="project-grid-2 project-grid-tight project-grid-hug">
       <div class="project-figure">
         <div class="project-figure-image">
           <img src="../assets/projects/global-innovation-bootcamp/sample-report-1.png" alt="Sample farmer report I designed in Sketch, showing farm profile, benchmark data and partner portfolio">
@@ -770,9 +827,10 @@
       </div>
 
       <div class="project-figure">
-        <div class="project-figure-image">
+        <div class="project-figure-image project-image-hero" style="max-width: 60%;">
           <img src="../assets/projects/global-innovation-bootcamp/pivot-workshop.jpg" alt="Sprint team working through business canvas and experiments in the bootcamp venue">
         </div>
+        <div class="project-figure-caption">Sprint workshop session during day 5</div>
       </div>
     </section>
 
@@ -783,7 +841,7 @@
         <p>Day 6 we continued to run more experiments, completed the roadmap and started creating the pitch and slides.</p>
       </div>
 
-      <div class="project-grid-2 project-grid-tight">
+      <div class="project-grid-2 project-grid-tight project-grid-hug">
         <div class="project-figure">
           <div class="project-figure-image">
             <img src="../assets/projects/global-innovation-bootcamp/breakthrough-1.jpg" alt="Mapping out our pitch on the wall">
@@ -812,10 +870,21 @@
       <div class="project-section-text">
         <p>Day 7 was d-day aka pitch day. It was a pretty chaotic day as we were still preparing right up until it was our time to pitch. It was a great relief to get through to the final and we received complimentary comments, leaving our mark as the one's to beat.</p>
       </div>
-         <div class="project-figure">
+      <div class="project-grid-2 project-grid-tight">
+        <div class="project-figure">
           <div class="project-figure-image">
-             <img src="../assets/projects/global-innovation-bootcamp/group.JPG" alt="Team groupphoto">
+            <video controls preload="metadata" aria-label="Aggy team pitch-day video">
+              <source src="../assets/projects/global-innovation-bootcamp/pitch-video.mp4" type="video/mp4">
+            </video>
           </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/global-innovation-bootcamp/group.JPG" alt="Aggy team group photo on pitch day">
+          </div>
+        </div>
+      </div>
+      <div class="project-figure-caption" style="margin-top: -8px;">Pitch-day video and team photo</div>
     </section>
 
     <!-- THE FINAL SECTION -->
@@ -849,7 +918,7 @@
         </div>
       </div>
 
-        <div class="project-figure-caption">Storyboard I put together for our video</div>
+        <div class="project-figure-caption" style="margin-bottom: 36px;">Storyboard I put together for our video</div>
      
       <div class="project-section-text">
         <p>Once the video was taking shape, I recorded the voiceovers. It was quite a back and forth process and a lot of long nights due to the time difference and juggling of work priorities. I'm quite proud of what we managed to achieve. The video also succinctly conveys what Aggy is.</p>
@@ -857,12 +926,10 @@
 
       <div class="project-figure">
         <div class="project-figure-image project-image-hero">
-          <img src="../assets/projects/global-innovation-bootcamp/aggy-video-thumbnail.jpg" alt="Aggy video thumbnail showing the Aggy logo on a green background">
+          <video controls preload="metadata" aria-label="Aggy storyboard video">
+            <source src="../assets/projects/global-innovation-bootcamp/storyboard-video.mp4" type="video/mp4">
+          </video>
         </div>
-      </div>
-
-      <div class="project-section-text" style="margin-top: 48px;">
-        <p>The leaflet we handed out at our stall.</p>
       </div>
 
       <div class="project-grid-3 project-grid-4up">
@@ -882,6 +949,10 @@
           </div>
         </div>
       </div>
+
+      <div class="project-figure-caption" style="margin-top: -8px; margin-bottom: 48px;">The leaflet we handed out at our stall</div>
+
+      <div class="project-section-text" style="margin-top: 48px;">
 
       <div class="project-section-text">
         <p>For the final, I was flown out again, to Krakow this time. In the days leading up we were put through pitch training and rehearsals to make sure everything went smoothly on the day. It really felt like a massive tv production.</p>

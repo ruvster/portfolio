@@ -404,6 +404,17 @@
       display: none;
     }
 
+    #work-heading.section-heading::after,
+    #recommendations-heading.section-heading::after,
+    #exp-heading.section-heading::after,
+    #skills-heading.section-heading::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--light-rule);
+      display: block;
+    }
+
     /* ── ABOUT ── */
     .about-intro {
       display: flex;
@@ -1006,11 +1017,11 @@
       font-size: 15px;
       font-weight: 300;
       color: var(--ink);
-      padding-left: 16px;
+      padding-left: 0;
       position: relative;
     }
 
-    .skill-list li::before { content: '·'; position: absolute; left: 3px; color: var(--accent); font-weight: 700; }
+    .skill-list li::before { content: none; }
 
     /* ── FUN CARD ── */
     .fun-card {

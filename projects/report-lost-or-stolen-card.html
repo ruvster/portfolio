@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Report Lost or Stolen Card | Ruvi Pitiyarachchi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <style>
+    .project-hero {
+      padding: 54px 0 40px;
+    }
+
+    .project-header {
+      margin-bottom: 28px;
+    }
+
+    .project-title {
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 300;
+      letter-spacing: -0.02em;
+      line-height: 1.1;
+      margin-bottom: 12px;
+      color: var(--ink);
+    }
+
+    .project-summary {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--warm-mid);
+      max-width: 820px;
+    }
+
+    .project-meta {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px 40px;
+      margin-bottom: 42px;
+      padding-bottom: 42px;
+      border-bottom: 1px solid var(--light-rule);
+    }
+
+    .tldr-strip {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      margin: 0 0 56px;
+    }
+
+    .tldr-card {
+      padding: 24px 22px;
+      border: 1px solid var(--light-rule);
+      background: rgba(255, 252, 247, 0.82);
+    }
+
+    .tldr-label {
+      display: block;
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+      margin-bottom: 10px;
+    }
+
+    .tldr-value {
+      font-size: 18px;
+      font-weight: 300;
+      line-height: 1.6;
+      color: var(--ink);
+    }
+
+    .meta-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .meta-value {
+      font-size: 16px;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    .project-section {
+      margin-bottom: 64px;
+    }
+
+    .project-section-title {
+      font-size: clamp(24px, 3vw, 32px);
+      font-weight: 400;
+      letter-spacing: -0.01em;
+      margin-bottom: 24px;
+      color: var(--ink);
+    }
+
+    .project-section-text {
+      font-size: 17px;
+      font-weight: 300;
+      line-height: 1.72;
+      color: var(--ink);
+      max-width: 920px;
+      margin-bottom: 22px;
+    }
+
+    .project-section-text p {
+      margin-bottom: 20px;
+    }
+
+    .project-section-text p:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-section-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 14px 0 0;
+      padding: 0;
+    }
+
+    .project-section-list li {
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      color: var(--ink);
+      padding-left: 20px;
+      position: relative;
+      margin: 0;
+    }
+
+    .project-section-list li::before {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 0.9em;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      transform: translateY(-50%);
+    }
+
+    .project-back {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+      text-decoration: none;
+      margin-bottom: 40px;
+      transition: color 0.2s;
+    }
+
+    .project-back:hover,
+    .project-back:focus-visible {
+      color: var(--ink);
+    }
+
+    .project-image {
+      width: 100%;
+      margin: 34px 0;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid rgba(26, 23, 20, 0.14);
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .project-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-image-chart {
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .project-image-ui-flow {
+      margin: 10px 0;
+    }
+
+    .results-insights {
+      margin: 20px 0 28px;
+    }
+
+    .results-feedback .project-image {
+      margin: 0 0 18px;
+    }
+
+    .results-feedback .project-image-chart {
+      width: 60%;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .results-feedback {
+      border: 1px solid rgba(26, 23, 20, 0.14);
+      background: rgba(255, 255, 255, 0.68);
+      padding: 20px;
+    }
+
+    .results-feedback-title {
+      font-size: 16px;
+      font-weight: 300;
+      line-height: 1.5;
+      color: var(--ink);
+      margin-bottom: 14px;
+    }
+
+    .results-feedback-quote {
+      font-size: 16px;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.7;
+      color: var(--warm-mid);
+      margin-bottom: 18px;
+    }
+
+    .results-feedback-quote:last-child {
+      margin-bottom: 0;
+    }
+
+    .project-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 26px 0 34px;
+    }
+
+    .project-grid-2 .project-image {
+      margin: 0;
+    }
+
+    .project-grid-competitor {
+      gap: 8px;
+    }
+
+    .project-grid-showcase {
+      background: #f5f5f5;
+      border: 1px solid rgba(26, 23, 20, 0.14);
+      border-radius: 6px;
+      padding: 12px;
+      align-items: center;
+      justify-items: center;
+    }
+
+    .project-grid-showcase .project-image {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      background: transparent;
+      border-radius: 0;
+    }
+
+    .project-grid-showcase .project-image img {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .project-caption {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--warm-mid);
+      text-align: center;
+      margin-top: -8px;
+      margin-bottom: 28px;
+    }
+
+    .project-quote {
+      background: rgba(26, 23, 20, 0.04);
+      border-left: 3px solid var(--accent);
+      padding: 26px 30px;
+      margin: 34px 0;
+      font-size: 18px;
+      font-style: italic;
+      font-weight: 300;
+      line-height: 1.62;
+      color: var(--ink);
+      max-width: 980px;
+    }
+
+    @media (max-width: 800px) {
+      .project-grid-2 {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image-chart {
+        width: 100%;
+      }
+
+      .results-insights {
+        margin: 16px 0 24px;
+      }
+
+      .project-quote {
+        padding: 20px 18px;
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+<body class="page-project-detail">
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <aside class="sidebar" aria-label="Site navigation">
+    <div>
+      <p class="sidebar-name" aria-hidden="true">Ruvi Pitiyarachchi</p>
+      <p class="sidebar-title" aria-hidden="true">Product designer</p>
+      <nav aria-label="Page sections">
+        <ul class="sidebar-nav">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../projects.html">Projects</a></li>
+          <li><a href="../about.html">About</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="sidebar-contact" role="contentinfo" aria-label="Contact information">
+      <a href="mailto:ruvi.pit@gmail.com" class="contact-link">
+        <svg width="11" height="9" viewBox="0 0 11 9" fill="none" aria-hidden="true" focusable="false">
+          <path d="M0.5 0.5H10.5V8.5H0.5V0.5Z" stroke="currentColor" stroke-width="0.8"/>
+          <path d="M0.5 0.5L5.5 5L10.5 0.5" stroke="currentColor" stroke-width="0.8"/>
+        </svg>
+        ruvi.pit@gmail.com
+      </a>
+      <a href="https://www.linkedin.com/in/ruvip/" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="LinkedIn (opens in new tab)">
+        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true" focusable="false">
+          <rect x="0.5" y="0.5" width="10" height="10" stroke="currentColor" stroke-width="0.8"/>
+          <path d="M2 4.5V8.5M2 2.5V3M4 4.5V8.5M4 6C4 5 4.8 4.5 5.5 4.5C6.2 4.5 7 5 7 6V8.5" stroke="currentColor" stroke-width="0.8"/>
+        </svg>
+      </a>
+    </div>
+  </aside>
+
+  <header class="mobile-header" role="banner">
+    <span class="mobile-name">Ruvi Pitiyarachchi</span>
+    <button
+      class="mobile-menu-btn"
+      aria-label="Open navigation menu"
+      aria-expanded="false"
+      aria-controls="mobileNav"
+      id="mobileMenuBtn"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </button>
+  </header>
+
+  <nav id="mobileNav" class="mobile-nav" aria-label="Mobile navigation" hidden>
+    <a href="../index.html">Home <span aria-hidden="true">→</span></a>
+    <a href="../projects.html">Projects <span aria-hidden="true">→</span></a>
+    <a href="../about.html">About <span aria-hidden="true">→</span></a>
+    <div class="mobile-nav-contact">
+      <a href="mailto:ruvi.pit@gmail.com">ruvi.pit@gmail.com</a>
+      <a href="https://www.linkedin.com/in/ruvip/" target="_blank" rel="noopener noreferrer">
+        LinkedIn <span class="visually-hidden">(opens in new tab)</span>
+      </a>
+    </div>
+  </nav>
+
+  <main id="main-content">
+    <a href="../projects.html" class="project-back"><span aria-hidden="true">←</span> Back to projects</a>
+
+    <div class="project-hero">
+      <div class="project-header">
+        <h1 class="project-title">Report Lost or Stolen Card</h1>
+        <p class="project-summary">Designing and launching a digital self-service journey for card replacement across web and mobile, reducing reliance on contact-centre processing.</p>
+      </div>
+
+      <div class="project-meta">
+        <div class="meta-item">
+          <div class="meta-label">Duration</div>
+          <div class="meta-value">January to May 2018</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">My role</div>
+          <div class="meta-value">Lead UX/UI designer</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tldr-strip">
+      <article class="tldr-card">
+        <span class="tldr-label">Summary</span>
+        <div class="tldr-value">I led the end-to-end design strategy to digitise ING's lost and stolen card reporting—a process previously trapped in the call centre. This initiative aimed to solve a $200k+ annual operational leak while providing customers with a 24/7 emergency response tool. By launching a self-service pathway for the Orange Everyday card, we converted a high-friction experience into a seamless journey with an 81% completion rate</div>
+      </article>
+    </div>
+
+    <section class="project-section">
+      <h2 class="project-section-title">Overview</h2>
+      <div class="project-section-text">
+        <p>Customers could only request a replacement card for lost or stolen cards via the contact centre. This created friction for customers and a meaningful operational burden for the bank, with approximately 2788 calls per month at about $6.11 per call (around $17,034.68 monthly).</p>
+        <p>The initiative introduced a digital self-service pathway across web and mobile, starting with the Orange Everyday debit card, so customers could report lost or stolen cards faster while reducing preventable call-centre demand.</p>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2 class="project-section-title">Discovery and design</h2>
+      <div class="project-section-text">
+        <p>Collaborating with the Product Owner and Digital Lead, I conducted a gap analysis of the existing manual journey. My research revealed a critical 'Anxiety Gap': customers didn't just want a new card; they wanted immediate agency.</p>
+        <p>I redefined the project scope to include instant card-locking capabilities, ensuring that even if a transaction dispute required a phone call, the customer could secure their funds digitally first.</p>
+      </div>
+
+      <div class="project-grid-2">
+        <figure class="project-image">
+          <img src="../assets/projects/report-lost-or-stolen-card/Card-replacement-flow-1.png" alt="High level task journeys for card replacement process map">
+        </figure>
+        <figure class="project-image">
+          <img src="../assets/projects/report-lost-or-stolen-card/Card-replacement-flow-2.png" alt="High level task journeys for card replacement process notes and refinements">
+        </figure>
+      </div>
+      <p class="project-caption">I mapped the existing manual replacement journey to identify 'stress points' where customers were forced into phone queues. This helped us isolate the business rules that could be digitized vs. those that required human intervention.</p>
+
+      <div class="project-grid-2 project-grid-competitor">
+        <figure class="project-image">
+          <img src="../assets/projects/report-lost-or-stolen-card/Competitor%20-%201.png" alt="Competitor example ANZ for lost or stolen card journey">
+        </figure>
+        <figure class="project-image">
+          <img src="../assets/projects/report-lost-or-stolen-card/Competitor-2.png" alt="Competitor example Westpac for transaction dispute and card replacement">
+        </figure>
+        <figure class="project-image">
+          <img src="../assets/projects/report-lost-or-stolen-card/Competitor-3.png" alt="Competitor example CBA mobile journey comparison">
+        </figure>
+        <figure class="project-image">
+          <img src="../assets/projects/report-lost-or-stolen-card/Competitor-4.png" alt="Other competitor examples for reporting lost cards">
+        </figure>
+      </div>
+      <p class="project-caption">I conducted a landscape audit of major AU banks (CBA, Westpac, ANZ). While most handled simple replacements, I identified a gap in how they managed fraudulent transactions—leading to the 'Instant lock' feature in our MVP</p>
+
+      <div class="project-section-text">
+        <p>The project required navigating complex security orchestration. I had to design around obfuscated data and 2FA token expiry that threatened to break the user flow mid-stream. I negotiated the technical logic with the architecture team to ensure the UI gracefully handled these security 'hand-offs,' preventing dead-ends for users who had recently changed addresses or failed a 2FA challenge.</p>
+        <p>Key design decisions:</p>
+        <ul class="project-section-list">
+          <li><strong>Progressive disclosure:</strong> Replaced a long-form submission with a guided step-by-step wizard for reporting, address confirmation, and new PIN setup.</li>
+          <li><strong>Fraud fork design:</strong> Introduced a dedicated fraud branch so customers could instantly lock their card before being routed to the specialist fraud team.</li>
+          <li><strong>Technical constraint handling:</strong> Reworked the progress indicator to absorb 2FA token expiry and re-prompt events without breaking user understanding.</li>
+        </ul>
+      </div>
+
+      <figure class="project-image project-image-ui-flow">
+        <img src="../assets/projects/report-lost-or-stolen-card/UI-flow-1.png" alt="Web and mobile interface flows for report lost or stolen card">
+      </figure>
+      <figure class="project-image project-image-ui-flow">
+        <img src="../assets/projects/report-lost-or-stolen-card/UI-flow-2.png" alt="Lost or stolen card journey without fraud scenario UI flow">
+      </figure>
+      <figure class="project-image project-image-ui-flow">
+        <img src="../assets/projects/report-lost-or-stolen-card/UI-flow-3.png" alt="Lost or stolen card journey with fraud scenario UI flow">
+      </figure>
+      <figure class="project-image project-image-ui-flow">
+        <img src="../assets/projects/report-lost-or-stolen-card/UI-flow-4.png" alt="Tablet adaptation of lost or stolen card journey">
+      </figure>
+      <figure class="project-image project-image-ui-flow">
+        <img src="../assets/projects/report-lost-or-stolen-card/UI-flow-5.png" alt="Results and early outcomes from launch for lost card reporting">
+      </figure>
+      <figure class="project-image project-image-ui-flow">
+        <img src="../assets/projects/report-lost-or-stolen-card/UI-flow-6.png" alt="Final polished interface across desktop, tablet, and phone">
+      </figure>
+    </section>
+
+    <section class="project-section">
+      <h2 class="project-section-title">Results</h2>
+      <div class="project-section-text">
+        <p>Within seven days of the May 2018 launch, we saw an 81% success rate for digital reporting. After three months, self-service adoption scaled to 3,000 monthly reports, effectively shifting the primary behavior from phone to app. This didn't just save costs; it successfully offloaded 3% of the bank's total call drivers, allowing the contact center to focus on more complex fraud investigations.</p>
+      </div>
+
+      <div class="results-insights">
+        <aside class="results-feedback" aria-label="Customer feedback quotes">
+          <figure class="project-image project-image-chart">
+            <img src="../assets/projects/report-lost-or-stolen-card/Results.png" alt="Bar chart showing web and mobile adoption and target growth over months">
+          </figure>
+          <p class="results-feedback-title">Some of the positive feedback from our customers:</p>
+          <blockquote class="results-feedback-quote">"I lost my card on the way home from Thailand and by the time I got home I already had a new card waiting. All I had to do was log into the app and register it lost. So simple."</blockquote>
+          <blockquote class="results-feedback-quote">"I love this bank. Had cards stolen in break and enter along with phone. Was able to hold card straight away through internet banking. No long phone call like other banks. Your online service makes banking very easy."</blockquote>
+        </aside>
+      </div>
+
+
+      <div class="project-grid-2 project-grid-showcase">
+        <figure class="project-image">
+          <img src="../assets/projects/report-lost-or-stolen-card/lost-hero-1.png" alt="Project overview and early content for report lost or stolen card initiative">
+        </figure>
+        <figure class="project-image">
+          <img src="../assets/projects/report-lost-or-stolen-card/lost-hero-2.png" alt="Final composed device mockups for the lost or stolen card experience">
+        </figure>
+      </div>
+
+      <blockquote class="project-quote">"Thanks to Ruvi also. The flow is straight forward and the conversion numbers seem to show this. Around 81% of customers who make it to the first step of card replacement complete the journey."</blockquote>
+      
+    </section>
+  </main>
+
+  <script>
+    const path = window.location.pathname.split('/').pop() || 'index.html';
+    document.querySelectorAll('.sidebar-nav a, .mobile-nav a').forEach((a) => {
+      a.removeAttribute('aria-current');
+      const target = a.getAttribute('href');
+      if (target === path || (target === 'index.html' && path === '')) {
+        a.setAttribute('aria-current', 'page');
+      }
+    });
+
+    const menuBtn = document.getElementById('mobileMenuBtn');
+    const mobileNav = document.getElementById('mobileNav');
+
+    if (menuBtn && mobileNav) {
+      const closeMobileMenu = () => {
+        menuBtn.setAttribute('aria-expanded', 'false');
+        mobileNav.setAttribute('hidden', '');
+        mobileNav.classList.remove('open');
+        document.body.classList.remove('no-scroll');
+      };
+
+      menuBtn.addEventListener('click', () => {
+        const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
+        menuBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+
+        if (!isOpen) {
+          mobileNav.removeAttribute('hidden');
+          mobileNav.classList.add('open');
+          document.body.classList.add('no-scroll');
+        } else {
+          closeMobileMenu();
+        }
+      });
+
+      mobileNav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', closeMobileMenu);
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape' && mobileNav.classList.contains('open')) {
+          closeMobileMenu();
+          menuBtn.focus();
+        }
+      });
+    }
+  </script>
+</body>
+</html>

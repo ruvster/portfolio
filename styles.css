@@ -197,14 +197,17 @@
       background: var(--cream);
       border-bottom: 1px solid var(--light-rule);
       padding: 16px 24px;
+      min-height: 76px;
       align-items: center;
       justify-content: space-between;
     }
 
     .mobile-name {
+      display: block;
       font-family: 'DM Mono', monospace;
       font-size: 12px;
       font-weight: 400;
+      line-height: 1;
       letter-spacing: 0.08em;
       text-transform: uppercase;
       color: var(--ink);
@@ -214,7 +217,9 @@
       background: none;
       border: 1px solid var(--light-rule);
       cursor: pointer;
-      padding: 10px 14px;
+      padding: 0;
+      width: 44px;
+      height: 44px;
       display: flex;
       flex-direction: column;
       gap: 5px;
@@ -590,6 +595,12 @@
       font-size: 14px;
       transition: background 0.2s, border-color 0.2s, color 0.2s;
       pointer-events: none; /* card handles the click */
+    }
+
+    .card-arrow svg {
+      width: 14px;
+      height: 14px;
+      display: block;
     }
 
     /* ── WIP card ── */
@@ -1299,7 +1310,7 @@
       .mobile-header { display: flex; }
       main { margin-left: 0; padding: 0 32px 100px; }
       .hero { padding: 80px 0 100px; }
-      .hero-top { flex-direction: column; gap: 20px; }
+      .hero-top { flex-direction: column; gap: 20px; align-items: flex-start; }
       .hero-photo { width: min(100%, 280px); flex: 0 0 auto; }
       .about-intro { flex-direction: column; gap: 24px; margin-bottom: 60px; }
       .about-photo { min-width: 0; }

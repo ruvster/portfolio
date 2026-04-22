@@ -91,6 +91,704 @@
       line-height: 1.5;
     }
 
+    .jira-showcase {
+      margin-top: 40px;
+    }
+
+    .jira-showcase-frame {
+      padding: 28px;
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(124, 92, 255, 0.12), transparent 28%),
+        radial-gradient(circle at 86% 18%, rgba(53, 116, 255, 0.16), transparent 24%),
+        linear-gradient(180deg, #27262c 0%, #1c1b20 100%);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      box-shadow: 0 36px 90px rgba(19, 16, 23, 0.28);
+    }
+
+    .jira-showcase-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.35fr 1fr;
+      gap: 22px;
+      min-height: 720px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      color: #f1f2f4;
+    }
+
+    .jira-panel {
+      position: relative;
+      overflow: hidden;
+      border-radius: 24px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: linear-gradient(180deg, rgba(46, 45, 52, 0.98) 0%, rgba(33, 32, 37, 0.98) 100%);
+      padding: 28px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    }
+
+    .jira-panel-header {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 22px;
+    }
+
+    .jira-panel-title {
+      margin: 0;
+      font-size: 24px;
+      font-weight: 650;
+      letter-spacing: -0.03em;
+      color: #f7f8f9;
+    }
+
+    .jira-panel-icon {
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: #f4f5f7;
+      color: #2f3138;
+      box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.08);
+    }
+
+    .jira-panel--color {
+      grid-column: 1;
+      grid-row: 1 / span 2;
+    }
+
+    .jira-panel--type {
+      grid-column: 2;
+      grid-row: 1;
+    }
+
+    .jira-panel--ai {
+      grid-column: 3;
+      grid-row: 1;
+      background:
+        radial-gradient(circle at 50% 100%, rgba(164, 100, 255, 0.28), transparent 38%),
+        linear-gradient(180deg, rgba(47, 52, 73, 0.98) 0%, rgba(35, 35, 41, 0.98) 100%);
+    }
+
+    .jira-panel--banner {
+      grid-column: 2 / span 2;
+      grid-row: 2;
+      min-height: 182px;
+      padding: 0;
+      background: linear-gradient(135deg, #2a63eb 0%, #4a88ff 50%, #2f62dc 100%);
+    }
+
+    .jira-panel--accessibility {
+      grid-column: 1;
+      grid-row: 3;
+    }
+
+    .jira-panel--tokens {
+      grid-column: 2;
+      grid-row: 3;
+    }
+
+    .jira-panel--iconography {
+      grid-column: 3;
+      grid-row: 2 / span 2;
+    }
+
+    .jira-showcase-caption {
+      margin-top: 16px;
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--warm-mid);
+      max-width: 760px;
+    }
+
+    .status-legend {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 18px;
+      flex-wrap: wrap;
+    }
+
+    .status-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: rgba(241, 242, 244, 0.84);
+    }
+
+    .status-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 3px;
+    }
+
+    .status-dot--off {
+      background: #d4573d;
+    }
+
+    .status-dot--risk {
+      background: #f4b63e;
+    }
+
+    .status-dot--on {
+      background: #a5cc5f;
+    }
+
+    .color-bars {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      align-items: end;
+      gap: 14px;
+      height: 340px;
+      margin-top: 18px;
+    }
+
+    .color-stack {
+      display: grid;
+      align-content: end;
+      gap: 4px;
+      height: 100%;
+    }
+
+    .color-segment {
+      border-radius: 6px 6px 2px 2px;
+      min-height: 18px;
+    }
+
+    .color-segment--green {
+      background: #a5cc5f;
+    }
+
+    .color-segment--amber {
+      background: #f4b63e;
+    }
+
+    .color-segment--red {
+      background: #d4573d;
+    }
+
+    .color-months {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+      font-size: 12px;
+      color: rgba(241, 242, 244, 0.72);
+      text-align: center;
+    }
+
+    .type-window {
+      border-radius: 20px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      background: #1f1f23;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+    }
+
+    .type-window-top {
+      padding: 18px 24px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background: rgba(255, 255, 255, 0.03);
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(241, 242, 244, 0.66);
+    }
+
+    .type-window-body {
+      padding: 30px 30px 34px;
+    }
+
+    .type-window-body h3 {
+      margin: 0 0 12px;
+      font-size: clamp(26px, 2.8vw, 42px);
+      line-height: 1.05;
+      letter-spacing: -0.05em;
+      color: #f7f8fa;
+    }
+
+    .type-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 14px;
+      margin-bottom: 18px;
+      font-size: 12px;
+      color: rgba(241, 242, 244, 0.72);
+    }
+
+    .type-copy {
+      margin: 0;
+      font-size: 18px;
+      line-height: 1.6;
+      color: rgba(241, 242, 244, 0.88);
+    }
+
+    .ai-mark {
+      position: absolute;
+      top: 94px;
+      left: 74px;
+      width: 56px;
+      height: 56px;
+      clip-path: polygon(30% 0%, 100% 34%, 52% 44%, 65% 100%, 0% 30%, 42% 41%);
+      border: 2px solid transparent;
+      background: linear-gradient(135deg, #c54ef0, #6e7cff, #c9e04b) border-box;
+            mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+              mask-composite: exclude;
+      transform: rotate(-8deg);
+      opacity: 0.9;
+    }
+
+    .rovo-pill {
+      position: absolute;
+      left: 72px;
+      top: 168px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 168px;
+      padding: 18px 26px;
+      border-radius: 999px;
+      font-size: 30px;
+      font-weight: 650;
+      letter-spacing: -0.04em;
+      color: #fff;
+      background:
+        linear-gradient(#1d1f24, #1d1f24) padding-box,
+        linear-gradient(90deg, #2563ff 0%, #b94eff 48%, #f3bf3b 72%, #9ecb42 100%) border-box;
+      border: 2px solid transparent;
+      box-shadow: 0 20px 40px rgba(15, 12, 22, 0.26);
+    }
+
+    .banner-stage {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      padding: 30px 36px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .banner-grid {
+      position: absolute;
+      inset: 28px;
+      border-radius: 22px;
+      background-image:
+        linear-gradient(rgba(255, 255, 255, 0.16) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.16) 1px, transparent 1px);
+      background-size: 34px 34px;
+      mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+    }
+
+    .banner-stage::before,
+    .banner-stage::after {
+      content: '+';
+      position: absolute;
+      font-size: 28px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .banner-stage::before {
+      top: 10px;
+      left: 18px;
+    }
+
+    .banner-stage::after {
+      right: 18px;
+      top: 10px;
+    }
+
+    .banner-cross-left,
+    .banner-cross-right {
+      position: absolute;
+      bottom: 28px;
+      font-size: 28px;
+      font-weight: 300;
+      color: rgba(255, 255, 255, 0.92);
+    }
+
+    .banner-cross-left {
+      left: 18px;
+    }
+
+    .banner-cross-right {
+      right: 18px;
+    }
+
+    .banner-stage h3 {
+      position: relative;
+      z-index: 1;
+      margin: 0;
+      max-width: 420px;
+      text-align: center;
+      font-size: clamp(30px, 4vw, 54px);
+      line-height: 1.04;
+      letter-spacing: -0.05em;
+      color: #fff;
+    }
+
+    .field-stack {
+      display: grid;
+      gap: 18px;
+      margin-top: 8px;
+    }
+
+    .field {
+      height: 44px;
+      border-radius: 10px;
+      border: 1px solid rgba(140, 150, 170, 0.4);
+      background: rgba(40, 41, 47, 0.72);
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      color: rgba(241, 242, 244, 0.32);
+      font-size: 16px;
+    }
+
+    .voiceover-bubble {
+      position: absolute;
+      left: 50%;
+      bottom: 26px;
+      transform: translateX(-20%);
+      width: min(290px, calc(100% - 44px));
+      border-radius: 24px;
+      padding: 22px 24px;
+      background: rgba(4, 5, 7, 0.96);
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.32);
+    }
+
+    .voiceover-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 12px;
+      font-weight: 600;
+      color: #f7f8fa;
+    }
+
+    .voiceover-chip::before {
+      content: '🔊';
+      font-size: 13px;
+    }
+
+    .voiceover-bubble p {
+      margin: 14px 0 0;
+      font-size: 18px;
+      line-height: 1.45;
+      color: rgba(241, 242, 244, 0.94);
+    }
+
+    .tokens-cloud {
+      display: grid;
+      gap: 12px;
+      margin-top: 8px;
+    }
+
+    .token-pill {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-height: 42px;
+      padding: 0 14px;
+      border-radius: 12px;
+      background: rgba(24, 25, 30, 0.86);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      color: rgba(241, 242, 244, 0.86);
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      line-height: 1.4;
+    }
+
+    .token-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 999px;
+      flex: 0 0 auto;
+    }
+
+    .token-dot--purple { background: #9d5bf5; }
+    .token-dot--orange { background: #d58c2b; }
+    .token-dot--red { background: #cb5240; }
+    .token-dot--blue { background: #4b7eff; }
+    .token-dot--pink { background: #cb66b0; }
+    .token-dot--olive { background: #647e39; }
+
+    .icon-list {
+      margin-top: 16px;
+      padding: 28px 24px;
+      border-radius: 20px;
+      background: rgba(31, 31, 36, 0.88);
+      border: 1px solid rgba(255, 255, 255, 0.04);
+    }
+
+    .icon-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 13px 0;
+      font-size: 18px;
+      color: rgba(241, 242, 244, 0.82);
+    }
+
+    .icon-row + .icon-row {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+    }
+
+    .icon-row strong {
+      font-weight: 500;
+      color: #f1f2f4;
+    }
+
+    .icon-row-left {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .icon-mini {
+      width: 22px;
+      text-align: center;
+      color: rgba(241, 242, 244, 0.7);
+    }
+
+    .beta-badge {
+      padding: 3px 7px;
+      border-radius: 8px;
+      border: 1px solid rgba(205, 158, 255, 0.82);
+      color: #f0d1ff;
+      font-size: 12px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    /* ── Fragmentation visualization ── */
+    .fragmentation-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      margin-top: 40px;
+    }
+
+    .fragmentation-column h4 {
+      font-size: 18px;
+      font-weight: 500;
+      margin: 0 0 22px;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    .fragmentation-column p {
+      font-size: 14px;
+      color: var(--warm-mid);
+      margin: 0 0 24px;
+      line-height: 1.6;
+    }
+
+    .fragmentation-libraries {
+      display: grid;
+      grid-auto-rows: min-content;
+      gap: 10px;
+    }
+
+    .library-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--light-rule);
+      background: rgba(255, 252, 247, 0.56);
+      font-size: 15px;
+      color: var(--ink);
+      width: fit-content;
+    }
+
+    .library-item::before {
+      content: '📦';
+      display: inline-block;
+      font-size: 16px;
+      width: 20px;
+      text-align: center;
+    }
+
+    .library-item.library-item--offset {
+      margin-left: 24px;
+    }
+
+    .library-item.library-item--offset2 {
+      margin-left: 48px;
+    }
+
+    .fragmentation-unified {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 16px;
+      padding: 32px 28px;
+      border-radius: 18px;
+      border: 2px solid var(--accent);
+      background: linear-gradient(135deg, rgba(200, 88, 47, 0.08) 0%, rgba(200, 88, 47, 0.04) 100%);
+      font-size: 16px;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: -0.01em;
+    }
+
+    .fragmentation-unified::before {
+      content: '⭐';
+      font-size: 24px;
+    }
+
+    /* ── Adoption curve visualization ── */
+    .adoption-curve {
+      margin-top: 40px;
+      margin-bottom: 40px;
+    }
+
+    .adoption-visual {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      max-height: 420px;
+      border-radius: 16px;
+      border: 1px solid var(--light-rule);
+      background: linear-gradient(
+        180deg,
+        rgba(255, 252, 247, 0.6) 0%,
+        rgba(255, 252, 247, 0.3) 100%
+      );
+      overflow: hidden;
+    }
+
+    .adoption-curve-path {
+      width: 100%;
+      height: 100%;
+    }
+
+    .adoption-legend {
+      display: flex;
+      justify-content: center;
+      gap: 32px;
+      margin-top: 20px;
+      font-size: 14px;
+      color: var(--warm-mid);
+      flex-wrap: wrap;
+    }
+
+    .adoption-legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .adoption-legend-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      flex: 0 0 auto;
+    }
+
+    .adoption-legend-dot--curve {
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .adoption-legend-dot--fill {
+      background: rgba(200, 88, 47, 0.16);
+    }
+
+    .adoption-annotation {
+      position: absolute;
+      font-size: 13px;
+      color: var(--ink);
+      font-weight: 500;
+      letter-spacing: -0.01em;
+      padding: 8px 14px;
+      border-radius: 8px;
+      background: rgba(200, 88, 47, 0.12);
+      border: 1px solid rgba(200, 88, 47, 0.24);
+      z-index: 2;
+    }
+
+    .adoption-annotation--launch {
+      left: 12%;
+      top: 20%;
+      transform: translateX(-50%);
+    }
+
+    .adoption-annotation--peak {
+      left: 50%;
+      top: 8%;
+      transform: translateX(-50%);
+    }
+
+    .adoption-annotation--current {
+      right: 8%;
+      bottom: 12%;
+    }
+
+    .visualization-caption {
+      margin: 40px 0 24px;
+      font-size: 14px;
+      color: var(--warm-mid);
+      letter-spacing: -0.01em;
+    }
+
+    .adoption-curve .visualization-caption {
+      margin: 0;
+    }
+
+    .result-highlight {
+      margin-top: 20px;
+      padding: 18px;
+      border-radius: 12px;
+      background: rgba(165, 204, 95, 0.1);
+      border: 1px solid rgba(165, 204, 95, 0.24);
+    }
+
+    .result-highlight p {
+      margin: 0;
+      font-size: 14px;
+      color: var(--ink);
+    }
+
+    .result-highlight strong {
+      font-weight: 600;
+    }
+
+    @media (max-width: 860px) {
+      .fragmentation-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+
+      .adoption-visual {
+        aspect-ratio: auto;
+        min-height: 280px;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .adoption-visual {
+        aspect-ratio: auto;
+        min-height: 240px;
+      }
+
+      .adoption-annotation {
+        font-size: 12px;
+        padding: 6px 10px;
+      }
+    }
+
     .project-section {
       margin-bottom: 88px;
     }
@@ -108,7 +806,6 @@
       font-weight: 300;
       line-height: 1.75;
       color: var(--ink);
-      max-width: 860px;
       margin-bottom: 24px;
     }
 
@@ -131,6 +828,7 @@
       text-transform: uppercase;
       color: var(--warm-mid);
       text-decoration: none;
+      margin-top: 24px;
       margin-bottom: 40px;
       transition: color 0.2s;
     }
@@ -150,12 +848,11 @@
       font-weight: 300;
       line-height: 1.65;
       color: var(--ink);
-      max-width: 860px;
     }
 
     .phase-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
+      grid-template-columns: 1fr;
       gap: 16px;
       margin-top: 32px;
     }
@@ -193,10 +890,8 @@
     }
 
     .subsection-block {
-      max-width: 860px;
-      margin-top: 36px;
-      padding-top: 28px;
-      border-top: 1px solid var(--light-rule);
+      margin-top: 0;
+      padding-top: 40px;
     }
 
     .subsection-title {
@@ -223,12 +918,208 @@
       margin-bottom: 0;
     }
 
+    /* ── Kit architecture visualization ── */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(12px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .kit-architecture {
+      margin: 40px 0;
+      padding: 40px;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 252, 247, 0.4) 0%,
+        rgba(255, 252, 247, 0.2) 100%
+      );
+      border: 1px solid var(--light-rule);
+      border-radius: 16px;
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .architecture-container {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .architecture-layer {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .layer-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 10px;
+      font-weight: 400;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 6px;
+    }
+
+    .layer-content {
+      display: grid;
+      gap: 12px;
+    }
+
+    .layer-box {
+      padding: 24px;
+      border-radius: 12px;
+      border: 1px solid;
+      background: rgba(255, 255, 255, 0.8);
+      transition: all 0.3s ease;
+    }
+
+    .layer-box--foundation {
+      border-color: rgba(58, 116, 217, 0.3);
+      background: linear-gradient(135deg, rgba(58, 116, 217, 0.08) 0%, rgba(74, 136, 255, 0.06) 100%);
+    }
+
+    .layer-box--foundation:hover {
+      border-color: rgba(58, 116, 217, 0.5);
+      background: linear-gradient(135deg, rgba(58, 116, 217, 0.12) 0%, rgba(74, 136, 255, 0.1) 100%);
+    }
+
+    .layer-box--kit {
+      border-color: rgba(200, 88, 47, 0.3);
+      background: linear-gradient(135deg, rgba(200, 88, 47, 0.08) 0%, rgba(200, 88, 47, 0.06) 100%);
+    }
+
+    .layer-box--kit:hover {
+      border-color: rgba(200, 88, 47, 0.5);
+      background: linear-gradient(135deg, rgba(200, 88, 47, 0.12) 0%, rgba(200, 88, 47, 0.1) 100%);
+    }
+
+    .kit-components {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .component-item {
+      padding: 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(200, 88, 47, 0.24);
+      background: rgba(255, 255, 255, 0.9);
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .component-item:hover {
+      border-color: rgba(200, 88, 47, 0.48);
+      background: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 8px 24px rgba(200, 88, 47, 0.12);
+      transform: translateY(-2px);
+    }
+
+    .component-icon {
+      font-size: 28px;
+      margin-bottom: 8px;
+    }
+
+    .component-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .component-desc {
+      font-size: 12px;
+      color: var(--warm-mid);
+      line-height: 1.4;
+    }
+
+    .layer-title {
+      font-size: 18px;
+      font-weight: 500;
+      color: var(--ink);
+      margin-bottom: 4px;
+    }
+
+    .layer-description {
+      font-size: 14px;
+      color: var(--warm-mid);
+      line-height: 1.5;
+    }
+
+    .architecture-connection {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 24px;
+      position: relative;
+    }
+
+    .architecture-connection::before {
+      content: '';
+      position: absolute;
+      width: 2px;
+      height: 24px;
+      background: linear-gradient(180deg, rgba(200, 88, 47, 0.2) 0%, rgba(200, 88, 47, 0.1) 100%);
+      border-radius: 1px;
+    }
+
+    .architecture-connection::after {
+      content: '↓';
+      position: relative;
+      z-index: 1;
+      color: rgba(200, 88, 47, 0.5);
+      font-size: 16px;
+      background: linear-gradient(
+        180deg,
+        rgba(255, 252, 247, 0.4) 0%,
+        rgba(255, 252, 247, 0.2) 100%
+      );
+      width: 24px;
+      height: 24px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    @media (max-width: 860px) {
+      .kit-architecture {
+        padding: 28px;
+      }
+
+      .kit-components {
+        grid-template-columns: 1fr;
+      }
+
+      .architecture-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+
+    @media (max-width: 700px) {
+      .architecture-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .architecture-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+
     .solution-grid,
     .impact-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
-      margin-top: 28px;
+      margin-top: 24px;
+      margin-bottom: 40px;
     }
 
     .detail-card {
@@ -265,7 +1156,6 @@
       padding: 28px 32px;
       border: 1px solid var(--light-rule);
       background: linear-gradient(180deg, rgba(255,252,247,0.9) 0%, rgba(249,244,237,0.8) 100%);
-      max-width: 860px;
     }
 
     .reflection-note p {
@@ -308,6 +1198,55 @@
     }
 
     @media (max-width: 860px) {
+      .jira-showcase-frame {
+        padding: 18px;
+        border-radius: 28px;
+      }
+
+      .jira-showcase-grid {
+        grid-template-columns: 1fr;
+        min-height: 0;
+      }
+
+      .jira-panel--color,
+      .jira-panel--type,
+      .jira-panel--ai,
+      .jira-panel--banner,
+      .jira-panel--accessibility,
+      .jira-panel--tokens,
+      .jira-panel--iconography {
+        grid-column: auto;
+        grid-row: auto;
+      }
+
+      .jira-panel--banner {
+        min-height: 160px;
+      }
+
+      .voiceover-bubble {
+        position: relative;
+        left: auto;
+        bottom: auto;
+        transform: none;
+        width: 100%;
+        margin-top: 18px;
+      }
+
+      .rovo-pill {
+        position: relative;
+        left: auto;
+        top: auto;
+        margin-top: 98px;
+        min-width: 0;
+        width: 100%;
+        max-width: 180px;
+      }
+
+      .ai-mark {
+        left: 28px;
+        top: 92px;
+      }
+
       .metric-strip,
       .phase-grid,
       .solution-grid,
@@ -317,6 +1256,46 @@
     }
 
     @media (max-width: 600px) {
+      .jira-panel {
+        padding: 22px;
+      }
+
+      .jira-panel-title {
+        font-size: 20px;
+      }
+
+      .jira-panel-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 12px;
+      }
+
+      .color-bars {
+        gap: 10px;
+        height: 260px;
+      }
+
+      .color-months {
+        gap: 10px;
+        font-size: 11px;
+      }
+
+      .type-window-body {
+        padding: 24px 22px 26px;
+      }
+
+      .type-copy {
+        font-size: 16px;
+      }
+
+      .banner-stage {
+        padding: 26px 18px;
+      }
+
+      .banner-stage h3 {
+        max-width: 260px;
+      }
+
       .project-section {
         margin-bottom: 64px;
       }
@@ -363,7 +1342,7 @@
           <path d="M0.5 0.5H10.5V8.5H0.5V0.5Z" stroke="currentColor" stroke-width="0.8"/>
           <path d="M0.5 0.5L5.5 5L10.5 0.5" stroke="currentColor" stroke-width="0.8"/>
         </svg>
-        ruvi.pit@gmail.com
+        Get in touch
       </a>
 
       <a href="https://www.linkedin.com/in/ruvip/" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="LinkedIn (opens in new tab)">
@@ -395,7 +1374,7 @@
     <a href="../projects.html">Projects <span aria-hidden="true">→</span></a>
     <a href="../about.html">About <span aria-hidden="true">→</span></a>
     <div class="mobile-nav-contact">
-      <a href="mailto:ruvi.pit@gmail.com">ruvi.pit@gmail.com</a>
+      <a href="mailto:ruvi.pit@gmail.com">Get in touch</a>
       <a href="https://www.linkedin.com/in/ruvip/" target="_blank" rel="noopener noreferrer">
         LinkedIn <span class="visually-hidden">(opens in new tab)</span>
       </a>
@@ -408,53 +1387,45 @@
     <div class="project-hero">
       <div class="project-header">
         <h1 class="project-title">Jira UI Kit</h1>
-        <p class="project-summary">I led the development and rollout of the Jira UI Kit, a shared Figma library and design system resource created to give Jira teams a single source of truth. Starting in FY24H2 and launched in FY25H1, the kit scaled from 26 teams at launch to 96 teams, reaching 41.4k weekly inserts while improving product quality and accelerating design workflows for makers.</p>
+        <p class="project-summary">Leading the rollout of Jira's design system to improve product quality and speed up design workflows.</p>
       </div>
 
       <div class="project-meta">
         <div class="meta-item">
           <div class="meta-label">Timeline</div>
-          <div class="meta-value">Built in FY24H2, launched in FY25H1</div>
+          <div class="meta-value">March 2025 - Present</div>
         </div>
         <div class="meta-item">
           <div class="meta-label">Role</div>
-          <div class="meta-value">Led development and rollout of the shared Figma library and contribution model</div>
-        </div>
-        <div class="meta-item">
-          <div class="meta-label">Scope</div>
-          <div class="meta-value">Design system resource, adoption strategy, contribution model, backlog, templates, and enablement</div>
+          <div class="meta-value">Lead designer and DRI (Directly Responsible Individual)</div>
         </div>
       </div>
 
-      <div class="metric-strip" aria-label="Jira UI Kit metrics">
-        <div class="metric-card">
-          <span class="metric-value">96</span>
-          <span class="metric-label">Teams using the kit today</span>
-        </div>
-        <div class="metric-card">
-          <span class="metric-value">41.4k</span>
-          <span class="metric-label">Weekly inserts across Jira teams</span>
-        </div>
-        <div class="metric-card">
-          <span class="metric-value">4.5 → 6</span>
-          <span class="metric-label">Figma confidence gain from the design sprint, out of 7</span>
-        </div>
+      <div class="reflection-note">
+        <div class="phase-kicker">Summary</div>
+        <p>I led the development and rollout of the Jira UI Kit, a shared Figma library of 341 components that achieved 704k+ total inserts and 98% design token adoption across the organization. The kit streamlined design processes for 63 teams, significantly improving consistency at scale. Beyond the library, I built a Jira Replit template that was used by thousands of employees across the org, including Replit themselves during a company-wide AI Builders Week, earning direct recognition from the company president and leadership.</p>
+        <figure style="margin-top: 24px; display: flex; flex-direction: column; align-items: center;">
+          <img src="../assets/projects/jira-ui-kit/JiraUIKitHero.svg" alt="Jira UI Kit hero image showing the ecosystem with foundations, components, templates, and examples" style="width: 100%; max-width: 800px; height: auto; border-radius: 16px; display: block;">
+          <figcaption class="jira-showcase-caption" style="text-align: center; margin-top: 16px;">A snapshot of the Jira UI kit ecosystem</figcaption>
+        </figure>
       </div>
+
     </div>
 
     <section class="project-section">
       <h2 class="project-section-title">Overview</h2>
       <div class="project-section-text">
-        <p>As Jira consolidated its product experiences, design teams needed a shared system that could support consistency at scale. I led the work to establish the Jira UI Kit as that single source of truth in Figma: a practical, reusable resource that helped teams move faster without fragmenting the product experience.</p>
-        <p>The project was not just about creating a component library. It required defining how teams would contribute, how work would be prioritized, and how leadership and designers would stay aligned so the system remained valuable over time.</p>
+        <p>As Jira moved toward product consolidation, design teams faced a critical challenge: maintaining consistency and quality across independent product areas without slowing teams down. I led the work to establish the Jira UI Kit as a single source of truth in Figma - a practical, shared resource that gave designers a reliable foundation while preserving the autonomy they needed to move fast.
+        This required not only building a component library but also designing the governance model, defining contribution workflows, earning leadership alignment, and building enough trust that teams would choose the kit over maintaining their own local variants.</p>
       </div>
     </section>
 
     <section class="project-section">
-      <h2 class="project-section-title">Challenge</h2>
+      <h2 class="project-section-title">The challenge</h2>
+      
       <div class="project-section-text">
-        <p>Before the Jira UI Kit, multiple libraries and kits were floating around the organization, including separate resources for Jira Work Management, Jira Software, and open tool chain teams. That fragmentation created inconsistency, duplicated effort, and uncertainty about which components and patterns teams should trust.</p>
-        <p>As part of Jira consolidation, a single source of truth was needed for designers. The challenge was not only to centralize the library, but to make it credible and useful enough that teams would actively adopt it instead of continuing with local workarounds.</p>
+        <p>Before consolidation, Jira had no single source of truth for design. Separate kits existed for Jira Work Management (Business), Jira Software, and Open tool chain, with teams also borrowing patterns from Confluence. Every team maintained its own components, made its own calls on interaction patterns, and wrote its own documentation. This meant designers duplicated work constantly, shipping experiences that felt inconsistent across the product, and there was no single place to go when you wanted to understand how Jira should feel.</p>
+        <p>The deeper challenge was trust. A centralised kit only works if teams believe it solves their problems better than whatever they've already built. If the shared library felt slow or out of date, teams would go back to using their local versions. The goal was to build something so practical and credible that adoption became the path of least resistance, something so useful that using it was just the obvious choice.</p>
       </div>
 
       <div class="project-quote">
@@ -465,29 +1436,50 @@
     <section class="project-section">
       <h2 class="project-section-title">Process</h2>
       <div class="project-section-text">
-        <p>I approached the work as both a system-building and change-management problem. The library itself needed to be strong, but the operating model around it mattered just as much.</p>
+        <p>I approached the work as both a system building and change management problem. The library itself needed to be strong, but the operating model around it mattered just as much.</p>
       </div>
 
       <div class="phase-grid">
         <article class="phase-card">
           <div class="phase-kicker">Phase 01</div>
-          <h3 class="phase-title">Align the org</h3>
-          <p>I drove leadership alignment through cross-team syncs and consistent project updates, building shared visibility into the problem, the roadmap, and why a unified Jira kit mattered for product quality.</p>
+          <h3 class="phase-title">Alignment</h3>
+          <p>A shared kit fails without leadership buy-in. I ran cross-team syncs with design leads and principals to build alignment on the problem and vision. I also created a business case highlighting how the fragmentation slowed design velocity, created customer-facing inconsistency, and meant duplicated work across teams. Once leadership was on board, support followed.</p>
         </article>
         <article class="phase-card">
           <div class="phase-kicker">Phase 02</div>
-          <h3 class="phase-title">Build the foundation</h3>
-          <p>I helped shape the Jira UI Kit as a central Figma resource with reusable components, practical standards, and a structure teams could apply in real feature work rather than treat as reference-only documentation.</p>
+          <h3 class="phase-title">Architecture</h3>
+          <p>We based the architecture of the kit on the existing Atlassian Design System. The structure prioritised components teams actually used in shipping features e.g. buttons, inputs, modals, key screens. I tried to organise the kit around real workflows: how designers searched for components, customised them, and applied them to their own work.</p>
+          <figure style="margin: 24px -24px -24px; display: flex; flex-direction: column; align-items: center;">
+            <div class="architecture-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-bottom: 16px; width: 100%; padding: 24px;">
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <img src="../assets/projects/jira-ui-kit/Parts.svg" alt="Parts" style="width: 100%; height: auto;">
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <img src="../assets/projects/jira-ui-kit/Components.svg" alt="Components" style="width: 100%; height: auto;">
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <img src="../assets/projects/jira-ui-kit/Templates.svg" alt="Templates" style="width: 100%; height: auto;">
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: center;">
+                <img src="../assets/projects/jira-ui-kit/ReadyMadeExamples.svg" alt="Ready Made Examples" style="width: 100%; height: auto;">
+              </div>
+            </div>
+            <figcaption class="jira-showcase-caption" style="text-align: center; padding: 0 24px 24px;">The Jira UI Kit organized into four core layers: Parts (design tokens and foundations), Components (341+ reusable elements), Templates (pre-built patterns and workflows), and Ready Made Examples (use cases and applications).</figcaption>
+          </figure>
         </article>
         <article class="phase-card">
           <div class="phase-kicker">Phase 03</div>
-          <h3 class="phase-title">Create a contribution model</h3>
-          <p>I formulated the recruitment strategy for engaging designers already working on active features, developed a backlog to assign authors, and introduced templates and processes so contributions stayed consistent and maintainable.</p>
+          <h3 class="phase-title">Governance</h3>
+          <p>To ensure the kit didn’t go stale,  I designed a model that distributed ownership by  recruiting designers already working on active features to contribute their components straight from their work. A shared backlog made ownership clear, templates kept things consistent, and a lightweight maintenance process meant the kit could grow without becoming anyone's full-time job.</p>
         </article>
         <article class="phase-card">
           <div class="phase-kicker">Phase 04</div>
-          <h3 class="phase-title">Drive adoption</h3>
-          <p>I ran enablement activities including a design sprint that increased participant Figma confidence from 4.5 to 6 out of 7, helping teams build trust in the kit and use it more confidently in delivery.</p>
+          <h3 class="phase-title">Scale</h3>
+          <p>Designers knew the kit existed, but contributing to it felt like unfamiliar territory, so I ran a design sprint to change that. Authors got hands-on with the contribution model, worked through components from their own features, and left equipped to champion it. Carving out dedicated time also meant components actually got built. Confidence in both Figma and the kit's approach jumped from 4.5 to 6 out of 7, and the contributor pool grew.</p>
+          <figure style="margin: 24px -24px -24px; display: flex; flex-direction: column; align-items: center;">
+            <img src="../assets/projects/jira-ui-kit/sprint.jpg" alt="Design sprint session with team members collaborating on UI Kit contribution model" style="width: 100%; max-width: 480px; height: auto; display: block; padding: 24px;">
+            <figcaption class="jira-showcase-caption" style="text-align: center; padding: 0 24px 24px;">Hands-on design sprint enabling authors to work through the contribution model and get equipped to champion the UI Kit across their teams.</figcaption>
+          </figure>
         </article>
       </div>
 
@@ -497,71 +1489,105 @@
           <p>Before broader rollout, we ran moderated usability testing on the new Jira UI Kit library in Figma to evaluate whether it suited makers' ways of working, met the target usability benchmark of an SEQ score of at least 5.5, and exposed areas for improvement.</p>
           <p>We recruited 5 to 6 participants across business and software library users and asked them to complete representative tasks such as finding templates and components, creating a flow, and customising an existing component. The research confirmed that the overall direction was strong, while also surfacing specific usability issues in naming, examples, and guidance.</p>
         </div>
-        <ul class="subsection-list">
-          <li>Participants found the kit beneficial and aligned with their current workflow, especially for creating flows and customising components, but they wanted more ready-made examples.</li>
-          <li>There were no major usability issues that changed the direction of the kit, and participants generally understood the architecture and the role of each file.</li>
-          <li>The main friction came from naming and context: task 2, finding the right template, scored 1.8 because participants struggled to distinguish between business and software views.</li>
-          <li>Tutorials were clearly helpful: one participant re-scored a task from 4 to 7 after using the guidance, which reinforced the need for stronger in-context help and clearer tutorial surfacing.</li>
-          <li>These findings directly informed follow-up work on naming conventions, asset labelling, example coverage, documentation, and tutorial visibility.</li>
-        </ul>
-      </div>
-    </section>
 
-    <section class="project-section">
-      <h2 class="project-section-title">Solution</h2>
-      <div class="project-section-text">
-        <p>The Jira UI Kit became a shared Figma library and design system resource that balanced consistency with contribution. Rather than operating as a static library, it was structured as a living system supported by clear ownership, prioritization, and enablement.</p>
-      </div>
-
-      <div class="solution-grid">
-        <article class="detail-card">
-          <h3 class="detail-title">What teams received</h3>
-          <ul class="detail-list">
-            <li>A shared Figma library with reusable Jira components and patterns.</li>
-            <li>A clearer single source of truth across product areas that had previously relied on separate kits.</li>
-            <li>Templates and contribution workflows that made system participation easier.</li>
-          </ul>
-        </article>
-        <article class="detail-card">
-          <h3 class="detail-title">What made it sustainable</h3>
-          <ul class="detail-list">
-            <li>A contribution model that distributed ownership across designers close to feature work.</li>
-            <li>A backlog and author model to guide priorities and make maintenance visible.</li>
-            <li>Regular updates and leadership alignment so the kit stayed relevant and supported.</li>
-          </ul>
-        </article>
       </div>
     </section>
 
     <section class="project-section">
       <h2 class="project-section-title">Impact</h2>
       <div class="project-section-text">
-        <p>The strongest signal of success was sustained adoption. The Jira UI Kit launched with 26 teams and grew to 96 teams, showing that the library solved a real workflow problem and became embedded in how teams design.</p>
-        <p>Weekly inserts reached 41.4k, demonstrating regular reuse at scale. Beyond the headline numbers, the kit helped reduce duplication, improve product consistency, and give designers a more reliable starting point for feature work.</p>
+        <p>The Jira UI Kit became a foundational resource across the company. It consolidated reusable components, tokens, patterns, and guidance into one source of truth.</p>
       </div>
 
-      <div class="impact-grid">
+      <figure style="margin: 40px 0; display: flex; flex-direction: column; align-items: center;">
+        <img src="../assets/projects/jira-ui-kit/Example.png" alt="Example of the Jira UI Kit in use showing components and patterns organized in a library" style="width: 100%; max-width: 800px; height: auto;">
+        <figcaption class="jira-showcase-caption" style="text-align: center; margin-top: 16px;">The Jira UI Kit provides designers with a comprehensive library of reusable components and patterns, streamlining design workflows across teams.</figcaption>
+      </figure>
+
+      <div class="solution-grid">
         <article class="detail-card">
-          <h3 class="detail-title">Adoption</h3>
+          <h3 class="detail-title">What teams got</h3>
           <ul class="detail-list">
-            <li>Grew from 26 teams at launch to 96 teams using the kit.</li>
-            <li>Established the kit as a shared Jira resource rather than a team-specific asset.</li>
+            <li><strong>A single source of truth:</strong> One library for all Jira product areas, replacing multiple scattered kits, with accessibility and best practices built in.</li>
+            <li><strong>Faster execution:</strong> Pre-built components, patterns, and templates accelerating design workflows without sacrificing quality.</li>
+            <li><strong>Consistency at scale:</strong> A shared foundation ensures experiences feel cohesive across the product.</li>
           </ul>
         </article>
         <article class="detail-card">
-          <h3 class="detail-title">Workflow improvement</h3>
+          <h3 class="detail-title">What keeps it alive</h3>
           <ul class="detail-list">
-            <li>Reached 41.4k weekly inserts, indicating broad reuse in active design work.</li>
-            <li>Improved Figma confidence in sprint participants from 4.5 to 6 out of 7.</li>
+            <li><strong>Distributed ownership:</strong> Designers working on active features contribute components from their real work, ensuring the kit stays current and relevant.</li>
+            <li><strong>Clear governance:</strong> A backlog, authorship assignments, and contribution templates keep the process streamlined and lightweight.</li>
+            <li><strong>Sustained support:</strong> Regular updates, team enablement, and leadership alignment ensured the kit remained a priority and doesn't become outdated.</li>
           </ul>
         </article>
       </div>
-    </section>
 
-    <section class="project-section">
-      <h2 class="project-section-title">Reflection</h2>
-      <div class="reflection-note">
-        <p>The biggest lesson from building design systems at scale is that strong governance matters as much as strong components. A robust contribution model, paired with leadership buy-in, is what keeps a system valuable and current over time. Without both, even a well-crafted library quickly drifts out of date and loses trust.</p>
+        <p>The library of 341 components grew to reach 704k+ total inserts with 98% design token adoption. The kit streamlined design processes for makers, growing from 26 teams at launch to 63 teams, with consistent active reuse and faster iteration cycles across the organisation. Ready-made examples increased by 272.5% to 756, demonstrating the value of practical, focused guidance.</p>
+      </div>
+
+      <figure class="adoption-curve">
+        <table style="width: 100%; border-collapse: collapse; margin-top: 24px;">
+          <thead>
+            <tr style="border-bottom: 2px solid var(--light-rule);">
+              <th style="padding: 14px 0 14px 0; text-align: left; font-size: 14px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em;">Metric</th>
+              <th style="padding: 14px 12px 14px 0; text-align: left; font-size: 14px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em;">Launch</th>
+              <th style="padding: 14px 12px 14px 0; text-align: left; font-size: 14px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em;">Current</th>
+              <th style="padding: 14px 0; text-align: left; font-size: 14px; font-weight: 600; color: var(--accent); text-transform: uppercase; letter-spacing: 0.08em;">Growth</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid var(--light-rule);">
+              <td style="padding: 16px 0; font-size: 15px; font-weight: 500; color: var(--ink);">Team adoption</td>
+              <td style="padding: 16px 12px 16px 0; font-size: 15px; color: var(--ink);">26 teams</td>
+              <td style="padding: 16px 12px 16px 0; font-size: 15px; font-weight: 600; color: var(--ink);">63 teams</td>
+              <td style="padding: 16px 0; font-size: 15px; font-weight: 600; color: var(--accent);">+142%</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--light-rule);">
+              <td style="padding: 16px 0; font-size: 15px; font-weight: 500; color: var(--ink);">Weekly component inserts</td>
+              <td style="padding: 16px 12px 16px 0; font-size: 15px; color: var(--ink);">3.9k+</td>
+              <td style="padding: 16px 12px 16px 0; font-size: 15px; font-weight: 600; color: var(--ink);">704k+</td>
+              <td style="padding: 16px 0; font-size: 15px; font-weight: 600; color: var(--accent);">+2,533%</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--light-rule);">
+              <td style="padding: 16px 0; font-size: 15px; font-weight: 500; color: var(--ink);">Library maturity</td>
+              <td style="padding: 16px 12px 16px 0; font-size: 15px; color: var(--ink);">341 components</td>
+              <td style="padding: 16px 12px 16px 0; font-size: 15px; font-weight: 600; color: var(--ink);">511 components</td>
+              <td style="padding: 16px 0; font-size: 15px; font-weight: 600; color: var(--accent);">+50%</td>
+            </tr>
+            <tr style="border-bottom: 1px solid var(--light-rule);">
+              <td style="padding: 16px 0; font-size: 15px; font-weight: 500; color: var(--ink);">Design token usage</td>
+              <td style="padding: 16px 12px 16px 0; font-size: 15px; color: var(--ink);">18%</td>
+              <td style="padding: 16px 12px 16px 0; font-size: 15px; font-weight: 600; color: var(--ink);">98%</td>
+              <td style="padding: 16px 0; font-size: 15px; font-weight: 600; color: var(--accent);">#1 in org</td>
+            </tr>
+          </tbody>
+        </table>
+        <p class="visualization-caption">Adoption metrics: Launch to current</p>
+      </figure>
+
+
+      <div class="subsection-block">
+        <h3 class="subsection-title">Extending reach</h3>
+        <div class="project-section-text">
+          <p>To push the UI kit even further, I built a Jira Replit template using the kit as the design foundation, making it easy for non-tech employees across the company to create Jira prototypes. During the company-wide AI Builders Week, this template became a critical resource adopted by thousands of builders internally, and used by Replit themselves during demoes. The template earned recognition from the company president for enabling rapid prototyping and demonstrating the value of structured design systems in developer tools.</p>
+          <p>This outcome showed the UI Kit's true power: it wasn't just a tool for designers, but a foundation that could accelerate work across disciplines.</p>
+        </div>
+
+        <div class="project-quote">
+          Huge thank you for your contributions to our Replit Template sprint for 201 AI School! Appreciate your collaboration & your speed.
+          <div style="margin-top: 16px; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 400; color: var(--warm-mid); font-style: normal;">Anu Bharadwaj, President at Atlassian</div>
+        </div>
+
+        <div class="project-quote">
+          A big thank you for all the mammoth work you've done to create a high-quality starting point for the Designers, Product Managers and Content Designer that may want to use Jira screens in Replit. Your craft excellence has ensured Makers will have more effective prompts, less time to generate outputs, and high coherence with the Atlassian brand.
+          <div style="margin-top: 16px; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 400; color: var(--warm-mid); font-style: normal;">Lewis Healey, Principal Design Technologist</div>
+        </div>
+
+        <div class="project-quote">
+          Thank you for being my go-to for Replit prototyping. I've used your template, pinged you (many times) with questions and taken your advice, and have been able to leverage your hard work to help speed up my own.
+          <div style="margin-top: 16px; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 400; color: var(--warm-mid); font-style: normal;">Tim Swan, Principal Product Designer on Jira AI</div>
+        </div>
       </div>
     </section>
   </main>

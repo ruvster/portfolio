@@ -8,87 +8,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../css/project-styles.css">
   <style>
-    .project-hero {
-      padding: 54px 0 40px;
-    }
-
-    .project-header {
-      margin-bottom: 36px;
-    }
-
-    .project-title {
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      margin-bottom: 12px;
-      color: var(--ink);
-    }
+    /* Per-page overrides and component-specific styles for Jira UI Kit case study */
 
     .project-summary {
-      font-size: 18px;
-      font-weight: 300;
-      line-height: 1.7;
-      color: var(--warm-mid);
       max-width: 760px;
-    }
-
-    .project-meta {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 24px 40px;
-      margin-bottom: 48px;
-      padding-bottom: 48px;
-      border-bottom: 1px solid var(--light-rule);
-    }
-
-    .meta-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .meta-value {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--ink);
-      line-height: 1.6;
-    }
-
-    .metric-strip {
-      display: grid;
-      grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 12px;
-      margin: 28px 0 0;
-    }
-
-    .metric-card {
-      padding: 24px 22px;
-      border: 1px solid var(--light-rule);
-      background: rgba(255, 252, 247, 0.82);
-    }
-
-    .metric-value {
-      display: block;
-      font-size: clamp(28px, 4vw, 40px);
-      line-height: 1;
-      color: var(--ink);
-      margin-bottom: 8px;
-    }
-
-    .metric-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--warm-mid);
-      line-height: 1.5;
     }
 
     .jira-showcase {
@@ -196,6 +121,7 @@
 
     .jira-showcase-caption {
       margin-top: 16px;
+      text-align: center;
       font-size: 13px;
       line-height: 1.6;
       color: var(--warm-mid);
@@ -789,134 +715,6 @@
       }
     }
 
-    .project-section {
-      margin-bottom: 88px;
-    }
-
-    .project-section-title {
-      font-size: clamp(24px, 3vw, 32px);
-      font-weight: 400;
-      letter-spacing: -0.01em;
-      margin-bottom: 28px;
-      color: var(--ink);
-    }
-
-    .project-section-text {
-      font-size: 17px;
-      font-weight: 300;
-      line-height: 1.75;
-      color: var(--ink);
-      margin-bottom: 24px;
-    }
-
-    .project-section-text p {
-      margin-bottom: 24px;
-    }
-
-    .project-section-text p:last-child {
-      margin-bottom: 0;
-    }
-
-    .project-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--warm-mid);
-      text-decoration: none;
-      margin-top: 24px;
-      margin-bottom: 40px;
-      transition: color 0.2s;
-    }
-
-    .project-back:hover,
-    .project-back:focus-visible {
-      color: var(--ink);
-    }
-
-    .project-quote {
-      background: rgba(26, 23, 20, 0.04);
-      border-left: 3px solid var(--accent);
-      padding: 32px 36px;
-      margin: 40px 0;
-      font-size: 18px;
-      font-style: italic;
-      font-weight: 300;
-      line-height: 1.65;
-      color: var(--ink);
-    }
-
-    .phase-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-      margin-top: 32px;
-    }
-
-    .phase-card {
-      border: 1px solid var(--light-rule);
-      background: rgba(255, 252, 247, 0.72);
-      padding: 24px;
-    }
-
-    .phase-kicker {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 14px;
-    }
-
-    .phase-title {
-      font-size: 24px;
-      font-weight: 400;
-      letter-spacing: -0.01em;
-      color: var(--ink);
-      margin-bottom: 12px;
-    }
-
-    .phase-card p {
-      font-size: 16px;
-      font-weight: 300;
-      line-height: 1.7;
-      color: var(--ink);
-      margin: 0;
-    }
-
-    .subsection-block {
-      margin-top: 0;
-      padding-top: 40px;
-    }
-
-    .subsection-title {
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--ink);
-      margin-bottom: 14px;
-    }
-
-    .subsection-list {
-      margin: 18px 0 0;
-      padding-left: 18px;
-      color: var(--ink);
-    }
-
-    .subsection-list li {
-      margin-bottom: 10px;
-      font-size: 16px;
-      font-weight: 300;
-      line-height: 1.7;
-    }
-
-    .subsection-list li:last-child {
-      margin-bottom: 0;
-    }
 
     /* ── Kit architecture visualization ── */
     @keyframes fadeInUp {
@@ -1113,58 +911,6 @@
       }
     }
 
-    .solution-grid,
-    .impact-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-      margin-bottom: 40px;
-    }
-
-    .detail-card {
-      border: 1px solid var(--light-rule);
-      padding: 24px;
-      background: rgba(255, 252, 247, 0.72);
-    }
-
-    .detail-title {
-      font-size: 20px;
-      font-weight: 400;
-      color: var(--ink);
-      margin-bottom: 14px;
-    }
-
-    .detail-list {
-      margin: 0;
-      padding-left: 18px;
-      color: var(--ink);
-    }
-
-    .detail-list li {
-      margin-bottom: 10px;
-      font-size: 16px;
-      font-weight: 300;
-      line-height: 1.7;
-    }
-
-    .detail-list li:last-child {
-      margin-bottom: 0;
-    }
-
-    .reflection-note {
-      padding: 28px 32px;
-      border: 1px solid var(--light-rule);
-      background: linear-gradient(180deg, rgba(255,252,247,0.9) 0%, rgba(249,244,237,0.8) 100%);
-    }
-
-    .reflection-note p {
-      margin: 0;
-      font-size: 18px;
-      font-weight: 300;
-      line-height: 1.75;
-      color: var(--ink);
-    }
 
     /* Trial mode: remove box styling. Revert by removing `trial-flat` from body. */
     body.trial-flat .metric-card,
@@ -1404,9 +1150,9 @@
       <div class="reflection-note">
         <div class="phase-kicker">Summary</div>
         <p>I led the development and rollout of the Jira UI Kit, a shared Figma library of 341 components that achieved 704k+ total inserts and 98% design token adoption across the organization. The kit streamlined design processes for 63 teams, significantly improving consistency at scale. Beyond the library, I built a Jira Replit template that was used by thousands of employees across the org, including Replit themselves during a company-wide AI Builders Week, earning direct recognition from the company president and leadership.</p>
-        <figure style="margin-top: 24px; display: flex; flex-direction: column; align-items: center;">
+        <figure class="figure-centered" style="margin-top: 24px;">
           <img src="../assets/projects/jira-ui-kit/JiraUIKitHero.svg" alt="Jira UI Kit hero image showing the ecosystem with foundations, components, templates, and examples" style="width: 100%; max-width: 800px; height: auto; border-radius: 16px; display: block;">
-          <figcaption class="jira-showcase-caption" style="text-align: center; margin-top: 16px;">A snapshot of the Jira UI kit ecosystem</figcaption>
+          <figcaption class="jira-showcase-caption">A snapshot of the Jira UI kit ecosystem</figcaption>
         </figure>
       </div>
 
@@ -1449,7 +1195,7 @@
           <div class="phase-kicker">Phase 02</div>
           <h3 class="phase-title">Architecture</h3>
           <p>We based the architecture of the kit on the existing Atlassian Design System. The structure prioritised components teams actually used in shipping features e.g. buttons, inputs, modals, key screens. I tried to organise the kit around real workflows: how designers searched for components, customised them, and applied them to their own work.</p>
-          <figure style="margin: 24px -24px -24px; display: flex; flex-direction: column; align-items: center;">
+          <figure class="figure-centered" style="margin: 24px -24px -24px;">
             <div class="architecture-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 24px; margin-bottom: 16px; width: 100%; padding: 24px;">
               <div style="display: flex; flex-direction: column; align-items: center;">
                 <img src="../assets/projects/jira-ui-kit/Parts.svg" alt="Parts" style="width: 100%; height: auto;">
@@ -1476,7 +1222,7 @@
           <div class="phase-kicker">Phase 04</div>
           <h3 class="phase-title">Scale</h3>
           <p>Designers knew the kit existed, but contributing to it felt like unfamiliar territory, so I ran a design sprint to change that. Authors got hands-on with the contribution model, worked through components from their own features, and left equipped to champion it. Carving out dedicated time also meant components actually got built. Confidence in both Figma and the kit's approach jumped from 4.5 to 6 out of 7, and the contributor pool grew.</p>
-          <figure style="margin: 24px -24px -24px; display: flex; flex-direction: column; align-items: center;">
+          <figure class="figure-centered" style="margin: 24px -24px -24px;">
             <img src="../assets/projects/jira-ui-kit/sprint.jpg" alt="Design sprint session with team members collaborating on UI Kit contribution model" style="width: 100%; max-width: 480px; height: auto; display: block; padding: 24px;">
             <figcaption class="jira-showcase-caption" style="text-align: center; padding: 0 24px 24px;">Hands-on design sprint enabling authors to work through the contribution model and get equipped to champion the UI Kit across their teams.</figcaption>
           </figure>
@@ -1499,9 +1245,9 @@
         <p>The Jira UI Kit became a foundational resource across the company. It consolidated reusable components, tokens, patterns, and guidance into one source of truth.</p>
       </div>
 
-      <figure style="margin: 40px 0; display: flex; flex-direction: column; align-items: center;">
+      <figure class="figure-centered" style="margin: 40px 0;">
         <img src="../assets/projects/jira-ui-kit/Example.png" alt="Example of the Jira UI Kit in use showing components and patterns organized in a library" style="width: 100%; max-width: 800px; height: auto;">
-        <figcaption class="jira-showcase-caption" style="text-align: center; margin-top: 16px;">The Jira UI Kit provides designers with a comprehensive library of reusable components and patterns, streamlining design workflows across teams.</figcaption>
+        <figcaption class="jira-showcase-caption">The Jira UI Kit provides designers with a comprehensive library of reusable components and patterns, streamlining design workflows across teams.</figcaption>
       </figure>
 
       <div class="solution-grid">
@@ -1576,17 +1322,17 @@
 
         <div class="project-quote">
           Huge thank you for your contributions to our Replit Template sprint for 201 AI School! Appreciate your collaboration & your speed.
-          <div style="margin-top: 16px; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 400; color: var(--warm-mid); font-style: normal;">Anu Bharadwaj, President at Atlassian</div>
+          <div class="quote-attribution">Anu Bharadwaj, President at Atlassian</div>
         </div>
 
         <div class="project-quote">
           A big thank you for all the mammoth work you've done to create a high-quality starting point for the Designers, Product Managers and Content Designer that may want to use Jira screens in Replit. Your craft excellence has ensured Makers will have more effective prompts, less time to generate outputs, and high coherence with the Atlassian brand.
-          <div style="margin-top: 16px; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 400; color: var(--warm-mid); font-style: normal;">Lewis Healey, Principal Design Technologist</div>
+          <div class="quote-attribution">Lewis Healey, Principal Design Technologist</div>
         </div>
 
         <div class="project-quote">
           Thank you for being my go-to for Replit prototyping. I've used your template, pinged you (many times) with questions and taken your advice, and have been able to leverage your hard work to help speed up my own.
-          <div style="margin-top: 16px; font-family: 'DM Mono', monospace; font-size: 12px; font-weight: 400; color: var(--warm-mid); font-style: normal;">Tim Swan, Principal Product Designer on Jira AI</div>
+          <div class="quote-attribution">Tim Swan, Principal Product Designer on Jira AI</div>
         </div>
       </div>
     </section>

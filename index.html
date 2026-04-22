@@ -14,66 +14,16 @@
   <!-- SKIP LINK -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- SIDEBAR (desktop) -->
-  <aside class="sidebar" aria-label="Site navigation">
-    <div>
-      <p class="sidebar-name" aria-hidden="true">Ruvi Pitiyarachchi</p>
-      <p class="sidebar-title" aria-hidden="true">Product designer</p>
-      <nav aria-label="Page sections">
-        <ul class="sidebar-nav">
-          <li><a href="index.html" aria-current="page">Home</a></li>
-          <li><a href="projects.html">Projects</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </nav>
-    </div>
-
-    <div class="sidebar-contact" role="contentinfo" aria-label="Contact information">
-      <a href="mailto:ruvi.pit@gmail.com" class="contact-link">
-        <svg width="11" height="9" viewBox="0 0 11 9" fill="none" aria-hidden="true" focusable="false">
-          <path d="M0.5 0.5H10.5V8.5H0.5V0.5Z" stroke="currentColor" stroke-width="0.8"/>
-          <path d="M0.5 0.5L5.5 5L10.5 0.5" stroke="currentColor" stroke-width="0.8"/>
-        </svg>
-        ruvi.pit@gmail.com
-      </a>
-      <a href="https://www.linkedin.com/in/ruvip/" target="_blank" rel="noopener noreferrer" class="contact-link">
-        <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true" focusable="false">
-          <rect x="0.5" y="0.5" width="10" height="10" stroke="currentColor" stroke-width="0.8"/>
-          <path d="M2 4.5V8.5M2 2.5V3M4 4.5V8.5M4 6C4 5 4.8 4.5 5.5 4.5C6.2 4.5 7 5 7 6V8.5" stroke="currentColor" stroke-width="0.8"/>
-        </svg>
-        LinkedIn <span class="visually-hidden">(opens in new tab)</span>
-      </a>
-    </div>
-  </aside>
-
-  <!-- MOBILE HEADER -->
-  <header class="mobile-header" role="banner">
-    <span class="mobile-name">Ruvi Pitiyarachchi</span>
-    <button
-      class="mobile-menu-btn"
-      aria-label="Open navigation menu"
-      aria-expanded="false"
-      aria-controls="mobileNav"
-      id="mobileMenuBtn"
-    >
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-      <span aria-hidden="true"></span>
-    </button>
-  </header>
-
-  <!-- MOBILE NAV DRAWER -->
-  <nav id="mobileNav" class="mobile-nav" aria-label="Mobile navigation" hidden>
-    <a href="index.html" class="mobile-nav-link">Home <span aria-hidden="true">→</span></a>
-    <a href="projects.html" class="mobile-nav-link">Projects <span aria-hidden="true">→</span></a>
-    <a href="about.html" class="mobile-nav-link">About <span aria-hidden="true">→</span></a>
-    <div class="mobile-nav-contact">
-      <a href="mailto:ruvi.pit@gmail.com">ruvi.pit@gmail.com</a>
-      <a href="https://www.linkedin.com/in/ruvip/" target="_blank" rel="noopener noreferrer">
-        LinkedIn <span class="visually-hidden">(opens in new tab)</span>
-      </a>
-    </div>
-  </nav>
+  <!-- Navigation loaded via fetch -->
+  <div id="nav-mount"></div>
+  <script>
+    fetch('/nav.html')
+      .then(r => r.text())
+      .then(function(html) {
+        var mount = document.getElementById('nav-mount');
+        mount.outerHTML = html;
+      });
+  </script>
 
   <!-- MAIN -->
   <main id="main-content">
@@ -87,7 +37,7 @@
           <!-- <p class="hero-role">Product Designer</p> -->
         </div>
       </div>
-      <p class="hero-bio">A product designer currently working at Atlassian, with past stints at ING and Suncorp.  I specialise in solving complex enterprise UX, scaling design languages, and AI driven workflows. I'm affectionately known as the ruvineer by my engineering counterparts.</p>
+      <p class="hero-bio">A product designer and strong systems thinker who's worked at Atlassian, ING and Suncorp. I specialise in solving complex UX, scaling design systems, and AI driven workflows. I'm affectionately known as the ruvineer by my engineering counterparts.</p>
     </div>
 
     <!-- WORK -->
@@ -95,16 +45,21 @@
       <h2 class="section-heading" id="work-heading">Selected work</h2>
       <div class="work-grid" role="list">
 
-        <div class="work-card work-card--wip" role="listitem" aria-label="Jira UI kit — work in progress, coming soon">
-          <div class="card-bg" aria-hidden="true"></div>
-          <span class="card-wip-banner" aria-hidden="true">In progress</span>
+        <a href="projects/jira-ui-kit.html" class="work-card" role="listitem" aria-label="Jira UI kit case study">
+          <div class="card-bg" aria-hidden="true" style="background: #1a1a1f url('assets/projects/jira-ui-kit/JiraUIKitHero.svg') center 24% / 88% auto no-repeat;"></div>
           <div class="card-content">
             <span class="card-index">01</span>
             <span class="card-tag">Design System · AI · 2026</span>
             <p class="card-title">Jira UI kit</p>
             <p class="card-brief">Leading the rollout of Jira's design system to improve product quality and speed up design workflows.</p>
           </div>
-        </div>
+          <div class="card-arrow" aria-hidden="true">
+            <svg viewBox="0 0 16 16" width="14" height="14" focusable="false" aria-hidden="true">
+              <path d="M3 8H13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/>
+              <path d="M9 4L13 8L9 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"/>
+            </svg>
+          </div>
+        </a>
 
         <a href="projects/broker-digital.html" class="work-card" role="listitem">
           <div class="card-bg" aria-hidden="true" style="background: #1d140d url('assets/projects/broker-digital/hero.png') center 24% / 88% auto no-repeat;"></div>

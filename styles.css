@@ -253,9 +253,9 @@
       background: var(--cream);
       z-index: 190;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: flex-start;
-      padding: 80px 36px 48px;
+      padding: 110px 36px 48px;
       gap: 0;
     }
 
@@ -1350,4 +1350,19 @@
       .card-bg, .cs-vis-bg { forced-color-adjust: none; }
       :focus-visible { outline: 3px solid ButtonText; }
     }
-  
+
+  /* ── Inline style replacements ── */
+  /* Projects page: card content gradient */
+  body.page-projects .card-content {
+    background: linear-gradient(to top, rgba(10, 7, 5, 0.92) 0%, rgba(10, 7, 5, 0.76) 44%, rgba(10, 7, 5, 0.42) 68%, rgba(10, 7, 5, 0.12) 100%);
+  }
+
+  /* About page: skills grid spacing */
+  .skills-grid {
+    margin-bottom: 80px;
+  }
+
+  /* Utility: text center */
+  .u-text-center {
+    text-align: center;
+  }

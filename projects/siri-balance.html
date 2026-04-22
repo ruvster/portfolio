@@ -8,116 +8,17 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../css/project-styles.css">
   <style>
-    .project-hero {
-      padding: 54px 0 40px;
-    }
-
     .project-header {
       margin-bottom: 36px;
     }
 
-    .project-title {
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 300;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
-      margin-bottom: 12px;
-      color: var(--ink);
-    }
-
-    .project-summary {
-      font-size: 18px;
-      font-weight: 300;
-      line-height: 1.7;
-      color: var(--warm-mid);
-      max-width: 760px;
-    }
-
+    /* Per-page adjustments to shared metadata grid */
     .project-meta {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
       gap: 32px 48px;
       margin-bottom: 48px;
       padding-bottom: 48px;
-      border-bottom: 1px solid var(--light-rule);
-    }
-
-    .tldr-strip {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 12px;
-      margin: 0 0 56px;
-    }
-
-    .tldr-card {
-      padding: 24px 22px;
-      border: 1px solid var(--light-rule);
-      background: rgba(255, 252, 247, 0.82);
-    }
-
-    .tldr-label {
-      display: block;
-      font-family: 'DM Mono', monospace;
-      font-size: 11px;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--warm-mid);
-      margin-bottom: 10px;
-    }
-
-    .tldr-value {
-      font-size: 18px;
-      font-weight: 300;
-      line-height: 1.6;
-      color: var(--ink);
-    }
-
-    .meta-label {
-      font-family: 'DM Mono', monospace;
-      font-size: 10px;
-      font-weight: 400;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 8px;
-    }
-
-    .meta-value {
-      font-size: 16px;
-      font-weight: 300;
-      color: var(--ink);
-      line-height: 1.6;
-    }
-
-    .project-section {
-      margin-bottom: 80px;
-    }
-
-    .project-section-title {
-      font-size: clamp(24px, 3vw, 32px);
-      font-weight: 400;
-      letter-spacing: -0.01em;
-      margin-bottom: 28px;
-      color: var(--ink);
-    }
-
-    .project-section-text {
-      font-size: 17px;
-      font-weight: 300;
-      line-height: 1.72;
-      color: var(--ink);
-      max-width: 100%;
-      margin-bottom: 24px;
-    }
-
-    .project-section-text p {
-      margin-bottom: 24px;
-    }
-
-    .project-section-text p:last-child {
-      margin-bottom: 0;
     }
 
     .project-image {
@@ -173,37 +74,10 @@
       color: inherit;
     }
 
+    /* Per-page quote overrides */
     .project-quote {
-      background: rgba(26,23,20,0.04);
-      border-left: 3px solid var(--accent);
       padding: 28px 32px;
       margin: 36px 0;
-      font-size: 18px;
-      font-style: italic;
-      font-weight: 300;
-      line-height: 1.65;
-      color: var(--ink);
-      max-width: 100%;
-    }
-
-    .project-back {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-family: 'DM Mono', monospace;
-      font-size: 12px;
-      font-weight: 300;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--warm-mid);
-      text-decoration: none;
-      margin-bottom: 40px;
-      transition: color 0.2s;
-    }
-
-    .project-back:hover,
-    .project-back:focus-visible {
-      color: var(--ink);
     }
 
     .results-highlight {
@@ -297,21 +171,8 @@
         margin-bottom: 44px;
       }
 
-      .project-summary,
-      .project-section-text {
-        font-size: 16px;
-      }
-
       .project-grid-3 {
         grid-template-columns: 1fr;
-      }
-
-      .project-section-title {
-        margin-bottom: 24px;
-      }
-
-      .project-section-text {
-        margin-bottom: 20px;
       }
 
       .project-image {
@@ -353,7 +214,7 @@
           <path d="M0.5 0.5H10.5V8.5H0.5V0.5Z" stroke="currentColor" stroke-width="0.8"/>
           <path d="M0.5 0.5L5.5 5L10.5 0.5" stroke="currentColor" stroke-width="0.8"/>
         </svg>
-        ruvi.pit@gmail.com
+        Get in touch
       </a>
 
       <a href="https://www.linkedin.com/in/ruvip/" target="_blank" rel="noopener noreferrer" class="contact-link" aria-label="LinkedIn (opens in new tab)">
@@ -385,7 +246,7 @@
     <a href="../projects.html">Projects <span aria-hidden="true">→</span></a>
     <a href="../about.html">About <span aria-hidden="true">→</span></a>
     <div class="mobile-nav-contact">
-      <a href="mailto:ruvi.pit@gmail.com">ruvi.pit@gmail.com</a>
+      <a href="mailto:ruvi.pit@gmail.com">Get in touch</a>
       <a href="https://www.linkedin.com/in/ruvip/" target="_blank" rel="noopener noreferrer">
         LinkedIn <span class="visually-hidden">(opens in new tab)</span>
       </a>

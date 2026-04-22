@@ -14,18 +14,16 @@
   <!-- SKIP LINK -->
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <!-- SIDEBAR (desktop) -->
-  <aside class="sidebar" aria-label="Site navigation">
-    <div>
-      <p class="sidebar-name" aria-hidden="true">Ruvi Pitiyarachchi</p>
-      <p class="sidebar-title" aria-hidden="true">Product designer</p>
-      <nav aria-label="Page sections">
-        <ul class="sidebar-nav">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="projects.html" aria-current="page">Projects</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-      </nav>
+  <!-- Navigation loaded via fetch -->
+  <div id="nav-mount"></div>
+  <script>
+    fetch('/nav.html')
+      .then(r => r.text())
+      .then(function(html) {
+        var mount = document.getElementById('nav-mount');
+        mount.outerHTML = html;
+      });
+  </script>
     </div>
 
     <div class="sidebar-contact" role="contentinfo" aria-label="Contact information">
@@ -34,7 +32,7 @@
           <path d="M0.5 0.5H10.5V8.5H0.5V0.5Z" stroke="currentColor" stroke-width="0.8"/>
           <path d="M0.5 0.5L5.5 5L10.5 0.5" stroke="currentColor" stroke-width="0.8"/>
         </svg>
-        ruvi.pit@gmail.com
+        Get in touch
       </a>
       <a href="https://www.linkedin.com/in/ruvip/" target="_blank" rel="noopener noreferrer" class="contact-link">
         <svg width="11" height="11" viewBox="0 0 11 11" fill="none" aria-hidden="true" focusable="false">
@@ -68,7 +66,7 @@
     <a href="projects.html" class="mobile-nav-link">Projects <span aria-hidden="true">→</span></a>
     <a href="about.html" class="mobile-nav-link">About <span aria-hidden="true">→</span></a>
     <div class="mobile-nav-contact">
-      <a href="mailto:ruvi.pit@gmail.com">ruvi.pit@gmail.com</a>
+      <a href="mailto:ruvi.pit@gmail.com">Get in touch</a>
       <a href="https://www.linkedin.com/in/ruvip/" target="_blank" rel="noopener noreferrer">
         LinkedIn <span class="visually-hidden">(opens in new tab)</span>
       </a>
@@ -81,18 +79,23 @@
     <section id="projects" aria-labelledby="projects-heading">
       <h2 class="section-heading" id="projects-heading">Projects</h2>
       <div class="work-grid" role="list">
-        <div class="work-card work-card--wip" role="listitem" aria-label="Jira UI kit — work in progress, coming soon">
-          <div class="card-bg"></div>
-          <span class="card-wip-banner" aria-hidden="true">In progress</span>
-          <div class="card-content" style="background: linear-gradient(to top, rgba(10, 7, 5, 0.92) 0%, rgba(10, 7, 5, 0.76) 44%, rgba(10, 7, 5, 0.42) 68%, rgba(10, 7, 5, 0.12) 100%);">
+        <a href="projects/jira-ui-kit.html" class="work-card" role="listitem" aria-label="Jira UI kit case study">
+          <div class="card-bg" style="background: #1a1a1f url('assets/projects/jira-ui-kit/JiraUIKitHero.svg') center 24% / 88% auto no-repeat;"></div>
+          <div class="card-content">
             <span class="card-tag">Design System • AI • 2026</span>
             <h3 class="card-title">Jira UI kit</h3>
             <p class="card-brief">Leading the rollout of Jira's design system to improve product quality and speed up design workflows.</p>
           </div>
-        </div>
+          <div class="card-arrow" aria-hidden="true">
+            <svg viewBox="0 0 16 16" width="14" height="14" focusable="false" aria-hidden="true">
+              <path d="M3 8H13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/>
+              <path d="M9 4L13 8L9 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"/>
+            </svg>
+          </div>
+        </a>
         <a href="projects/broker-digital.html" class="work-card" role="listitem">
           <div class="card-bg" style="background: #1d140d url('assets/projects/broker-digital/hero.png') center 24% / 88% auto no-repeat;"></div>
-          <div class="card-content" style="background: linear-gradient(to top, rgba(10, 7, 5, 0.92) 0%, rgba(10, 7, 5, 0.76) 44%, rgba(10, 7, 5, 0.42) 68%, rgba(10, 7, 5, 0.12) 100%);">
+          <div class="card-content">
             <span class="card-tag">Product • Product design • 2018</span>
             <h3 class="card-title">Broker digital</h3>
             <p class="card-brief">Designing a market-leading digital experience for ING mortgage brokers.</p>
@@ -106,7 +109,7 @@
         </a>
         <a href="projects/global-innovation-bootcamp.html" class="work-card" role="listitem">
           <div class="card-bg" style="background: #1a2b18 url('assets/projects/global-innovation-bootcamp/pitch-2.jpg') center 40% / cover no-repeat;"></div>
-          <div class="card-content" style="background: linear-gradient(to top, rgba(10, 7, 5, 0.92) 0%, rgba(10, 7, 5, 0.76) 44%, rgba(10, 7, 5, 0.42) 68%, rgba(10, 7, 5, 0.12) 100%);">
+          <div class="card-content">
             <span class="card-tag">Innovation • Design lead • 2018</span>
             <h3 class="card-title">Global innovation bootcamp</h3>
             <p class="card-brief">Aggy - an agricultural knowledge platform born from ING's global innovation program.</p>
@@ -120,7 +123,7 @@
         </a>
         <a href="projects/siri-balance.html" class="work-card" role="listitem">
           <div class="card-bg" style="background: #1a2026 url('assets/projects/siri-balance/siri-hero.png') center 20% / 92% no-repeat;"></div>
-          <div class="card-content" style="background: linear-gradient(to top, rgba(10, 7, 5, 0.92) 0%, rgba(10, 7, 5, 0.76) 44%, rgba(10, 7, 5, 0.42) 68%, rgba(10, 7, 5, 0.12) 100%);">
+          <div class="card-content">
             <span class="card-tag">Voice UX • Product design • 2017</span>
             <h3 class="card-title">Hey Siri, what's my balance?</h3>
             <p class="card-brief">Designing Australia's first Siri banking experience for fast, trustworthy voice-based balance checks.
@@ -136,7 +139,7 @@
         </a>
         <a href="projects/report-lost-or-stolen-card.html" class="work-card" role="listitem">
           <div class="card-bg" style="background: #2d2420 url('assets/projects/report-lost-or-stolen-card/lost-hero-2.png') center 20% / 92% no-repeat;"></div>
-          <div class="card-content" style="background: linear-gradient(to top, rgba(10, 7, 5, 0.92) 0%, rgba(10, 7, 5, 0.76) 44%, rgba(10, 7, 5, 0.42) 68%, rgba(10, 7, 5, 0.12) 100%);">
+          <div class="card-content">
             <span class="card-tag">Banking UX • Lead UX/UI design • 2018</span>
             <h3 class="card-title">Report lost or stolen card</h3>
             <p class="card-brief">Designing a self-service card replacement journey across web and mobile to reduce contact-centre reliance.</p>

@@ -17,7 +17,8 @@
   <!-- Navigation loaded via fetch -->
   <div id="nav-mount"></div>
   <script>
-    fetch('/nav.html')
+    var navPath = window.location.pathname.includes('/projects/') ? '../nav.html' : './nav.html';
+    fetch(navPath)
       .then(r => r.text())
       .then(function(html) {
         var mount = document.getElementById('nav-mount');

@@ -3,17 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>AI-Infused Work Item Experience | Ruvi Pitiyarachchi</title>
+  <title>Infusing AI Generative Experiences into Work Item | Ruvi Pitiyarachchi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="icon" href="../assets/RPlogo.svg" type="image/svg+xml">
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="../css/project-styles.css">
-  <style>
-    .project-summary {
-      max-width: 760px;
-    }
-  </style>
 </head>
 <body class="page-project-detail">
 
@@ -36,8 +32,8 @@
 
     <div class="project-hero">
       <div class="project-header">
-        <h1 class="project-title">AI-Infused Work Item Experience</h1>
-        <p class="project-summary">Designing intelligent assistance that synthesizes complex work and surfaces clarity at the moment it matters most.</p>
+        <h1 class="project-title">Infusing AI Generative Experiences into Work Item</h1>
+        <p class="project-summary">Designing intelligence into Jira's most-used surface.</p>
       </div>
 
       <div class="project-meta">
@@ -47,226 +43,219 @@
         </div>
         <div class="meta-item">
           <div class="meta-label">Role</div>
-          <div class="meta-value">Lead designer, research partner</div>
+          <div class="meta-value">Lead designer</div>
         </div>
       </div>
 
       <div class="reflection-note">
         <div class="phase-kicker">Summary</div>
-        <p>Work items are where teams coordinate their most critical work—yet when work items grow complex, teams struggle to extract the signal. I led the design of an AI-powered summarization feature that reads the full context of a work item and surfaces a structured, actionable summary: current state, key blockers, prioritized next actions, and open questions.</p>
-        <p>Through concept testing with 8 users, research validated that teams see AI assistance as a compelling solution to their work item data reliability problem, and that a structured response framework significantly outperforms open-ended AI generation. The work is now ready for rollout, with card covers and other AI-infused experiences enriching the work item view across the platform.</p>
+        <p>The Jira work item is where teams coordinate their most critical work, but the experience had grown cluttered, static, and unintuitive. I led the design exploration for how generative AI could transform it. My process spanned from foundational concept research into work item creation to building a scalable framework for AI-driven summaries and contextual integrations across the platform.</p>
       </div>
     </div>
 
     <section class="project-section">
       <h2 class="project-section-title">Overview</h2>
       <div class="project-section-text">
-        <p>As Jira moves toward AI-driven product experiences, the work item view presents a critical opportunity: teams rely on work items as their source of truth, yet when work grows complex—multiple subtasks, scattered comments, long histories, attached context—teams struggle to maintain clarity. What's actually happening? What comes next? Who should move it forward?</p>
-        <p>Rather than asking teams to manually synthesize, I designed an AI assistant that reads the full work item and surfaces what matters. The solution combines research-validated design patterns: a structured response framework that respects cognitive load, surfaces ambiguity, and guides teams toward action.</p>
+        <p>Work items are the backbone of Jira, yet the interface has remained a "one-size-fits-all" scrolling form., used by millions daily to track everything from bugs to epics. As Jira evolved toward AI-driven experiences, this view emerged as a critical opportunity for transformation. Despite being a team's source of truth, work items often fluctuate between two extremes: too sparse to be useful, or too cluttered to be understood. This information density creates a paradox where more work leads to less clarity, forcing teams to hunt for answers: <em>What’s the status? What’s the next step? Who owns the momentum?</em></p>
       </div>
     </section>
 
     <section class="project-section">
-      <h2 class="project-section-title">The Challenge</h2>
+      <h2 class="project-section-title">The problem</h2>
 
       <div class="project-section-text">
-        <p>Work items are the backbone of team coordination in Jira—they hold decisions, dependencies, context, and history. Yet as work grows more complex, they become harder to navigate. A single work item might contain:</p>
-        <ul style="margin: 16px 0; line-height: 1.8;">
-          <li>A multi-paragraph description written weeks ago, now outdated</li>
-          <li>50+ comments scattered across conversations, decisions, and debate</li>
-          <li>Multiple subtasks with their own nested context</li>
-          <li>Attachments, screenshots, and design files referenced throughout</li>
-          <li>Linked dependencies on other work, some resolved, some blocked</li>
+        <p>Work items are where everything happens in Jira, but the experience hadn't meaningfully evolved to match the lifecycle of work. It was the same shape whether the item was a one-line placeholder or a dense artefact with months of discussion, attachments, and dependencies. Users had to do the work of triaging what mattered, every time they opened it, creating three major challenges:</p>
+        <ul class="detail-list">
+          <li><strong>The "Chore" to create:</strong> Writing out every detail, setting up requirements, and breaking down big tasks takes a lot of time. People spend more time setting up the work than actually doing it.</li>
+          <li><strong>The "Sparse" start:</strong> Many items begin as just a title. In a rigid UI, these feel hollow and unhelpful, offering no guidance on what information is missing to move the work forward.</li>
+          <li><strong>The "Cluttered" maturity:</strong> As work scales, items become "information graveyards." A single task can balloon into 50+ scattered comments and nested dependencies. The truth is in there, but it's buried under a massive cognitive tax.</li>
         </ul>
-        <p>When a teammate opens this work item, the burden falls on them to synthesize: reading through comments in sequence, tracing dependencies, inferring current state from scattered signals. What should happen next? What's actually blocking progress? The work item contains the truth, but the truth is buried.</p>
-
-        <p>Teams respond by creating work-arounds: re-asking questions in Slack, keeping parallel notes, maintaining external spreadsheets. All of this is preventable friction—information that already exists in the work item, but requires too much effort to extract.</p>
-      </div>
-
-      <div class="project-quote">
-        Work items contain the truth, but as they grow complex, that truth becomes increasingly buried.
+        <p>Whether an item is empty or overwhelmed, the burden falls entirely on the user. This leads to work arounds or for teams to abandon Jira for Slack or spreadsheets just to get a straight answer. We recognised that generative AI is uniquely suited for these tasks in helping generate the foundation when an item is new, and helping synthesise the noise once it becomes complex</p>
       </div>
     </section>
 
     <section class="project-section">
-      <h2 class="project-section-title">Research: Validating the Opportunity</h2>
+      <h2 class="project-section-title">Validating the opportunity</h2>
 
       <div class="project-section-text">
-        <p>I partnered with a dedicated researcher and product managers to understand how AI could reshape the work item experience. We conducted concept testing with users across business and software product areas, exploring how different AI-first creation experiences and assistance patterns could improve work reliability and clarity.</p>
+        <p>I partnered with a researcher to understand how AI could reshape the work item experience. We conducted concept testing with eight marketers from both Jira and competitor tools (like Monday.com) to find out:</p>
       </div>
 
-      <div class="phase-grid">
-        <article class="phase-card">
-          <div class="phase-kicker">Research Method</div>
-          <h3 class="phase-title">Concept Testing with Figma Prototypes</h3>
-          <p>We built interactive Figma prototypes of different AI-first creation concepts and tested them with 8 users who work actively in Jira. Participants completed representative tasks such as creating new work, exploring existing work, and working through complex scenarios. We gathered both quantitative preference data and qualitative feedback on which patterns felt most natural and useful.</p>
-        </article>
-      </div>
+        <div class="project-section-text">
+          <ul class="detail-list">
+            <li>Which directions best met user needs, and what could be improved?</li>
+            <li>What could we learn from the directions that didn't win?</li>
+            <li>What existing pains, needs, and behaviours should we leverage?</li>
+          </ul>
+        </div>
 
       <div class="subsection-block">
-        <h3 class="subsection-title">Three Key Findings</h3>
+        <h3 class="subsection-title">Three key takeaways</h3>
         <div class="project-section-text">
-          <div style="display: grid; gap: 24px;">
-            <div style="padding: 24px; border-radius: 12px; border: 1px solid var(--light-rule); background: rgba(255, 252, 247, 0.3);">
-              <div style="font-weight: 600; color: var(--accent); margin-bottom: 8px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase;">Finding 1</div>
-              <h4 style="margin: 0 0 12px; font-size: 16px; color: var(--ink);">Canvas create had the strongest resonance</h4>
-              <p style="margin: 0; color: var(--warm-mid); line-height: 1.6;">Users strongly preferred Canvas create (3) over Single create (1) and Multi create (2), and both significantly outperformed current Jira and Monday.com creation experiences. The flexibility and conversational nature felt natural—less like filling out a form, more like discussing the work with someone who understands it.</p>
+          <p>These findings helped shape the future direction of the work item experience.</p>
+
+          <div class="finding-list">
+            <div class="finding-row">
+              <div class="finding-kicker">Finding 1: AI-assisted creation won</div>
+              <p class="finding-body">Users loved the idea of a "fluid" start. AI-assisted creation felt significantly better than the current manual setup in Jira or Monday.com.</p>
             </div>
 
-            <div style="padding: 24px; border-radius: 12px; border: 1px solid var(--light-rule); background: rgba(255, 252, 247, 0.3);">
-              <div style="font-weight: 600; color: var(--accent); margin-bottom: 8px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase;">Finding 2</div>
-              <h4 style="margin: 0 0 12px; font-size: 16px; color: var(--ink);">AI solves a real reliability problem</h4>
-              <p style="margin: 0; color: var(--warm-mid); line-height: 1.6;">Teams intend for work items to be a source of truth, but inconsistent behaviours and manual interactions mean information and reliability vary widely. <strong>Research confirmed that AI-driven concepts are impressive and solve this pain</strong>—users saw AI assistance as a credible way to maintain consistency and completeness without asking teams to change how they work.</p>
+            <div class="finding-row">
+              <div class="finding-kicker">Finding 2: The "source of truth" is broken</div>
+              <p class="finding-body">Users want one place for the truth, but inconsistent behaviours and manual data entry meant information quality varied wildly across items. AI-driven concepts were seen as the most credible way to solve this.</p>
             </div>
 
-            <div style="padding: 24px; border-radius: 12px; border: 1px solid var(--light-rule); background: rgba(255, 252, 247, 0.3);">
-              <div style="font-weight: 600; color: var(--accent); margin-bottom: 8px; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase;">Finding 3</div>
-              <h4 style="margin: 0 0 12px; font-size: 16px; color: var(--ink);">Work items evolve, not suddenly complete</h4>
-              <p style="margin: 0; color: var(--warm-mid); line-height: 1.6;"><strong>Work items typically start as placeholders and get added to/edited over time.</strong> This insight shaped the entire design. Rather than fighting this pattern, the solution needed to work with it—offering AI assistance at key moments as the work item grows and changes.</p>
+            <div class="finding-row">
+              <div class="finding-kicker">Finding 3: Core belief confirmed</div>
+              <p class="finding-body">Work items start as placeholders and accumulate detail over time. Any AI experience we designed would need to work across that entire spectrum.</p>
             </div>
           </div>
         </div>
       </div>
+
+      <div class="project-quote">
+        Creating tasks and subtasks is usually the most thankless work... no one sees it
+      </div>
     </section>
 
     <section class="project-section">
-      <h2 class="project-section-title">Solution: Structured AI Summarization</h2>
+      <h2 class="project-section-title">The AI summary</h2>
 
       <div class="project-section-text">
-        <p>Based on research, I designed a feature that helps teams extract clarity from complex work items without adding process. When invoked, the AI assistant reads the complete work item—description, comments, subtasks, attachments, linked items, history—and synthesizes a clear, actionable summary.</p>
+        <p>Coming out of the research, a specific opportunity stood out: when users open an existing work item, they spend real time re-orienting. Scrolling through comments, checking what changed, figuring out what's blocking progress. For dense or long-running items, this can take minutes of reading before any actual work happens.</p>
+        <p>An AI generated summary panel, at the top of the work item, promised to fast track that but only if it knew what to say.
+        A summary of an empty work item is useless while a summary of a year old task with 200 comments needs to be ruthlessly prioritised. The design problem wasn't "what does the summary look like" — it was "what should the summary be, given how much is actually there?"</p>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2 class="project-section-title">The audit</h2>
+
+      <div class="project-section-text">
+        <p>Before designing anything new, I began by auditing every AI experience already present on the work item. A few patterns became clear:</p>
+        <ul class="detail-list">
+          <li><strong>Fragmentation.</strong> AI showed up in multiple places with inconsistent voice, surface, and interaction models.</li>
+          <li><strong>Redundancy.</strong> Several features were quietly solving overlapping problems in slightly different ways.</li>
+          <li><strong>No hierarchy.</strong> Users had no sense of which AI experience to reach for in which situation.</li>
+        </ul> 
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2 class="project-section-title">The framework</h2>
+
+      <div class="project-section-text">
+        <p>I then built a framework for the summary component that mapped the work item onto a spectrum of content density - from empty placeholder to very dense. For each state, the framework defined three things:</p>
+        <ul class="detail-list">
+          <li><strong>What the work item looks like:</strong> the observable content signals (description length, comment volume, attachments, subtasks, dependencies, history depth).</li>
+          <li><strong>How AI should respond:</strong> the underlying summary behaviour and tone.</li>
+          <li><strong>Suggested actions:</strong> what we should prompt the user to do next.</li>
+        </ul>
+      </div>
+
+      <figure class="figure-centered">
+        <img src="../assets/projects/ai-work-item/AIFramework.png" alt="Framework matrix showing how AI responds to different work item scenarios: empty/sparse, light detail, moderately detailed, dense/complex, and very dense/long running" class="project-image project-image--sm">
+        <figcaption class="project-figure-caption">The AI response framework.</figcaption>
+      </figure>
+
+      <div class="project-section-text">
+        <p>The framework helped in the following ways:</p>
+        <ul class="detail-list">
+          <li><strong>It made the invisible explicit.</strong> "Summary" stopped being one thing and became five coordinated behaviours.</li>
+          <li><strong>It gave the team a shared vocabulary.</strong> PMs, engineers, and other designers could talk about "the moderately detailed state" and mean the same thing.</li>
+          <li><strong>It made the edge cases designable.</strong> Empty and dense states got the same rigour as the happy path.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2 class="project-section-title">The visuals</h2>
+
+      <div class="project-section-text">
+        <p>With the framework in place, the visual design became a series of focused problems rather than one overwhelming one.</p>
+      </div>
+
+      <div class="subsection-block">
+        <h3 class="subsection-title">Key decisions</h3>
+        <div class="project-section-text">
+          <ul class="detail-list">
+            <li><strong>Tiered summary structure.</strong> The dense state taught us the shape: a one-sentence TL;DR, 3-5 highlights, and a clear action-items/blockers section. This became the scalable pattern — lighter states just collapse the tiers.</li>
+            <li><strong>Recency as a first-class signal.</strong> For anything beyond "light detail," the card leads with what changed, not what is. This mirrors how users actually orient themselves.</li>
+            <li><strong>Suggested actions, not commands.</strong> Actions appear as dismissible suggestions in a consistent slot on the right, never as demands. Users stay in control.</li>
+            <li><strong>Regeneration as escape hatch.</strong> For long-running items, a "regenerate full history summary" option lets users drop into deep context on demand, without forcing it on them by default.</li>
+            <li><strong>Restraint on the empty state.</strong> The biggest temptation was to over-design the empty state with a cheerful AI flourish. Empty work items get a quiet, functional nudge — because the user's next step is a task, not a delight moment.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- <figure class="figure-centered">
+        <div class="image-grid-2">
+          <img src="../assets/projects/ai-work-item/ai-summary-flow-1.jpg" alt="AI summarization feature showing work item with AI-generated summary displayed inline" class="project-image">
+          <img src="../assets/projects/ai-work-item/ai-summary-flow-2.jpg" alt="Work item view showing the structured AI summary with current state, key decisions, next actions, and open questions sections" class="project-image">
+        </div>
+        <figcaption class="project-figure-caption">The AI summarization feature displayed in the work item view, synthesizing scattered context into a clear, actionable summary.</figcaption>
+      </figure> -->
+    </section>
+
+
+    <section class="project-section">
+      <h2 class="project-section-title">Other AI experiences</h2>
+      <div class="project-section-text">
+        <p>The AI summary was one of several generative experiences I designed across the work item. Each addressed a different moment in the work item lifecycle.</p>
       </div>
 
       <div class="phase-grid">
         <article class="phase-card">
-          <div class="phase-kicker">How It Works</div>
-          <h3 class="phase-title">The Summarization Flow</h3>
-          <p>Users invoke the AI assistant from the work item view. The system reads all available context: the full description, all comments and replies, subtask structure, attachments and files, linked dependencies. It then generates a structured summary designed for scanning and action, following a framework built through research and iteration.</p>
-        </article>
-
-        <article class="phase-card">
-          <div class="phase-kicker">Framework</div>
-          <h3 class="phase-title">The AI Response Framework</h3>
-          <p>Research and concept testing revealed that users strongly prefer structured, scannable AI output over open-ended generation. The response framework has four sections:</p>
-          <div style="margin-top: 18px; padding: 20px; background: rgba(0, 0, 0, 0.02); border-radius: 12px; border-left: 4px solid var(--accent); font-family: 'DM Mono', monospace; font-size: 13px; line-height: 1.7; color: var(--ink);">
-            <div style="margin-bottom: 14px;">
-              <strong>1. CURRENT STATE</strong><br>
-              <span style="color: var(--warm-mid);">(1-2 sentences)</span><br>
-              What is the work? Where are we right now?
+          <div class="phase-kicker">Experience 1</div>
+          <h3 class="phase-title">Intelligent card covers</h3>
+          <p>AI-generated imagery for work item cards, by allowing users to provide a prompt. Gives teams a faster visual scan across boards without any manual effort.</p>
+          <figure class="phase-card-figure">
+            <div class="image-grid-2">
+              <img src="../assets/projects/ai-work-item/CoverImages2.png" alt="AI-generated card cover images for Jira work items" class="project-image">
+              <img src="../assets/projects/ai-work-item/CoverImages.png" alt="AI-generated card cover images for Jira work items" class="project-image">
             </div>
-            <div style="margin-bottom: 14px;">
-              <strong>2. KEY DECISIONS & BLOCKERS</strong><br>
-              <span style="color: var(--warm-mid);">(Bulleted list)</span><br>
-              What decisions have been made? What's blocking progress?
-            </div>
-            <div style="margin-bottom: 14px;">
-              <strong>3. NEXT ACTIONS</strong><br>
-              <span style="color: var(--warm-mid);">(3-5 prioritized actions)</span><br>
-              What needs to happen next, and who should do it?
-            </div>
-            <div>
-              <strong>4. OPEN QUESTIONS</strong><br>
-              <span style="color: var(--warm-mid);">(Ambiguities that need clarification)</span><br>
-              What's unclear or needs more information?
-            </div>
-          </div>
-        </article>
-
-        <article class="phase-card">
-          <div class="phase-kicker">Framework in Context</div>
-          <h3 class="phase-title">Adapting to Work Item Complexity</h3>
-          <p>The framework adapts its output based on work item complexity. A sparse work item gets brief, encouraging prompts to add context. A dense, complex work item gets a comprehensive synthesis focusing on recency, blockers, and actionability. The AI reads the current state and responds appropriately—never overwhelming, always actionable.</p>
-          <figure class="figure-centered" style="margin: 24px -24px -24px;">
-            <img src="../assets/projects/ai-work-item/framework-matrix.jpg" alt="Framework matrix showing how AI responds to different work item scenarios: empty/sparse, light detail, moderately detailed, dense/complex, and very dense/long running" style="width: 100%; max-width: 100%; height: auto; border-radius: 12px; display: block;">
-            <figcaption class="jira-showcase-caption" style="padding: 16px 24px 24px; margin: 0;">The AI response framework adapts based on work item maturity, from sparse placeholders to complex, long-running work with extensive history.</figcaption>
           </figure>
         </article>
 
         <article class="phase-card">
-          <div class="phase-kicker">Why This Framework</div>
-          <h3 class="phase-title">Design Rationale</h3>
-          <ul style="margin: 0; padding-left: 20px; line-height: 1.8;">
-            <li><strong>Respects cognitive load</strong>: Users don't synthesize—the framework does it for them</li>
-            <li><strong>Action-oriented</strong>: Moves teams from "I understand" to "I know what to do"</li>
-            <li><strong>Surfaces ambiguity</strong>: Open questions flag what needs clarification before proceeding</li>
-            <li><strong>Predictable structure</strong>: Users learn where to look for different information types</li>
-            <li><strong>Scales with complexity</strong>: Works equally well for 2-comment work items and 50-comment epics</li>
-          </ul>
+          <div class="phase-kicker">Experience 2</div>
+          <h3 class="phase-title">Jira in ChatGPT</h3>
+          <p>I designed the Jira work item experience inside ChatGPT - bringing task creation, updates, and context directly into the AI conversation layer. Users can create and manage Jira work items without leaving their workflow, meeting them where they're already thinking through problems.</p>
+          <figure class="phase-card-figure phase-card-figure--centered">
+            <img src="../assets/projects/ai-work-item/ChatGPTUI.jpg" alt="Jira work item experience designed within ChatGPT" class="project-image">
+          </figure>
+          <blockquote class="project-quote">
+            <p>I was tasked to implement a Jira widget to show Jira issues within ChatGPT as part of the project to launch the first Atlassian connector for ChatGPT, leveraging their newly released apps SDK. While we knew what we wanted to see in the widget, we had no designer assigned to that small project. It was fully engineering-led.
+            I casually reached out to you Ruvi to help me ensure the layout of this new Jira widget for ChatGPT would look good, professional and in line with both the ChatGPT Design Guidelines, and the Atlassian Design System ones. We paired together on the design, iterating it, to reach something we were proud of. You helped tremendously, and the project stakeholders all praised the design you inspired:</p><br>
+            <p> "This looks so good!" - Matthew Canham.</p><br> <p>"What you have looks great!" - Julien Bassan.</p><br>
+            <p>Thanks a lot Ruvi for helping me with small design tasks once again. This is now being shared with OpenAI. Your work has a great impact to Atlassian overall! Cannot wait to work with you again.</p>
+            <div class="quote-attribution">— Matthieu Di Berardino, Principal Engineer</div>
+          </blockquote>
         </article>
       </div>
+    </section>
 
-      <div class="subsection-block">
-        <h3 class="subsection-title">In Practice: The Feature at Work</h3>
-        <div class="project-section-text">
-          <p>When users invoke the AI assistant on a work item, they see the four-part summary immediately. The design puts the framework to work in real Jira, making complex work readable at a glance. Here's how it appears in the work item interface:</p>
-        </div>
-        <figure class="figure-centered" style="margin: 24px 0;">
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-            <img src="../assets/projects/ai-work-item/ai-summary-flow-1.jpg" alt="AI summarization feature showing work item with AI-generated summary displayed inline" style="width: 100%; height: auto; border-radius: 12px; display: block;">
-            <img src="../assets/projects/ai-work-item/ai-summary-flow-2.jpg" alt="Work item view showing the structured AI summary with current state, key decisions, next actions, and open questions sections" style="width: 100%; height: auto; border-radius: 12px; display: block;">
-          </div>
-          <figcaption class="jira-showcase-caption" style="margin-top: 16px;">The AI summarization feature displayed in the work item view, synthesizing scattered context into a clear, actionable summary.</figcaption>
+    <section class="project-section">
+      <h2 class="project-section-title">Impact & reflection</h2>
+      <div class="project-section-text">
+        
+        <p>The research report was shared broadly across the organisation, reaching 103 viewers - including executives and leaders across multiple teams. It received recognition as a clear, well-structured piece of strategic design work that shaped how the broader team understood the opportunity.</p>
+
+        <figure class="figure-centered">
+          <img src="../assets/projects/ai-work-item/Report.png" alt="Research report shared across the organisation" class="project-image project-image--xs">
+          <figcaption class="project-figure-caption project-figure-caption--spaced">Research report on AI generative experiences</figcaption>
         </figure>
-      </div>
+                
+        <p>The AI summary system is scheduled to launch at Team ‘26, Atlassian’s flagship global conference. The project reinforced a core principle: <strong>good AI design isn’t about how much it can generate, it’s about removing friction from how teams already work.</strong></p>
 
-      <div class="subsection-block">
-        <h3 class="subsection-title">Context: AI Across the Work Item</h3>
-        <div class="project-section-text">
-          <p>Beyond summarization, the work item view is gaining complementary AI-infused experiences. Image generation for work items (intelligent card covers), content assistance, and other intelligent features are rolling out across the platform, creating a cohesive AI-first experience. This case study focuses on the summarization feature—a high-impact tool for teams managing complex, long-running work where clarity matters most.</p>
-        </div>
-      </div>
-    </section>
 
-    <section class="project-section">
-      <h2 class="project-section-title">Design Decisions</h2>
-      <div class="project-section-text">
-        <p><strong>Why structure matters more than intelligence</strong></p>
-        <p>Generative AI can produce eloquent, detailed summaries. But research showed that users valued structure and scanability far more than prose quality. A structured framework ensures the summary is predictable, actionable, and works in the context of busy teams who need to move work forward.</p>
-        <p>During concept testing, we tried multiple response structures. The state → blockers → next steps → open questions sequence consistently won. Other orderings felt less useful and harder to act on. The framework isn't just a design choice—it's research-validated.</p>
 
-        <p style="margin-top: 24px;"><strong>Why next actions are explicit, not inferred</strong></p>
-        <p>Early iterations asked the AI to "suggest next steps." This created ambiguity—suggested by whom? For whom? Required or optional? The framework evolved to "next actions"—making clear that these are concrete, prioritized steps the team should take. Pairing them with ownership (e.g., "Alex needs to resolve the design review before we can proceed") moves the summary from informative to actionable.</p>
+        <p>The structured response framework also crystallised how AI is most effective when it’s anchored. Rather than unleashing models to be conversational and open ended, framing them in a clear structure made them dramatically more useful. A framework isn't a constraint on AI, it's a design pattern that makes AI useful at scale.</p>
+
+        <p>The open question I'm still sitting with is how do you design for appropriate trust in AI experiences? If users trust the AI too little, they’ll ignore it and keep doing the manual work. If they trust it too much, they might miss a critical detail the AI skipped. The density framework is a start — it changes how the AI behaves based on how much data is available — but "calibrated trust" is a design problem we are only just beginning to solve.</p>
       </div>
     </section>
-
-    <section class="project-section">
-      <h2 class="project-section-title">Validation & Readiness</h2>
-      <div class="project-section-text">
-        <p>Research outcomes validated the direction and readiness for rollout:</p>
-      </div>
-
-      <div class="solution-grid">
-        <article class="detail-card">
-          <h3 class="detail-title">What Concept Testing Revealed</h3>
-          <ul class="detail-list">
-            <li><strong>Framework resonates with users</strong>: The structured response pattern was validated across all 8 test participants—users understood it immediately and found it useful.</li>
-            <li><strong>AI solves a real problem</strong>: Teams expressed strong intent to use summarization for complex work items, seeing it as a credible solution to their data reliability challenge.</li>
-            <li><strong>Structure beats prose</strong>: Structured summaries significantly outperformed open-ended AI output in usefulness ratings and task completion.</li>
-          </ul>
-        </article>
-
-        <article class="detail-card">
-          <h3 class="detail-title">What's Next</h3>
-          <ul class="detail-list">
-            <li><strong>Rollout & iteration</strong>: The feature is now being built for production. Initial rollout will measure adoption and gather usage data on which sections users find most valuable.</li>
-            <li><strong>Refine based on real data</strong>: Real work items will reveal edge cases and opportunities the framework can evolve to serve better.</li>
-            <li><strong>Integrate across the platform</strong>: As other AI experiences roll out (card covers, content assistance), the work item view will become increasingly intelligent and supportive.</li>
-          </ul>
-        </article>
-      </div>
-    </section>
-
-    <section class="project-section">
-      <h2 class="project-section-title">Reflection</h2>
-      <div class="project-section-text">
-        <p>This work reinforced a core principle: <strong>good AI design isn't about impressive generation—it's about removing friction from how teams already work.</strong></p>
-
-        <p>The initial temptation was to build a "smarter work item"—more fields to fill, better validation, more guidance. But research showed the problem wasn't a lack of fields; it was that teams were drowning in context. The solution wasn't to ask for more information; it was to synthesize the information that already existed.</p>
-
-        <p>The structured response framework also crystallized how generative AI should integrate into structured work. Rather than unleashing models to be conversational and open-ended, anchoring them in a clear structure made them dramatically more useful. A framework isn't a constraint on AI—it's a design pattern that makes AI useful at scale.</p>
-
-        <p>Finally, this work reinforced that research isn't just validation—it shapes the direction. Every decision in the framework came from user feedback: the ordering of sections, the emphasis on open questions, the explicit ownership in next actions. The feature is stronger because research grounded it in real user needs.</p>
-      </div>
-    </section>
+    
   </main>
 </body>
 </html>

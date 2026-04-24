@@ -23,6 +23,47 @@
       .then(function(html) {
         var mount = document.getElementById('nav-mount');
         mount.outerHTML = html;
+
+        // Setup mobile menu after nav is inserted
+        setTimeout(function() {
+          const menuBtn = document.getElementById('mobileMenuBtn');
+          const mobileNav = document.getElementById('mobileNav');
+
+          if (menuBtn && mobileNav) {
+            const closeMobileMenu = () => {
+              menuBtn.setAttribute('aria-expanded', 'false');
+              mobileNav.setAttribute('hidden', '');
+              mobileNav.classList.remove('open');
+              document.body.classList.remove('no-scroll');
+            };
+
+            menuBtn.addEventListener('click', () => {
+              const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
+              menuBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+
+              if (!isOpen) {
+                mobileNav.removeAttribute('hidden');
+                mobileNav.classList.add('open');
+                document.body.classList.add('no-scroll');
+              } else {
+                closeMobileMenu();
+              }
+            });
+
+            // Close menu when a link is clicked
+            mobileNav.querySelectorAll('a').forEach(link => {
+              link.addEventListener('click', closeMobileMenu);
+            });
+
+            document.addEventListener('keydown', e => {
+              if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+                closeMobileMenu();
+                menuBtn.focus();
+              }
+            });
+          }
+        }, 0);
+
       });
   </script>
 
@@ -161,54 +202,5 @@
     </div>
 
   </main>
-  <script>
-    // Set active page indicator
-    const path = window.location.pathname.split('/').pop() || 'index.html';
-    document.querySelectorAll('.sidebar-nav a, .mobile-nav a').forEach(a => {
-      a.removeAttribute('aria-current');
-      const target = a.getAttribute('href');
-      if (target === path || (target === 'index.html' && path === '')) {
-        a.setAttribute('aria-current', 'page');
-      }
-    });
-
-    // Mobile menu toggle
-    const menuBtn = document.getElementById('mobileMenuBtn');
-    const mobileNav = document.getElementById('mobileNav');
-    
-    if (menuBtn && mobileNav) {
-      const closeMobileMenu = () => {
-        menuBtn.setAttribute('aria-expanded', 'false');
-        mobileNav.setAttribute('hidden', '');
-        mobileNav.classList.remove('open');
-        document.body.classList.remove('no-scroll');
-      };
-
-      menuBtn.addEventListener('click', () => {
-        const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
-        menuBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
-
-        if (!isOpen) {
-          mobileNav.removeAttribute('hidden');
-          mobileNav.classList.add('open');
-          document.body.classList.add('no-scroll');
-        } else {
-          closeMobileMenu();
-        }
-      });
-
-      // Close menu when a link is clicked
-      mobileNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', closeMobileMenu);
-      });
-
-      document.addEventListener('keydown', e => {
-        if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
-          closeMobileMenu();
-          menuBtn.focus();
-        }
-      });
-    }
-  </script>
 </body>
 </html>

@@ -249,13 +249,13 @@
     .mobile-nav {
       display: none;
       position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
+      top: 76px; left: 0; right: 0; bottom: 0;
       background: var(--cream);
-      z-index: 190;
+      z-index: 200;
       flex-direction: column;
       justify-content: flex-start;
       align-items: flex-start;
-      padding: 110px 36px 48px;
+      padding: 36px 36px 48px;
       gap: 0;
     }
 

@@ -1115,11 +1115,11 @@
   </script>
 
   <main id="main-content">
-    <a href="../projects.html" class="project-back"><span aria-hidden="true">←</span> Back to projects</a>
+    <a href="../index.html" class="project-back"><span aria-hidden="true">←</span> Back to work</a>
 
     <div class="project-hero">
       <div class="project-header">
-        <h1 class="project-title">Jira UI Kit</h1>
+        <h1 class="project-title">Jira UI kit</h1>
         <p class="project-summary">Leading the rollout of Jira's design system to improve product quality and speed up design workflows.</p>
       </div>
 
@@ -1330,6 +1330,27 @@
         </div>
       </div>
     </section>
+
+    <!-- Next Case Study -->
+    <section class="next-project" aria-label="Next case study">
+      <a href="broker-digital.html">
+        <p class="next-project-label">Next Case Study</p>
+        <h2 class="next-project-title">Broker digital</h2>
+        <div class="next-project-line"><span></span></div>
+      </a>
+    </section>
+
   </main>
+
+  <div id="footer-mount"></div>
+  <script>
+    (function() {
+      var path = '../footer.html';
+      fetch(path).then(function(r) { return r.text(); }).then(function(html) {
+        var el = document.getElementById('footer-mount');
+        if (el) el.outerHTML = html;
+      });
+    })();
+  </script>
 </body>
 </html>

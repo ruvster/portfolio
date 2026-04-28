@@ -24,6 +24,13 @@
       .then(function(html) {
         var mount = document.getElementById('nav-mount');
         mount.outerHTML = html;
+        // Set active nav link
+        var filename = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.sidebar-nav a, .mobile-nav a').forEach(function(a) {
+          var linkFile = a.getAttribute('href').split('/').pop() || 'index.html';
+          if (linkFile === filename) a.setAttribute('aria-current', 'page');
+        });
+
         setTimeout(function() {
           const menuBtn = document.getElementById('mobileMenuBtn');
           const mobileNav = document.getElementById('mobileNav');
@@ -77,103 +84,91 @@
     <!-- WORK -->
     <section id="work" aria-labelledby="work-heading">
       <h2 class="section-heading" id="work-heading">Selected work</h2>
-      <div class="work-grid" role="list">
+      <div class="work-list" role="list">
 
-        <a href="projects/ai-work-item.html" class="work-card" role="listitem" aria-label="AI-infused work item experience case study">
-          <div class="card-bg" aria-hidden="true" style="background: #1a2a3f url('assets/projects/ai-work-item/ChatGPTUI2.png') center 24% / 88% auto no-repeat;"></div>
-          <div class="card-content">
-            <span class="card-index">01</span>
-            <span class="card-tag">AI · Research · 2026</span>
-            <p class="card-title">Infusing AI Generative Experiences into Work Item</p>
-            <p class="card-brief">Designing intelligent assistance into Jira's most-used surface.</p>
+        <div class="work-row" role="listitem">
+          <a class="work-row-image" href="projects/ai-work-item.html" aria-hidden="true" tabindex="-1" style="background-color: #0d1f3d; background-image: url('assets/projects/ai-work-item/ChatGPTUI2.png'); background-size: 80%;"></a>
+          <div class="work-row-text">
+            <div class="work-row-tags">
+              <span class="work-row-tag">Research</span>
+              <span class="work-row-tag">AI</span>
+              <!-- <span class="work-row-tag">2026</span> -->
+            </div>
+            <h3 class="work-row-title">Infusing AI generative experiences into the work item</h3>
+            <p class="work-row-brief">Designing intelligent assistance into Jira's most-used surface.</p>
+            <a href="projects/ai-work-item.html" class="work-row-link">View Project</a>
           </div>
-          <div class="card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" width="14" height="14" focusable="false" aria-hidden="true">
-              <path d="M3 8H13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/>
-              <path d="M9 4L13 8L9 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"/>
-            </svg>
-          </div>
-        </a>
+        </div>
 
-        <a href="projects/jira-ui-kit.html" class="work-card" role="listitem" aria-label="Jira UI kit case study">
-          <div class="card-bg" aria-hidden="true" style="background: #1a1a1f url('assets/projects/jira-ui-kit/JiraUIKitHero.svg') center 24% / 88% auto no-repeat;"></div>
-          <div class="card-content">
-            <span class="card-index">02</span>
-            <span class="card-tag">Design System · AI · 2026</span>
-            <p class="card-title">Jira UI kit</p>
-            <p class="card-brief">Leading the rollout of Jira's design system to improve product quality and speed up design workflows.</p>
+        <div class="work-row" role="listitem">
+          <a class="work-row-image" href="projects/jira-ui-kit.html" aria-hidden="true" tabindex="-1" style="background-image: url('assets/projects/jira-ui-kit/JiraUIKitHero.svg');"></a>
+          <div class="work-row-text">
+            <div class="work-row-tags">
+              <span class="work-row-tag">Design System</span>
+              <span class="work-row-tag">Product engineering</span>
+              <!-- <span class="work-row-tag">2026</span> -->
+            </div>
+            <h3 class="work-row-title">Jira UI kit</h3>
+            <p class="work-row-brief">Leading the rollout of Jira's design system to improve product quality and speed up design workflows.</p>
+            <a href="projects/jira-ui-kit.html" class="work-row-link">View Project</a>
           </div>
-          <div class="card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" width="14" height="14" focusable="false" aria-hidden="true">
-              <path d="M3 8H13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/>
-              <path d="M9 4L13 8L9 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"/>
-            </svg>
-          </div>
-        </a>
+        </div>
 
-        <a href="projects/broker-digital.html" class="work-card" role="listitem">
-          <div class="card-bg" aria-hidden="true" style="background: #1d140d url('assets/projects/broker-digital/hero.png') center 24% / 88% auto no-repeat;"></div>
-          <div class="card-content">
-            <span class="card-index">03</span>
-            <span class="card-tag">Product · Product design · 2018</span>
-            <p class="card-title">Broker digital</p>
-            <p class="card-brief">Designing a market-leading digital experience for ING mortgage brokers.</p>
+        <div class="work-row" role="listitem">
+          <a class="work-row-image" href="projects/broker-digital.html" aria-hidden="true" tabindex="-1" style="background-image: url('assets/projects/broker-digital/hero.png');"></a>
+          <div class="work-row-text">
+            <div class="work-row-tags">
+              <span class="work-row-tag">Service design</span>
+              <span class="work-row-tag">Product design</span>
+              <!-- <span class="work-row-tag">2018</span> -->
+            </div>
+            <h3 class="work-row-title">Broker digital</h3>
+            <p class="work-row-brief">Designing a market-leading digital experience for ING mortgage brokers.</p>
+            <a href="projects/broker-digital.html" class="work-row-link">View Project</a>
           </div>
-          <div class="card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" width="14" height="14" focusable="false" aria-hidden="true">
-              <path d="M3 8H13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/>
-              <path d="M9 4L13 8L9 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"/>
-            </svg>
-          </div>
-        </a>
+        </div>
 
-        <a href="projects/global-innovation-bootcamp.html" class="work-card" role="listitem">
-          <div class="card-bg" aria-hidden="true" style="background: #1a2b18 url('assets/projects/global-innovation-bootcamp/pitch-2.jpg') center 40% / cover no-repeat;"></div>
-          <div class="card-content">
-            <span class="card-index">04</span>
-            <span class="card-tag">Innovation · Design lead · 2018</span>
-            <p class="card-title">Global innovation bootcamp</p>
-            <p class="card-brief">Aggy - an agricultural knowledge platform born from ING's global innovation program.</p>
+        <div class="work-row" role="listitem">
+          <a class="work-row-image" href="projects/global-innovation-bootcamp.html" aria-hidden="true" tabindex="-1" style="background-image: url('assets/projects/global-innovation-bootcamp/pitch-2.jpg'); background-size: cover; background-position: center center;"></a>
+          <div class="work-row-text">
+            <div class="work-row-tags">
+              <span class="work-row-tag">Innovation</span>
+              <span class="work-row-tag">Product design</span>
+              <!-- <span class="work-row-tag">2018</span> -->
+            </div>
+            <h3 class="work-row-title">Global innovation bootcamp</h3>
+            <p class="work-row-brief">Aggy — an agricultural knowledge platform born from ING's global innovation program.</p>
+            <a href="projects/global-innovation-bootcamp.html" class="work-row-link">View Project</a>
           </div>
-          <div class="card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" width="14" height="14" focusable="false" aria-hidden="true">
-              <path d="M3 8H13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/>
-              <path d="M9 4L13 8L9 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"/>
-            </svg>
-          </div>
-        </a>
+        </div>
 
-        <a href="projects/siri-balance.html" class="work-card" role="listitem">
-          <div class="card-bg" aria-hidden="true" style="background: #1a2026 url('assets/projects/siri-balance/siri-hero.png') center 20% / 92% no-repeat;"></div>
-          <div class="card-content">
-            <span class="card-index">05</span>
-            <span class="card-tag">Voice UX · Product design · 2017</span>
-            <p class="card-title">Hey Siri, what's my balance?</p>
-            <p class="card-brief">Designing Australia's first Siri banking experience for fast, trustworthy voice-based balance checks.</p>
+        <div class="work-row" role="listitem">
+          <a class="work-row-image" href="projects/siri-balance.html" aria-hidden="true" tabindex="-1" style="background-image: url('assets/projects/siri-balance/siri-hero.png');"></a>
+          <div class="work-row-text">
+            <div class="work-row-tags">
+              <span class="work-row-tag">Voice UX</span>
+              <span class="work-row-tag">Product design</span>
+              <!-- <span class="work-row-tag">2017</span> -->
+            </div>
+            <h3 class="work-row-title">Hey Siri, what's my balance?</h3>
+            <p class="work-row-brief">Designing Australia's first Siri banking experience for fast, trustworthy voice-based balance checks.</p>
+            <a href="projects/siri-balance.html" class="work-row-link">View Project</a>
           </div>
-          <div class="card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" width="14" height="14" focusable="false" aria-hidden="true">
-              <path d="M3 8H13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/>
-              <path d="M9 4L13 8L9 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"/>
-            </svg>
-          </div>
-        </a>
+        </div>
 
-        <a href="projects/report-lost-or-stolen-card.html" class="work-card" role="listitem">
-          <div class="card-bg" aria-hidden="true" style="background: #2d2420 url('assets/projects/report-lost-or-stolen-card/lost-hero-2.png') center 20% / 92% no-repeat;"></div>
-          <div class="card-content">
-            <span class="card-index">06</span>
-            <span class="card-tag">Banking UX · Lead UX/UI design · 2018</span>
-            <p class="card-title">Report lost or stolen card</p>
-            <p class="card-brief">Designing a self-service card replacement journey across web and mobile to reduce contact-centre reliance.</p>
+        <div class="work-row" role="listitem">
+          <a class="work-row-image" href="projects/report-lost-or-stolen-card.html" aria-hidden="true" tabindex="-1" style="background-image: url('assets/projects/report-lost-or-stolen-card/lost-hero-2.png');"></a>
+          <div class="work-row-text">
+            <div class="work-row-tags">
+              <span class="work-row-tag">Mobile</span>
+              <span class="work-row-tag">Product design</span>
+              <!-- <span class="work-row-tag">2018</span> -->
+            </div>
+            <h3 class="work-row-title">Report lost or stolen card</h3>
+            <p class="work-row-brief">Designing a self-service card replacement journey across web and mobile to reduce contact-centre reliance.</p>
+            <a href="projects/report-lost-or-stolen-card.html" class="work-row-link">View Project</a>
           </div>
-          <div class="card-arrow" aria-hidden="true">
-            <svg viewBox="0 0 16 16" width="14" height="14" focusable="false" aria-hidden="true">
-              <path d="M3 8H13" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square"/>
-              <path d="M9 4L13 8L9 12" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="square" stroke-linejoin="miter"/>
-            </svg>
-          </div>
-        </a>
+        </div>
 
       </div>
     </section>
@@ -187,28 +182,40 @@
           <cite>Aditi, Principal Product Manager at Atlassian</cite>
         </blockquote>
 
-        <blockquote class="recommendation-card">
-          <p>“Ruvi expertly applies user-centered design methods to craft initial concepts and explorations, all the way through to execution. She’s a natural (and fun!) collaborator who works seamlessly with design partners to drive, synthesize and communicate complex research - turning insights into intuitive, customer-first experiences. 
-              <br><br>What sets Ruvi apart is how she bridges the gap between design, product and engineering. She’s a total pro at vibe coding and confidently uses tools including Replit and Figma Make. Whether she’s up skilling content and product designers or co-architecting the Jira UI kit, Ruvi makes complex standards feel accessible. She’s been a massive driver for local design guidelines and an advocate of the Atlassian Design System, ensuring teams build better together.”</p>
-          <cite>Sophie, Principal Content Designer at Atlassian</cite>
-        </blockquote>
-
-        <blockquote class="recommendation-card">
-          <p>“Ruvi is an incredibly talented designer who actively levels up everyone around her. She's an absolute weapon when it comes to turning messy problems into polished, usable systems – whether that's design libraries, tooling, or ways of working – and she does it in a way that saves the whole team a ton of time and cognitive load. Beyond the craft, she's consistently generous with her knowledge: mentoring, unblocking, and jumping in on the tools without fuss, even when she's already under the pump.
+        <blockquote class=”recommendation-card”>
+          <p>”Ruvi is an incredibly talented designer who actively levels up everyone around her. She’s an absolute weapon when it comes to turning messy problems into polished, usable systems – whether that’s design libraries, tooling, or ways of working – and she does it in a way that saves the whole team a ton of time and cognitive load. Beyond the craft, she’s consistently generous with her knowledge: mentoring, unblocking, and jumping in on the tools without fuss, even when she’s already under the pump.
 
           <br><br>Ruvi works with an admirable combo of creativity, curiosity, and genuine care across crafts and, most importantly, for the people in her team. She asks savvy questions, gives thoughtful feedback, and makes even the nerdiest design deep dives fun. You always walk away from a session with her with new ideas, clearer thinking, and a good laugh or ten. Any team would be lucky to have her as both a design leader and an all-round cracker of a human.”</p>
           <cite>David, Senior Product Designer at Atlassian</cite>
         </blockquote>
 
+        <blockquote class=”recommendation-card”>
+          <p>”Ruvi expertly applies user-centered design methods to craft initial concepts and explorations, all the way through to execution. She’s a natural (and fun!) collaborator who works seamlessly with design partners to drive, synthesize and communicate complex research - turning insights into intuitive, customer-first experiences.
+              <br><br>What sets Ruvi apart is how she bridges the gap between design, product and engineering. She’s a total pro at vibe coding and confidently uses tools including Replit and Figma Make. Whether she’s up skilling content and product designers or co-architecting the Jira UI kit, Ruvi makes complex standards feel accessible. She’s been a massive driver for local design guidelines and an advocate of the Atlassian Design System, ensuring teams build better together.”</p>
+          <cite>Sophie, Principal Content Designer at Atlassian</cite>
+        </blockquote>
+
+
       </div>
     </section>
 
     <!-- CTA -->
-    <div class="cta-wrap">
-      <p class="cta-text">Let's make something together.</p>
+    <div class="cta-wrap" id="contact">
+      <p class="cta-text">Let's make something together!</p>
       <a href="mailto:ruvi.pit@gmail.com" class="cta-btn">Get in touch</a>
     </div>
 
   </main>
+
+  <div id="footer-mount"></div>
+  <script>
+    (function() {
+      var path = window.location.pathname.includes('/projects/') ? '../footer.html' : './footer.html';
+      fetch(path).then(function(r) { return r.text(); }).then(function(html) {
+        var el = document.getElementById('footer-mount');
+        if (el) el.outerHTML = html;
+      });
+    })();
+  </script>
 </body>
 </html>

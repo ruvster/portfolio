@@ -467,12 +467,12 @@
   <main id="main-content">
 
     <!-- Back link -->
-    <a href="../projects.html" class="project-back"><span aria-hidden="true">←</span> Back to projects</a>
+    <a href="../index.html" class="project-back"><span aria-hidden="true">←</span> Back to work</a>
 
     <!-- PROJECT HERO -->
     <div class="project-hero">
       <div class="project-header">
-        <h1 class="project-title">Broker Digital</h1>
+        <h1 class="project-title">Broker digital</h1>
         <p style="font-size: 17px; font-weight: 300; color: var(--warm-mid); margin-top: 12px;">Designing a market-leading digital experience for ING mortgage brokers.</p>
       </div>
 
@@ -887,7 +887,27 @@
 
     </section>
 
+    <!-- Next Case Study -->
+    <section class="next-project" aria-label="Next case study">
+      <a href="global-innovation-bootcamp.html">
+        <p class="next-project-label">Next Case Study</p>
+        <h2 class="next-project-title">Global innovation bootcamp</h2>
+        <div class="next-project-line"><span></span></div>
+      </a>
+    </section>
+
   </main>
+
+  <div id="footer-mount"></div>
+  <script>
+    (function() {
+      var path = '../footer.html';
+      fetch(path).then(function(r) { return r.text(); }).then(function(html) {
+        var el = document.getElementById('footer-mount');
+        if (el) el.outerHTML = html;
+      });
+    })();
+  </script>
 
   <!-- Image Preview Modal -->
   <div class="image-modal" id="imageModal">

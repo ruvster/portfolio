@@ -82,153 +82,42 @@
       margin-top: 10px !important;
     }
 
-    .project-grid-2 + .project-figure-caption,
-    .project-grid-3 + .project-figure-caption {
-      margin-top: -30px !important;
-    }
-
-    /* Film-strip galleries (desktop + mobile) */
+    /* Standard image grid */
     .project-grid-2,
     .project-grid-3 {
-      display: flex;
+      display: grid;
       gap: 8px;
       margin: 40px 0;
       width: 100%;
-      max-width: 100%;
-      overflow-x: hidden;
-      overflow-y: hidden;
-      scroll-snap-type: x proximity;
-      -webkit-overflow-scrolling: touch;
-      padding-bottom: 8px;
-      scrollbar-width: none;
-      -ms-overflow-style: none;
     }
 
-    .project-grid-2.has-overflow,
-    .project-grid-3.has-overflow {
-      overflow-x: auto;
+    .project-grid-2 {
+      grid-template-columns: repeat(2, 1fr);
     }
 
-    .project-grid-3:not(.has-overflow) {
-      justify-content: center;
-    }
-
-    .project-grid-2::-webkit-scrollbar,
-    .project-grid-3::-webkit-scrollbar {
-      display: none;
-    }
-
-    .project-grid-tight {
-      gap: 8px;
-    }
-
-    .project-grid-hug {
-      display: grid;
-      grid-template-columns: repeat(2, max-content);
-      justify-content: center;
-      gap: 16px;
-      width: fit-content;
-      max-width: 100%;
-      margin-left: auto;
-      margin-right: auto;
-      overflow: visible;
-      padding-bottom: 0;
-    }
-
-    .project-grid-hug .project-figure {
-      flex: initial;
-    }
-
-    .project-grid-hug .project-figure-image {
-      width: auto;
-      max-width: min(44vw, 620px);
-      height: auto;
-      min-height: 220px;
-    }
-
-    .project-grid-hug .project-figure-image img,
-    .project-grid-hug .project-figure-image video {
-      width: auto;
-      max-width: min(44vw, 620px);
-      height: auto;
-      max-height: 420px;
-      object-fit: contain;
-    }
-
-    .project-grid-2:has(> :nth-child(2):last-child),
-    .project-grid-3:has(> :nth-child(2):last-child) {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      justify-content: center;
-      overflow: visible;
-      padding-bottom: 0;
-    }
-
-    .project-grid-2.project-grid-tight:has(> :nth-child(2):last-child) {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-
-    .project-grid-2:has(> :nth-child(2):last-child) .project-figure,
-    .project-grid-3:has(> :nth-child(2):last-child) .project-figure {
-      flex: initial;
+    .project-grid-3 {
+      grid-template-columns: repeat(3, 1fr);
     }
 
     .project-grid-2 .project-figure,
     .project-grid-3 .project-figure {
       margin: 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      flex: 0 0 clamp(280px, 30vw, 420px);
-      scroll-snap-align: start;
-    }
-
-    .project-grid-tight .project-figure {
-      flex-basis: clamp(220px, 24vw, 320px);
-    }
-
-    .project-grid-3.project-grid-4up .project-figure {
-      flex-basis: clamp(240px, 26vw, 340px);
-    }
-
-    .project-grid-3.project-grid-5up .project-figure {
-      flex-basis: clamp(220px, 22vw, 300px);
     }
 
     .project-grid-2 .project-figure-image,
     .project-grid-3 .project-figure-image {
+      aspect-ratio: 4 / 3;
       width: 100%;
-      max-width: 100%;
-      height: 220px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
       overflow: hidden;
-      padding: 10px;
-      background: rgba(255, 255, 255, 0.72);
-      border: 1px solid rgba(26, 23, 20, 0.14);
-    }
-
-    .project-grid-tight .project-figure-image {
-      height: 220px;
-    }
-
-    .project-grid-2 .project-figure-image img {
-      width: 100%;
-      max-width: 100%;
-      max-height: 100%;
-      height: 100%;
-      object-fit: contain;
-      object-position: center;
+      border-radius: 4px;
       display: block;
     }
 
+    .project-grid-2 .project-figure-image img,
     .project-grid-3 .project-figure-image img {
       width: 100%;
-      max-width: 100%;
       height: 100%;
-      object-fit: contain;
+      object-fit: cover;
       object-position: center;
       display: block;
     }
@@ -236,18 +125,10 @@
     .project-grid-2 .project-figure-image video,
     .project-grid-3 .project-figure-image video {
       width: 100%;
-      max-width: 100%;
       height: 100%;
-      object-fit: contain;
-      object-position: center;
+      object-fit: cover;
       display: block;
       background: #000;
-    }
-
-    .project-grid-2 .project-figure-caption,
-    .project-grid-3 .project-figure-caption {
-      width: 100%;
-      text-align: center;
     }
 
     /* Per-page quote adjustments */
@@ -338,52 +219,19 @@
 
     /* Responsive */
     @media (max-width: 860px) {
-      .project-grid-2,
       .project-grid-3 {
-        gap: 8px;
-      }
-
-      .project-grid-2:has(> :nth-child(2):last-child),
-      .project-grid-3:has(> :nth-child(2):last-child) {
-        grid-template-columns: repeat(2, minmax(0, 1fr));
-      }
-
-      .project-grid-2 .project-figure,
-      .project-grid-3 .project-figure {
-        flex-basis: clamp(260px, 64vw, 360px);
-      }
-
-      .project-grid-tight .project-figure {
-        flex-basis: clamp(240px, 58vw, 320px);
+        grid-template-columns: repeat(2, 1fr);
       }
 
       .project-meta {
         grid-template-columns: 1fr;
         gap: 24px;
       }
-
-      .project-grid-hug {
-        grid-template-columns: 1fr;
-        width: 100%;
-      }
-
-      .project-grid-hug .project-figure-image,
-      .project-grid-hug .project-figure-image img,
-      .project-grid-hug .project-figure-image video {
-        width: 100%;
-        max-width: 100%;
-      }
     }
 
     @media (max-width: 600px) {
       .project-section {
         margin-bottom: 60px;
-      }
-
-      .project-grid-2:has(> :nth-child(2):last-child),
-      .project-grid-3:has(> :nth-child(2):last-child) {
-        grid-template-columns: 1fr;
-        max-width: 100%;
       }
 
       .project-section-title {
@@ -397,17 +245,8 @@
 
       .project-grid-2,
       .project-grid-3 {
-        gap: 8px;
+        grid-template-columns: 1fr;
         margin: 32px 0;
-      }
-
-      .project-grid-2 .project-figure,
-      .project-grid-3 .project-figure {
-        flex-basis: 78vw;
-      }
-
-      .project-grid-tight .project-figure {
-        flex-basis: 72vw;
       }
 
       .project-image {
@@ -435,12 +274,6 @@
       .project-grid-3 {
         gap: 8px;
         margin: 24px 0;
-      }
-
-      .project-grid-2 .project-figure,
-      .project-grid-3 .project-figure,
-      .project-grid-tight .project-figure {
-        flex-basis: 84vw;
       }
     }
   </style>
@@ -572,7 +405,7 @@
         <p>On day 2 we ventured out from the bootcamp venue to conduct customer interviews. For our idea we visited a local farmers market to speak directly with farmers and suppliers, using the insights we gathered out in the field to revisit the problem space. After interviewing different parties in the supply chain, we clarified one of the assumptions we had and found that financing was not the biggest pain, the least for farmers in fact. What we actually learnt was that farmers sought knowledge and information that would help them operate their farm better.</p>
       </div>
 
-      <div class="project-grid-3 project-grid-4up">
+      <div class="project-grid-3">
         <div class="project-figure">
           <div class="project-figure-image">
             <img src="../assets/projects/global-innovation-bootcamp/field-1.jpg" alt="Farmers market customer interview">
@@ -605,8 +438,7 @@
         </div>
       </div>
 
-
-      <div class="project-figure-caption" style="margin-top: -8px;">Day 2 — customer interviews at a local farmers market</div>
+      <div class="project-figure-caption">Day 2 — customer interviews at a local farmers market</div>
     </section>
 
     <!-- DIVERGE SECTION -->
@@ -616,7 +448,7 @@
         <p>Day 3 we used divergent thinking to come up with possible solutions to our problem. Then designed experiments around them to validate.</p>
       </div>
 
-      <div class="project-grid-3 project-grid-4up">
+      <div class="project-grid-2">
         <div class="project-figure">
           <div class="project-figure-image">
             <img src="../assets/projects/global-innovation-bootcamp/diverge-1.jpg" alt="Experiment map on wall">
@@ -639,25 +471,25 @@
         </div>
       </div>
 
-      <div class="project-figure-caption" style="margin-top: -8px; margin-bottom: 48px;">Some of the templates and exercises we had to complete</div>
+      <div class="project-figure-caption" style="margin-bottom: 48px;">Some of the templates and exercises we had to complete</div>
 
       <div class="project-section-text">
         <p>Our initial solution was to provide a data sharing platform on which a farmer would share data about its farming practices to which a supplier could then utilise to produce a personalised report back to the farmer highlighting areas of improvement. Partners could also use the platform as a way to provide its data gathering technologies like crop sensors. With this in mind our first experiment was to design a sample report which would be put in front of a farmer to gauge their reaction. I worked closely with the team to first sketch out a template for the report, then designed it in Sketch.</p>
       </div>
-    <div class="project-grid-2 project-grid-tight project-grid-hug">
-      <div class="project-figure">
-        <div class="project-figure-image">
-          <img src="../assets/projects/global-innovation-bootcamp/sample-report-1.png" alt="Sample farmer report I designed in Sketch, showing farm profile, benchmark data and partner portfolio">
+      <div class="project-grid-2">
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/global-innovation-bootcamp/sample-report-1.png" alt="Sample farmer report I designed in Sketch, showing farm profile, benchmark data and partner portfolio">
+          </div>
+        </div>
+        <div class="project-figure">
+          <div class="project-figure-image">
+            <img src="../assets/projects/global-innovation-bootcamp/sample-report-2.png" alt="Sample farmer report I designed in Sketch, showing farm profile, benchmark data and partner portfolio">
+          </div>
         </div>
       </div>
-      <div class="project-figure">
-        <div class="project-figure-image">
-          <img src="../assets/projects/global-innovation-bootcamp/sample-report-2.png" alt="Sample farmer report I designed in Sketch, showing farm profile, benchmark data and partner portfolio">
-        </div>
-      </div>
-    </div>
 
-    <div class="project-figure-caption" style="margin-top: -8px;">Sample report I designed</div>
+      <div class="project-figure-caption">Sample report I designed</div>
     </section>
 
     <!-- CONVERGE SECTION -->
@@ -687,7 +519,7 @@
         </div>
       </div>
 
-      <div class="project-figure-caption project-figure-caption--pulled">One of our experiments</div>
+      <div class="project-figure-caption">One of our experiments</div>
     </section>
 
     <!-- PIVOT OR PERSEVERE SECTION -->
@@ -712,7 +544,7 @@
         <p>Day 6 we continued to run more experiments, completed the roadmap and started creating the pitch and slides.</p>
       </div>
 
-      <div class="project-grid-2 project-grid-tight project-grid-hug">
+      <div class="project-grid-2">
         <div class="project-figure">
           <div class="project-figure-image">
             <img src="../assets/projects/global-innovation-bootcamp/breakthrough-1.jpg" alt="Mapping out our pitch on the wall">
@@ -725,7 +557,7 @@
         </div>
       </div>
 
-      <div class="project-figure-caption" style="margin-top: -8px; margin-bottom: 48px;">Mapping out our pitch and business model</div>
+      <div class="project-figure-caption" style="margin-bottom: 48px;">Mapping out our pitch and business model</div>
 
       <div class="project-section-text">
         <p>We had a breakthrough with our experiments in validating our riskiest assumptions — whether both farmers and experts would be willing to go online to both ask and answer questions. We tested this by first sending out a registration link to 106 farmers, across Europe, to register for Aggy. 22 responded and in addition we received 66 questions. By analysing these questions we were able to generate insights into what information farmers were seeking.</p>
@@ -741,7 +573,7 @@
       <div class="project-section-text">
         <p>Day 7 was d-day aka pitch day. It was a pretty chaotic day as we were still preparing right up until it was our time to pitch. It was a great relief to get through to the final and we received complimentary comments, leaving our mark as the one's to beat.</p>
       </div>
-      <div class="project-grid-2 project-grid-tight">
+      <div class="project-grid-2">
         <div class="project-figure">
           <div class="project-figure-image">
             <video controls preload="metadata" aria-label="Aggy team pitch-day video">
@@ -755,7 +587,7 @@
           </div>
         </div>
       </div>
-      <div class="project-figure-caption" style="margin-top: -8px;">Pitch-day video and team photo</div>
+      <div class="project-figure-caption">Pitch-day video and team photo</div>
     </section>
 
     <!-- THE FINAL SECTION -->
@@ -776,7 +608,7 @@
         <p>We also wanted to include a video in our presentation, so we engaged a production team in Amsterdam. To help convey our message across I created a rough storyboard.</p>
       </div>
 
-      <div class="project-grid-2 project-grid-tight">
+      <div class="project-grid-2">
         <div class="project-figure">
           <div class="project-figure-image">
             <img src="../assets/projects/global-innovation-bootcamp/storyboard-1.png" alt="Aggy video storyboard showing frames with descriptions">
@@ -789,7 +621,7 @@
         </div>
       </div>
 
-        <div class="project-figure-caption" style="margin-bottom: 36px;">Storyboard I put together for our video</div>
+      <div class="project-figure-caption" style="margin-bottom: 36px;">Storyboard I put together for our video</div>
      
       <div class="project-section-text">
         <p>Once the video was taking shape, I recorded the voiceovers. It was quite a back and forth process and a lot of long nights due to the time difference and juggling of work priorities. I'm quite proud of what we managed to achieve. The video also succinctly conveys what Aggy is.</p>
@@ -803,7 +635,7 @@
         </div>
       </div>
 
-      <div class="project-grid-3 project-grid-4up">
+      <div class="project-grid-3">
         <div class="project-figure">
           <div class="project-figure-image">
             <img src="../assets/projects/global-innovation-bootcamp/leaflet-1.png" alt="Aggy leaflet front cover">
@@ -821,7 +653,7 @@
         </div>
       </div>
 
-      <div class="project-figure-caption" style="margin-top: -8px; margin-bottom: 48px;">The leaflet we handed out at our stall</div>
+      <div class="project-figure-caption" style="margin-bottom: 48px;">The leaflet we handed out at our stall</div>
 
       <div class="project-section-text">
         <p>For the final, I was flown out again, to Krakow this time. In the days leading up we were put through pitch training and rehearsals to make sure everything went smoothly on the day. It really felt like a massive tv production.</p>
@@ -835,8 +667,8 @@
       </div>
 
 
-      <div class="project-grid-3 project-grid-4up">
-       <div class="project-figure">
+      <div class="project-grid-3">
+        <div class="project-figure">
           <div class="project-figure-image">
             <img src="../assets/projects/global-innovation-bootcamp/venue-1.jpg" alt="Krakow venue exterior with bootcamp welcome signage">
           </div>
@@ -863,26 +695,26 @@
         </div>
       </div>
 
-      <div class="project-figure-caption" style="margin-top: -8px; margin-bottom: 48px;">The venue</div>
+      <div class="project-figure-caption" style="margin-bottom: 48px;">The venue</div>
 
       <div class="project-section-text">
         <p>Presenting in front of a live studio audience (that included the global CEO), was one of the most nerve wracking and thrilling experiences I've ever gone through.</p>
       </div>
 
-      <div class="project-grid-2 project-grid-tight">
+      <div class="project-grid-2">
         <div class="project-figure">
           <div class="project-figure-image">
-            <img src="../assets/projects/global-innovation-bootcamp/pitch-1.jpg" alt="Pitching on the main stage at the innovation bootcamp final">
+            <img src="../assets/projects/global-innovation-bootcamp/pitch-1.jpg" alt="Pitching on the main stage at the innovation bootcamp final picture 1">
           </div>
         </div>
         <div class="project-figure">
           <div class="project-figure-image">
-            <img src="../assets/projects/global-innovation-bootcamp/pitch-2.JPG" alt="Second pitcher from the Aggy team on stage">
+            <img src="../assets/projects/global-innovation-bootcamp/pitch-2.JPG" alt="Pitching on the main stage at the innovation bootcamp final picture 2">
           </div>
         </div>
       </div>
 
-      <div class="project-figure-caption" style="margin-top: -8px; margin-bottom: 48px;">Pitching in front of a live studio audience, streamed around the world</div>
+      <div class="project-figure-caption" style="margin-bottom: 48px;">Pitching in front of a live studio audience, streamed around the world</div>
 
       <div class="project-section-text">
         <p>Despite not getting through to the accelerator, the whole Bootcamp experience was once in a lifetime and one I'll never forget.</p>
@@ -931,27 +763,14 @@
     const modalImage = document.getElementById('modalImage');
     const modalPrevZone = document.getElementById('modalPrevZone');
     const modalNextZone = document.getElementById('modalNextZone');
-    const filmGrids = Array.from(document.querySelectorAll('.project-grid-2, .project-grid-3'));
-
     // Get all clickable images
     const allImages = Array.from(document.querySelectorAll('.project-figure-image img, .project-image img'));
     let currentImageIndex = -1;
-
-    function updateGridOverflowState() {
-      filmGrids.forEach(grid => {
-        const hasOverflow = grid.scrollWidth > grid.clientWidth + 1;
-        grid.classList.toggle('has-overflow', hasOverflow);
-      });
-    }
-
-    window.addEventListener('resize', updateGridOverflowState);
 
     allImages.forEach((img, index) => {
       img.setAttribute('tabindex', '0');
       img.setAttribute('role', 'button');
       img.setAttribute('aria-haspopup', 'dialog');
-
-      img.addEventListener('load', updateGridOverflowState);
 
       img.addEventListener('click', (e) => {
         e.stopPropagation();

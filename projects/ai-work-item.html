@@ -28,11 +28,11 @@
   </script>
 
   <main id="main-content">
-    <a href="../projects.html" class="project-back"><span aria-hidden="true">←</span> Back to projects</a>
+    <a href="../index.html" class="project-back"><span aria-hidden="true">←</span> Back to work</a>
 
     <div class="project-hero">
       <div class="project-header">
-        <h1 class="project-title">Infusing AI Generative Experiences into Work Item</h1>
+        <h1 class="project-title">Infusing AI generative experiences into the work item</h1>
         <p class="project-summary">Designing intelligence into Jira's most-used surface.</p>
       </div>
 
@@ -255,7 +255,27 @@
         <p>The open question I'm still sitting with is how do you design for appropriate trust in AI experiences? If users trust the AI too little, they’ll ignore it and keep doing the manual work. If they trust it too much, they might miss a critical detail the AI skipped. The density framework is a start — it changes how the AI behaves based on how much data is available — but "calibrated trust" is a design problem we are only just beginning to solve.</p>
       </div>
     </section>
-    
+
+    <!-- Next Case Study -->
+    <section class="next-project" aria-label="Next case study">
+      <a href="jira-ui-kit.html">
+        <p class="next-project-label">Next Case Study</p>
+        <h2 class="next-project-title">Jira UI kit</h2>
+        <div class="next-project-line"><span></span></div>
+      </a>
+    </section>
+
   </main>
+
+  <div id="footer-mount"></div>
+  <script>
+    (function() {
+      var path = '../footer.html';
+      fetch(path).then(function(r) { return r.text(); }).then(function(html) {
+        var el = document.getElementById('footer-mount');
+        if (el) el.outerHTML = html;
+      });
+    })();
+  </script>
 </body>
 </html>

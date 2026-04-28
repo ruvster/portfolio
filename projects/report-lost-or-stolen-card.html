@@ -242,11 +242,11 @@
   </script>
 
   <main id="main-content">
-    <a href="../projects.html" class="project-back"><span aria-hidden="true">←</span> Back to projects</a>
+    <a href="../index.html" class="project-back"><span aria-hidden="true">←</span> Back to work</a>
 
     <div class="project-hero">
       <div class="project-header">
-        <h1 class="project-title">Report Lost or Stolen Card</h1>
+        <h1 class="project-title">Report lost or stolen card</h1>
         <p class="project-summary">Designing and launching a digital self-service journey for card replacement across web and mobile, reducing reliance on contact-centre processing.</p>
       </div>
 
@@ -370,6 +370,27 @@
       <blockquote class="project-quote">"Thanks to Ruvi also. The flow is straight forward and the conversion numbers seem to show this. Around 81% of customers who make it to the first step of card replacement complete the journey."</blockquote>
       
     </section>
+
+    <!-- Next Case Study -->
+    <section class="next-project" aria-label="Next case study">
+      <a href="ai-work-item.html">
+        <p class="next-project-label">Next Case Study</p>
+        <h2 class="next-project-title">Infusing AI generative experiences into the work item</h2>
+        <div class="next-project-line"><span></span></div>
+      </a>
+    </section>
+
   </main>
+
+  <div id="footer-mount"></div>
+  <script>
+    (function() {
+      var path = '../footer.html';
+      fetch(path).then(function(r) { return r.text(); }).then(function(html) {
+        var el = document.getElementById('footer-mount');
+        if (el) el.outerHTML = html;
+      });
+    })();
+  </script>
 </body>
 </html>

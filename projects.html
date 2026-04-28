@@ -65,7 +65,7 @@
       <h2 class="section-heading" id="projects-heading">Projects</h2>
       <div class="work-grid" role="list">
         <a href="projects/ai-work-item.html" class="work-card" role="listitem" aria-label="AI-infused work item experience case study">
-          <div class="card-bg" style="background: #1a2a3f url('assets/projects/ai-work-item/ChatGPTUI2.png') center 24% / 88% auto no-repeat;"></div>
+          <div class="card-bg" style="background: #1a2a3f url('assets/projects/ai-work-item/ChatGPTUI2.png') center center / contain no-repeat;"></div>
           <div class="card-content">
             <span class="card-tag">Research • AI • 2026</span>
             <h3 class="card-title">Infusing AI generative experiences into work item</h3>
@@ -79,7 +79,7 @@
           </div>
         </a>
         <a href="projects/jira-ui-kit.html" class="work-card" role="listitem" aria-label="Jira UI kit case study">
-          <div class="card-bg" style="background: #1a1a1f url('assets/projects/jira-ui-kit/JiraUIKitHero.svg') center 24% / 88% auto no-repeat;"></div>
+          <div class="card-bg" style="background: #1a1a1f url('assets/projects/jira-ui-kit/JiraUIKitHero.svg') center center / contain no-repeat;"></div>
           <div class="card-content">
             <span class="card-tag">Design System • AI • 2026</span>
             <h3 class="card-title">Jira UI kit</h3>
@@ -93,7 +93,7 @@
           </div>
         </a>
         <a href="projects/broker-digital.html" class="work-card" role="listitem">
-          <div class="card-bg" style="background: #1d140d url('assets/projects/broker-digital/hero.png') center 24% / 88% auto no-repeat;"></div>
+          <div class="card-bg" style="background: #1d140d url('assets/projects/broker-digital/hero.png') center center / contain no-repeat;"></div>
           <div class="card-content">
             <span class="card-tag">Product • Product design • 2018</span>
             <h3 class="card-title">Broker digital</h3>
@@ -121,7 +121,7 @@
           </div>
         </a>
         <a href="projects/siri-balance.html" class="work-card" role="listitem">
-          <div class="card-bg" style="background: #1a2026 url('assets/projects/siri-balance/siri-hero.png') center 20% / 92% no-repeat;"></div>
+          <div class="card-bg" style="background: #1a2026 url('assets/projects/siri-balance/siri-hero.png') center center / contain no-repeat;"></div>
           <div class="card-content">
             <span class="card-tag">Voice UX • Product design • 2017</span>
             <h3 class="card-title">Hey Siri, what's my balance?</h3>
@@ -137,7 +137,7 @@
           </div>
         </a>
         <a href="projects/report-lost-or-stolen-card.html" class="work-card" role="listitem">
-          <div class="card-bg" style="background: #2d2420 url('assets/projects/report-lost-or-stolen-card/lost-hero-2.png') center 20% / 92% no-repeat;"></div>
+          <div class="card-bg" style="background: #2d2420 url('assets/projects/report-lost-or-stolen-card/lost-hero-2.png') center center / contain no-repeat;"></div>
           <div class="card-content">
             <span class="card-tag">Banking UX • Lead UX/UI design • 2018</span>
             <h3 class="card-title">Report lost or stolen card</h3>
@@ -203,6 +203,17 @@
         }
       });
     }
+  </script>
+
+  <div id="footer-mount"></div>
+  <script>
+    (function() {
+      var path = window.location.pathname.includes('/projects/') ? '../footer.html' : './footer.html';
+      fetch(path).then(function(r) { return r.text(); }).then(function(html) {
+        var el = document.getElementById('footer-mount');
+        if (el) el.outerHTML = html;
+      });
+    })();
   </script>
 </body>
 </html>

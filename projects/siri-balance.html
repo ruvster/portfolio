@@ -241,11 +241,11 @@
   </script>
 
   <main id="main-content">
-    <a href="../projects.html" class="project-back"><span aria-hidden="true">←</span> Back to projects</a>
+    <a href="../index.html" class="project-back"><span aria-hidden="true">←</span> Back to work</a>
 
     <div class="project-hero">
       <div class="project-header">
-        <h1 class="project-title">Hey Siri, What's My Balance?</h1>
+        <h1 class="project-title">Hey Siri, what's my balance?</h1>
         <p class="project-summary">Designing Australia's first Siri banking experience for fast, trustworthy voice-based balance checks.</p>
       </div>
 
@@ -263,17 +263,13 @@
           <div class="meta-value">Voice UX, conversational banking MVP, SiriKit constraints</div>
         </div> -->
       </div>
-    </div>
+    
 
-    <section class="project-section" aria-labelledby="tldr-heading">
-      <!-- <h2 class="project-section-title" id="tldr-heading">TL;DR</h2> -->
-      <div class="tldr-strip">
-        <article class="tldr-card">
-          <span class="tldr-label">Summary</span>
-          <div class="tldr-value">I designed Australia's first Siri banking experience to test how voice could become a practical part of everyday banking. As lead designer, I helped shape the MVP from early opportunity framing through to launch. I worked across innovation, marketing, engineering, and customer intelligence teams to define the experience, test the concept against customer demand, and translate platform constraints into a product the team could ship with confidence. My efforts resulted in an experience that launched quickly and created a foundation for future voice led services.</div>
-        </article>
+      <div class="reflection-note">
+        <div class="phase-kicker">Summary</div>
+        <p>I designed Australia's first Siri banking experience to test how voice could become a practical part of everyday banking. As lead designer, I helped shape the MVP from early opportunity framing through to launch. I worked across innovation, marketing, engineering, and customer intelligence teams to define the experience, test the concept against customer demand, and translate platform constraints into a product the team could ship with confidence. My efforts resulted in an experience that launched quickly and created a foundation for future voice led services.</p>
       </div>
-    </section>
+    </div>
 
     <section class="project-section">
       <h2 class="project-section-title">Overview</h2>
@@ -362,7 +358,28 @@
         In emerging spaces, a tightly scoped MVP can still create strong customer value when it is evidence-led, designed for trust, and treated as a platform for learning rather than a final state.
       </div>
     </section> -->
+
+    <!-- Next Case Study -->
+    <section class="next-project" aria-label="Next case study">
+      <a href="report-lost-or-stolen-card.html">
+        <p class="next-project-label">Next Case Study</p>
+        <h2 class="next-project-title">Report lost or stolen card</h2>
+        <div class="next-project-line"><span></span></div>
+      </a>
+    </section>
+
   </main>
+
+  <div id="footer-mount"></div>
+  <script>
+    (function() {
+      var path = '../footer.html';
+      fetch(path).then(function(r) { return r.text(); }).then(function(html) {
+        var el = document.getElementById('footer-mount');
+        if (el) el.outerHTML = html;
+      });
+    })();
+  </script>
 
   <div class="image-modal" id="imageModal" aria-hidden="true">
     <div class="image-modal-content">

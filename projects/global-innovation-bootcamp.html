@@ -76,10 +76,18 @@
       letter-spacing: 0.06em;
       color: var(--warm-mid);
       text-align: center;
+      margin-top: 10px;
+      margin-left: auto;
+      margin-right: auto;
     }
 
     .project-figure > .project-figure-caption {
-      margin-top: 10px !important;
+      margin-top: 10px;
+    }
+
+    .project-grid-2 + .project-figure-caption,
+    .project-grid-3 + .project-figure-caption {
+      margin-top: -14px;
     }
 
     /* Standard image grid */
@@ -87,7 +95,8 @@
     .project-grid-3 {
       display: grid;
       gap: 8px;
-      margin: 40px 0;
+      margin-top: 16px;
+      /* margin-bottom: 16px; */
       width: 100%;
     }
 
@@ -117,7 +126,7 @@
     .project-grid-3 .project-figure-image img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       object-position: center;
       display: block;
     }
@@ -126,7 +135,7 @@
     .project-grid-3 .project-figure-image video {
       width: 100%;
       height: 100%;
-      object-fit: cover;
+      object-fit: contain;
       display: block;
       background: #000;
     }
@@ -206,6 +215,25 @@
       background: rgba(255, 255, 255, 0.04);
     }
 
+    .image-modal-close {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 4px 8px;
+      transition: color 0.15s;
+      z-index: 1001;
+    }
+
+    .image-modal-close:hover {
+      color: #fff;
+    }
+
     .project-figure-image,
     .project-image {
       cursor: pointer;
@@ -246,7 +274,7 @@
       .project-grid-2,
       .project-grid-3 {
         grid-template-columns: 1fr;
-        margin: 32px 0;
+        margin: 0 0;
       }
 
       .project-image {
@@ -273,7 +301,7 @@
       .project-grid-2,
       .project-grid-3 {
         gap: 8px;
-        margin: 24px 0;
+        margin: 0;
       }
     }
   </style>
@@ -471,7 +499,7 @@
         </div>
       </div>
 
-      <div class="project-figure-caption" style="margin-bottom: 48px;">Some of the templates and exercises we had to complete</div>
+      <div class="project-figure-caption">Some of the templates and exercises we had to complete</div>
 
       <div class="project-section-text">
         <p>Our initial solution was to provide a data sharing platform on which a farmer would share data about its farming practices to which a supplier could then utilise to produce a personalised report back to the farmer highlighting areas of improvement. Partners could also use the platform as a way to provide its data gathering technologies like crop sensors. With this in mind our first experiment was to design a sample report which would be put in front of a farmer to gauge their reaction. I worked closely with the team to first sketch out a template for the report, then designed it in Sketch.</p>
@@ -557,7 +585,7 @@
         </div>
       </div>
 
-      <div class="project-figure-caption" style="margin-bottom: 48px;">Mapping out our pitch and business model</div>
+      <div class="project-figure-caption">Mapping out our pitch and business model</div>
 
       <div class="project-section-text">
         <p>We had a breakthrough with our experiments in validating our riskiest assumptions — whether both farmers and experts would be willing to go online to both ask and answer questions. We tested this by first sending out a registration link to 106 farmers, across Europe, to register for Aggy. 22 responded and in addition we received 66 questions. By analysing these questions we were able to generate insights into what information farmers were seeking.</p>
@@ -621,7 +649,7 @@
         </div>
       </div>
 
-      <div class="project-figure-caption" style="margin-bottom: 36px;">Storyboard I put together for our video</div>
+      <div class="project-figure-caption">Storyboard I put together for our video</div>
      
       <div class="project-section-text">
         <p>Once the video was taking shape, I recorded the voiceovers. It was quite a back and forth process and a lot of long nights due to the time difference and juggling of work priorities. I'm quite proud of what we managed to achieve. The video also succinctly conveys what Aggy is.</p>
@@ -653,7 +681,7 @@
         </div>
       </div>
 
-      <div class="project-figure-caption" style="margin-bottom: 48px;">The leaflet we handed out at our stall</div>
+      <div class="project-figure-caption">The leaflet we handed out at our stall</div>
 
       <div class="project-section-text">
         <p>For the final, I was flown out again, to Krakow this time. In the days leading up we were put through pitch training and rehearsals to make sure everything went smoothly on the day. It really felt like a massive tv production.</p>
@@ -695,7 +723,7 @@
         </div>
       </div>
 
-      <div class="project-figure-caption" style="margin-bottom: 48px;">The venue</div>
+      <div class="project-figure-caption">The venue</div>
 
       <div class="project-section-text">
         <p>Presenting in front of a live studio audience (that included the global CEO), was one of the most nerve wracking and thrilling experiences I've ever gone through.</p>
@@ -714,7 +742,7 @@
         </div>
       </div>
 
-      <div class="project-figure-caption" style="margin-bottom: 48px;">Pitching in front of a live studio audience, streamed around the world</div>
+      <div class="project-figure-caption">Pitching in front of a live studio audience, streamed around the world</div>
 
       <div class="project-section-text">
         <p>Despite not getting through to the accelerator, the whole Bootcamp experience was once in a lifetime and one I'll never forget.</p>
@@ -751,6 +779,7 @@
   <!-- Image Preview Modal -->
   <div class="image-modal" id="imageModal">
     <div class="image-modal-content">
+      <button class="image-modal-close" id="modalClose" aria-label="Close image">&times;</button>
       <div class="image-modal-nav-zone image-modal-prev-zone" id="modalPrevZone" aria-hidden="true"></div>
       <div class="image-modal-nav-zone image-modal-next-zone" id="modalNextZone" aria-hidden="true"></div>
       <img class="image-modal-image" id="modalImage" src="" alt="">
@@ -761,6 +790,7 @@
     // Image preview modal
     const imageModal = document.getElementById('imageModal');
     const modalImage = document.getElementById('modalImage');
+    const modalClose = document.getElementById('modalClose');
     const modalPrevZone = document.getElementById('modalPrevZone');
     const modalNextZone = document.getElementById('modalNextZone');
     // Get all clickable images
@@ -787,8 +817,6 @@
       });
     });
 
-    updateGridOverflowState();
-
     function showImage(index) {
       const img = allImages[index];
       modalImage.src = img.src;
@@ -813,6 +841,11 @@
     modalNextZone.addEventListener('click', (e) => {
       e.stopPropagation();
       navigateImage(1);
+    });
+
+    modalClose.addEventListener('click', () => {
+      imageModal.classList.remove('open');
+      document.body.classList.remove('no-scroll');
     });
 
     imageModal.addEventListener('click', (e) => {

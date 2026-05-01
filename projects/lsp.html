@@ -11,45 +11,6 @@
   <link rel="stylesheet" href="../styles.css">
   <link rel="stylesheet" href="../css/project-styles.css">
   <style>
-    .project-section {
-      margin-bottom: 64px;
-    }
-
-    .project-section-title {
-      margin-bottom: 24px;
-    }
-
-    .project-section-list {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      margin: 14px 0 0;
-      padding: 0;
-    }
-
-    .project-section-list li {
-      font-size: inherit;
-      font-weight: inherit;
-      line-height: inherit;
-      color: var(--ink);
-      padding-left: 20px;
-      position: relative;
-      margin: 0;
-    }
-
-    .project-section-list li::before {
-      content: '';
-      position: absolute;
-      left: 2px;
-      top: 0.9em;
-      width: 4px;
-      height: 4px;
-      border-radius: 50%;
-      background: var(--accent);
-      transform: translateY(-50%);
-    }
-
     .project-image {
       width: 100%;
       margin: 34px 0;
@@ -69,7 +30,7 @@
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 14px;
-      margin: 26px 0 34px;
+      margin: 26px 0 8px;
     }
 
     .project-grid-2 .project-image {
@@ -80,7 +41,7 @@
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
-      margin: 26px 0 34px;
+      margin: 26px 0 8px;
     }
 
     .project-grid-3 .project-image {
@@ -94,13 +55,48 @@
       letter-spacing: 0.06em;
       color: var(--warm-mid);
       text-align: center;
-      margin-top: -8px;
+      margin-top: 10px;
       margin-bottom: 28px;
     }
 
     .project-quote {
       padding: 26px 30px;
-      margin: 34px 0;
+      margin: 20px 0;
+    }
+
+    /* Duration badge inside a section */
+    .section-duration {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+      margin-bottom: 0;
+    }
+
+    /* Subsection headings inside the right content column */
+    .project-section-text .subsection-title {
+      margin-top: 36px;
+      font-size: 18px;
+    }
+
+    .project-section-text .subsection-title:first-child {
+      margin-top: 0;
+    }
+
+    /* Italic sub-labels (How we ran it, Test Lab, etc.) */
+    .subsection-label {
+      font-size: 17px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--warm-mid);
+      margin-top: 28px;
+      margin-bottom: 6px;
+    }
+
+    .subsection-label:first-child {
+      margin-top: 0;
     }
 
     @media (max-width: 800px) {
@@ -216,6 +212,176 @@
         </figure>
       </div>
       <p class="project-caption">Two customer personas and a user journey map created from customer interviews and survey analysis, covering triggers, research, purchase, manage and renew phases.</p>
+    </section>
+
+    <!-- ── OCCUPATION LOOKUP TOOL ── -->
+    <section class="project-section">
+      <h2 class="project-section-title">Occupation Lookup Tool</h2>
+
+      <p class="section-duration">March 2013 – July 2013</p>
+
+      <div class="project-section-text">
+        <h3 class="subsection-title">Overview</h3>
+        <p>The Commercial Insurance business had multiple occupation lists in use across their application landscape. This is a big issue that the insurance industry as a whole had been facing for a long time as all insurers use different lists making it difficult for intermediaries and staff to know which code best describes the core function of business customers. The purpose of the Occupation Lookup tool was to provide a consistent and accurate view of the various occupation data sets, removing the need for paper folders to exist and gather dust on peoples desk.</p>
+
+        <h3 class="subsection-title">Discovery</h3>
+        <p>To understand the problem space and analyse the current state we had a look at our existing applications as well as competitor solutions.</p>
+      </div>
+
+      <div class="project-grid-2">
+        <figure class="project-image">
+          <img src="../assets/projects/lsp/olt-discovery-1.png" alt="Zurich Car Insurance occupation search — two states showing matched and unmatched results">
+        </figure>
+        <figure class="project-image">
+          <img src="../assets/projects/lsp/olt-discovery-2.png" alt="GIO Workers Compensation Online — ANZSIC search interface">
+        </figure>
+      </div>
+
+      <div class="project-section-text">
+        <h3 class="subsection-title">Collaborative Design Workshop</h3>
+        <p>The workshop involved the business and subject matter experts (SMEs) alongside members of the delivery team. We began the workshop by running through the Discovery work that had been completed. The room was then divided into two, with each group taking on a persona of either a direct or intermediary customer.</p>
+
+        <h3 class="subsection-title">Interactive, Incentivised Design Wall</h3>
+        <p>As another way of sourcing ideas, we set up an interactive design wall on a whiteboard with high foot traffic.</p>
+      </div>
+
+      <div class="project-grid-2">
+        <figure class="project-image">
+          <img src="../assets/projects/lsp/olt-workshop-freddo.jpg" alt="'Want a Freddo?' incentive poster for the interactive design wall activity">
+        </figure>
+        <figure class="project-image">
+          <img src="../assets/projects/lsp/olt-workshop-wall.jpg" alt="Interactive design wall whiteboard with handwritten search UI and participant annotations">
+        </figure>
+      </div>
+
+      <div class="project-section-text">
+        <h3 class="subsection-title">Wireframes</h3>
+        <p>The outputs from all of the design activities were then consolidated into Balsamiq wireframes.</p>
+      </div>
+
+      <figure class="project-image">
+        <img src="../assets/projects/lsp/olt-wireframes.png" alt="Balsamiq wireframes for the Occupation Lookup tool showing search flow and results">
+      </figure>
+
+      <div class="project-section-text">
+        <h3 class="subsection-title">The Final Product</h3>
+        <p>The first release of the occupation lookup tool was developed for internal use only, used by underwriters and contact centre staff. The tool was launched to improve accessibility, consistency and accuracy with using ANZSIC data. The work done for direct customers was saved for future initiatives with the intention of reuse. Since its release, the tool has received strong feedback from its business users.</p>
+      </div>
+
+      <div class="project-grid-2">
+        <figure class="project-image">
+          <img src="../assets/projects/lsp/olt-final-ui.png" alt="Industry Search interface showing ANZSIC lookup with search results and class descriptions">
+        </figure>
+        <figure class="project-image">
+          <img src="../assets/projects/lsp/olt-final-specs.png" alt="Typography and style specifications for the Occupation Lookup tool">
+        </figure>
+      </div>
+
+      <blockquote class="project-quote">"I find this to be a very friendly tool now accessible to all users which provides invaluable information at the touch of a button."</blockquote>
+      <blockquote class="project-quote">"I think the best attribute of the tool is that it allows us to work in a faster way [...] it's very easy to use, and we can get a result instantly."</blockquote>
+    </section>
+
+    <!-- ── WORKERS COMPENSATION ── -->
+    <section class="project-section">
+      <h2 class="project-section-title">Workers Compensation</h2>
+
+      <p class="section-duration">March 2014 – November 2014</p>
+
+      <div class="project-section-text">
+        <h3 class="subsection-title">Overview</h3>
+        <p>The first cab off the rank for LSP was a direct customer offering of Workers Compensation (WC) for underwritten states. WC is insurance to cover a business' employees in the advent of an injury or disease that occurs at work. WC Direct Online will provide businesses with an online quoting capability portal for small and medium enterprise customers in underwritten states who meet key criteria.</p>
+
+        <h3 class="subsection-title">The Team and My Role</h3>
+        <p>Our delivery team in the Digital stream of work consisted of about 9 developers, 2 testers, 2 Business Analysts (BA's), 2 UX designers and an Iteration Manager (IM) across Australia and China. I partnered with a fellow UX Designer to take charge of the UX work for the digital stream. Activities ranged from facilitating design workshops, analysis and mind-mapping, wireframing and prototyping, running usability tests to writing requirements and pairing with developers. We worked closely with a WC business subject matter expert (SME) and members from the commercial insurance digital distribution team.</p>
+
+        <h3 class="subsection-title">Workshopping</h3>
+        <p>We kicked things off by holding a design workshop with the goal of having the entire screen flow and question set nailed down. The workshop involved members from the project delivery team, digital distribution, call centre staff and representatives from the program delivery level. We wanted to ease everyone into the design jam by having various activities leading up to the sketching exercise.</p>
+      </div>
+
+      <div class="project-grid-2">
+        <figure class="project-image">
+          <img src="../assets/projects/lsp/wc-workshop-itinerary.png" alt="Workshop itinerary slide listing intros, vision, inspiration, $MJ session and sketching exercise">
+        </figure>
+        <figure class="project-image">
+          <img src="../assets/projects/lsp/wc-workshop-photo.jpg" alt="Delivery team collaborating in a workshop session around a large table covered in sketches and sticky notes">
+        </figure>
+      </div>
+
+      <div class="project-section-text">
+        <p>Overall the day ran smoothly and brought to light pertinent questions that needed immediate attention. We weren't as strict as we should have been with time, letting valuable conversations play out, and so the latter part of the day felt rushed, despite this we came out with a lot of ideas. The sketches from the workshop we then distilled into two distinct screen flows that were then iterated upon with a subset of the attendees.</p>
+
+        <h3 class="subsection-title">The Approach</h3>
+        <p>When designing the entire flow, the principles that defined our approach were "quick to price" and ask questions from "easy to hard". This guided the way we grouped and laid out the questions. Using pen and paper to sketch with initially, if there were any tricky interactions that needed to be figured out we would flesh them out on the whiteboard. These would then be translated into Balsamiq mock-ups attached to the relevant JIRA card. This helped with version control and in collaborating with the BA's, developers and testers on requirements.</p>
+        <p>For the look and feel of the application, we had the advantage of having an existing corporate style guide to follow. This helped immensely in both the design and development of the various components.</p>
+      </div>
+
+      <figure class="project-image">
+        <img src="../assets/projects/lsp/wc-evolution.png" alt="Evolution of the Workers Compensation design — from sketch to wireframe to production">
+      </figure>
+      <p class="project-caption">Evolution of the design — from sketch to wireframe to production</p>
+
+      <div class="project-section-text">
+        <h3 class="subsection-title">Adopting the Occupation Lookup Tool for Direct</h3>
+        <p>Having previously delivered the occupation search tool for internal customers our challenge was to adapt this for direct customers.</p>
+        <p>One of the main changes we proposed was to make the choice of ANZSIC more deliberate; that is to discourage "near enough is good enough thinking". At the same time we wanted to make the results better, more relevant, more attuned to how customers think and talk about their business. And so, we looked at a couple of things, changing the order of the way results are presented, promoting the best match to the top of the search list; increasing the matching potential of searches by various means, for example adding keywords and defining customer-friendly names.</p>
+        <p>In the pursuit of these ideas I was playing around with the ANZSIC search on the Australian Bureau of Statistics (ABS) site and found that for the same search term it returned more results than our current search tool and that some of the results were activities not found on the list of primary activities nor in the detailed description. With a bit of digging around we managed to obtain a copy of the ABS index file, enriching the data set and increasing the chances of matching the customer's search term with an entry in our tool. Taking into consideration the time we had left and other constraints, we produced the following wireframes.</p>
+      </div>
+
+      <div class="project-grid-2">
+        <figure class="project-image">
+          <img src="../assets/projects/lsp/wc-wireframes-1.png" alt="Occupation lookup wireframes for direct — ANZSIC lookup search and results states">
+        </figure>
+        <figure class="project-image">
+          <img src="../assets/projects/lsp/wc-wireframes-2.png" alt="Occupation lookup wireframes for direct — detail view and selection states">
+        </figure>
+      </div>
+
+      <div class="project-section-text">
+        <p>For this particular feature, having previously worked on the lookup tool, I took on the role of BA as well as UX. This entailed analysing and writing requirements into a mind map, holding elaboration sessions with testers, developers and SMEs as well as pairing with developers for styling and interaction design.</p>
+      </div>
+
+      <figure class="project-image">
+        <img src="../assets/projects/lsp/wc-elaboration.png" alt="Elaborated user story mind map showing screen flows and interaction specifications">
+      </figure>
+      <p class="project-caption">A snippet from one of the elaborated stories</p>
+
+      <div class="project-section-text">
+        <h3 class="subsection-title">Usability Testing</h3>
+        <p>After struggling to gain funding from the program, we managed to get approval to run two rounds of usability testing. The first test we ran was around the proposed screen flow and question set of the WC direct offering. As we had only previously sold workers through brokers and intermediaries we wanted to get a better understanding of whether the question flow was logical and understandable. For the second round of testing we tested the entire application with a focus on the newly tweaked ANZSIC lookup.</p>
+
+        <p class="subsection-label">How we ran it</p>
+        <p>For recruiting participants we went through an agency providing them with a screener for recruitment. For the first test we ran the sessions as blind tests by removing any traces of branding. That meant pulling posters down putting up signs to cover signage. We did this to remove any brand influence or bias on the test. We were less strict with the second round.</p>
+      </div>
+
+      <div class="project-grid-2">
+        <figure class="project-image">
+          <img src="../assets/projects/lsp/wc-recruited.png" alt="Who we recruited — participant screener criteria including age, industry and business profile">
+        </figure>
+        <figure class="project-image">
+          <img src="../assets/projects/lsp/wc-lab.jpg" alt="Lab set-up showing observation room with screens and facilitator station">
+        </figure>
+      </div>
+
+      <div class="project-section-text">
+        <p class="subsection-label">Test Lab</p>
+        <p>Myself and a fellow UX Designer were in the room with the participant, taking turns facilitating the test and note taking.</p>
+
+        <p class="subsection-label">Observation Room</p>
+        <p>We live streamed the session to an adjoining observation room where we invited key stakeholders to watch.</p>
+
+        <p class="subsection-label">Learnings</p>
+        <p>For the first round we made the mistake of spreading the testing sessions throughout the day, which meant we had to hold debrief on a different day. We rectified this in the second round by scheduling all the sessions in the morning and debrief in the afternoon. This worked a lot better as the insights from the morning sessions were still fresh in everyone's minds. Another lesson learnt was to ensure all required stakeholders are present to observe the tests as it impacted the time in getting the findings prioritised for implementation.</p>
+        <p>For the second round, we waited till the ANZSIC lookup for direct was built as that was the only way we could properly test its usability. This meant the timing of the testing session was late in delivery and we had to be particular about what insights were implemented. Though a lot of the findings were put to good use in future LSP releases.</p>
+        <p>Further, not having the support from upper level management meant we spent a lot of time trying to justify why usability testing is important and getting approval for funding instead of just getting on with the job and conducting it.</p>
+
+        <p class="subsection-label">Benefits</p>
+        <p>WC Direct, an online portal to sell Workers Compensation insurance to the market, was launched in late November of 2014. It had a number of benefits for the business in that we were first to market (competitors weren't and still aren't doing it), was the first time GIO Commercial Insurance had a direct to customer offering, and the release formed the technology that all future LSP releases were to be built on.</p>
+        <p>Within the two hours of going live the first two policies were sold through the site, which may not sound like a lot but considering no marketing was yet to go out, it seemed like a great feat.</p>
+      </div>
+
+      <figure class="project-image">
+        <img src="../assets/projects/lsp/wc-final.png" alt="GIO Workers Compensation Online — final product showing the About Your Business step and quote flow">
+      </figure>
     </section>
 
     <!-- Next Case Study -->

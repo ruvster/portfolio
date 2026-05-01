@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Playground — Ruvi Pitiyarachchi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/RPlogo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-playground">
+
+  <!-- SKIP LINK -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation loaded via fetch -->
+  <div id="nav-mount"></div>
+  <script>
+    var navPath = './nav.html';
+    fetch(navPath)
+      .then(r => r.text())
+      .then(function(html) {
+        var mount = document.getElementById('nav-mount');
+        mount.outerHTML = html;
+
+        // Set active nav link
+        var filename = window.location.pathname.split('/').pop() || 'index.html';
+        document.querySelectorAll('.sidebar-nav a, .mobile-nav a').forEach(function(a) {
+          var linkFile = a.getAttribute('href').split('/').pop() || 'index.html';
+          if (linkFile === filename) a.setAttribute('aria-current', 'page');
+        });
+
+        setTimeout(function() {
+          const menuBtn = document.getElementById('mobileMenuBtn');
+          const mobileNav = document.getElementById('mobileNav');
+          if (menuBtn && mobileNav) {
+            const closeMobileMenu = () => {
+              menuBtn.setAttribute('aria-expanded', 'false');
+              mobileNav.setAttribute('hidden', '');
+              mobileNav.classList.remove('open');
+              document.body.classList.remove('no-scroll');
+            };
+            menuBtn.addEventListener('click', () => {
+              const isOpen = menuBtn.getAttribute('aria-expanded') === 'true';
+              menuBtn.setAttribute('aria-expanded', isOpen ? 'false' : 'true');
+              if (!isOpen) {
+                mobileNav.removeAttribute('hidden');
+                mobileNav.classList.add('open');
+                document.body.classList.add('no-scroll');
+              } else {
+                closeMobileMenu();
+              }
+            });
+            mobileNav.querySelectorAll('a').forEach(link => {
+              link.addEventListener('click', closeMobileMenu);
+            });
+            document.addEventListener('keydown', e => {
+              if (e.key === 'Escape' && mobileNav.classList.contains('open')) {
+                closeMobileMenu();
+                menuBtn.focus();
+              }
+            });
+          }
+        }, 0);
+      });
+  </script>
+
+  <!-- MAIN -->
+  <main id="main-content">
+    <section class="playground-hero" aria-labelledby="playground-heading">
+      <span class="playground-label" aria-hidden="true">Playground</span>
+      <h1 class="playground-heading" id="playground-heading">In progress.</h1>
+      <p class="playground-sub">Something's cooking. Check back soon.</p>
+    </section>
+  </main>
+
+  <div id="footer-mount"></div>
+  <script>
+    (function() {
+      var path = window.location.pathname.includes('/projects/') ? '../footer.html' : './footer.html';
+      fetch(path).then(function(r) { return r.text(); }).then(function(html) {
+        var el = document.getElementById('footer-mount');
+        if (el) el.outerHTML = html;
+      });
+    })();
+  </script>
+
+</body>
+</html>

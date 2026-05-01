@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Legacy Simplification Program | Ruvi Pitiyarachchi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="icon" href="../assets/RPlogo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../css/project-styles.css">
+  <style>
+    .project-section {
+      margin-bottom: 64px;
+    }
+
+    .project-section-title {
+      margin-bottom: 24px;
+    }
+
+    .project-section-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 14px 0 0;
+      padding: 0;
+    }
+
+    .project-section-list li {
+      font-size: inherit;
+      font-weight: inherit;
+      line-height: inherit;
+      color: var(--ink);
+      padding-left: 20px;
+      position: relative;
+      margin: 0;
+    }
+
+    .project-section-list li::before {
+      content: '';
+      position: absolute;
+      left: 2px;
+      top: 0.9em;
+      width: 4px;
+      height: 4px;
+      border-radius: 50%;
+      background: var(--accent);
+      transform: translateY(-50%);
+    }
+
+    .project-image {
+      width: 100%;
+      margin: 34px 0;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid rgba(26, 23, 20, 0.14);
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .project-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 26px 0 34px;
+    }
+
+    .project-grid-2 .project-image {
+      margin: 0;
+    }
+
+    .project-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 26px 0 34px;
+    }
+
+    .project-grid-3 .project-image {
+      margin: 0;
+    }
+
+    .project-caption {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--warm-mid);
+      text-align: center;
+      margin-top: -8px;
+      margin-bottom: 28px;
+    }
+
+    .project-quote {
+      padding: 26px 30px;
+      margin: 34px 0;
+    }
+
+    @media (max-width: 800px) {
+      .project-grid-2,
+      .project-grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .project-quote {
+        padding: 20px 18px;
+        font-size: 17px;
+      }
+    }
+  </style>
+</head>
+<body class="page-project-detail">
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation loaded via fetch -->
+  <div id="nav-mount"></div>
+  <script>
+    fetch('../nav.html')
+      .then(r => r.text())
+      .then(function(html) {
+        var mount = document.getElementById('nav-mount');
+        mount.outerHTML = html;
+        setTimeout(function() {
+          const menuBtn = document.getElementById("mobileMenuBtn");
+          const mobileNav = document.getElementById("mobileNav");
+          if (menuBtn && mobileNav) {
+            const closeMobileMenu = () => {
+              menuBtn.setAttribute("aria-expanded", "false");
+              mobileNav.setAttribute("hidden", "");
+              mobileNav.classList.remove("open");
+              document.body.classList.remove("no-scroll");
+            };
+            menuBtn.addEventListener("click", () => {
+              const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
+              menuBtn.setAttribute("aria-expanded", isOpen ? "false" : "true");
+              if (!isOpen) {
+                mobileNav.removeAttribute("hidden");
+                mobileNav.classList.add("open");
+                document.body.classList.add("no-scroll");
+              } else {
+                closeMobileMenu();
+              }
+            });
+            mobileNav.querySelectorAll("a").forEach(link => {
+              link.addEventListener("click", closeMobileMenu);
+            });
+            document.addEventListener("keydown", e => {
+              if (e.key === "Escape" && mobileNav.classList.contains("open")) {
+                closeMobileMenu();
+                menuBtn.focus();
+              }
+            });
+          }
+        }, 0);
+      });
+  </script>
+
+  <main id="main-content">
+    <a href="../index.html" class="project-back"><span aria-hidden="true">←</span> Back to work</a>
+
+    <div class="project-hero">
+      <div class="project-header">
+        <h1 class="project-title">Legacy Simplification Program (LSP)</h1>
+        <p class="project-summary">Conducting customer research, building personas and journey maps, and designing an occupation look-up tool to support Suncorp's program to simplify and standardise insurance products across its many brands.</p>
+      </div>
+
+      <div class="project-meta">
+        <div class="meta-item">
+          <div class="meta-label">Company</div>
+          <div class="meta-value">Suncorp</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">My role</div>
+          <div class="meta-value">Experience Designer</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="project-section">
+      <h2 class="project-section-title">What is LSP?</h2>
+      <div class="project-section-text">
+        <p>The Legacy Simplification Program (LSP) aimed to simplify and standardise the products, processes and policy applications used across the many insurance brands that make up Suncorp.</p>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2 class="project-section-title">My Role</h2>
+      <div class="project-section-text">
+        <p>This was my first exposure to Experience Design. I was paired up with a consultant to conduct research around commercial insurance customers, creating personas and user journeys. This then progressed into developing an occupation look-up tool that allowed users to search for an ANZSIC (Australian and New Zealand Standard Industrial Classification) code based on specific search criteria.</p>
+      </div>
+    </section>
+
+    <section class="project-section">
+      <h2 class="project-section-title">Customer Research</h2>
+      <div class="project-section-text">
+        <p>As part of the program of work some time was dedicated for customer research. This entailed interviewing customers and analysing survey responses to get a picture of various touch points that our customers have with our products and services. The outputs fed into the creation of Personas and Customer Journey Maps of various user segments. This design activity assisted the delivery teams and product owners in understanding the behaviour, goals and purchasing decisions of our customers. It also helped to identify specific opportunities to improve our service to our customers and shape user stories for estimation and prioritisation.</p>
+      </div>
+
+      <div class="project-grid-3">
+        <figure class="project-image">
+          <img src="../assets/projects/lsp/persona-broker-intermediated.png" alt="Small Business Owner (Broker Intermediated) persona">
+        </figure>
+        <figure class="project-image">
+          <img src="../assets/projects/lsp/persona-direct-customer.png" alt="Small Business Owner (Direct Customer) persona">
+        </figure>
+        <figure class="project-image">
+          <img src="../assets/projects/lsp/customer-journey-map.png" alt="Small Business Customer user journey map">
+        </figure>
+      </div>
+      <p class="project-caption">Two customer personas and a user journey map created from customer interviews and survey analysis, covering triggers, research, purchase, manage and renew phases.</p>
+    </section>
+
+    <!-- Next Case Study -->
+    <section class="next-project" aria-label="Next case study">
+      <a href="ai-work-item.html">
+        <p class="next-project-label">Next Case Study</p>
+        <h2 class="next-project-title">Infusing AI generative experiences into the work item</h2>
+        <div class="next-project-line"><span></span></div>
+      </a>
+    </section>
+
+  </main>
+
+  <div id="footer-mount"></div>
+  <script>
+    (function() {
+      var path = '../footer.html';
+      fetch(path).then(function(r) { return r.text(); }).then(function(html) {
+        var el = document.getElementById('footer-mount');
+        if (el) el.outerHTML = html;
+      });
+    })();
+  </script>
+</body>
+</html>

@@ -100,6 +100,22 @@
       margin-top: 0;
     }
 
+    .inline-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .inline-link:hover,
+    .inline-link:focus-visible {
+      color: var(--accent);
+    }
+
     @media (max-width: 800px) {
       .project-grid-2,
       .project-grid-3 {
@@ -432,7 +448,7 @@
         <h3 class="subsection-title">Going live</h3>
         <p>Before we went live, ideally we would have liked to have conducted usability testing on the new features we built. There were always talks of conducting sessions swirling around but ultimately getting funding from the program proved difficult.</p>
         <p>Despite this Mobile Business Protect was well received when it went live in early May 2015. It was a first to market in the packaged insurance world and as of May 20th, 2015, over 200 policies of the new product offering had been sold.</p>
-        <p><a href="https://www.gio.com.au/business-insurance/small-business.html" target="_blank" rel="noopener noreferrer">View the live product →</a></p>
+        <p><a href="https://www.gio.com.au/business-insurance/small-business.html" target="_blank" rel="noopener noreferrer" class="inline-link">View the live product →</a></p>
       </div>
     </section>
 

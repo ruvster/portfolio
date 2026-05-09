@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Custom views | Ruvi Pitiyarachchi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="icon" href="../assets/RPlogo.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../css/project-styles.css">
+  <style>
+    .project-image {
+      width: 100%;
+      margin: 34px 0;
+      border-radius: 4px;
+      overflow: hidden;
+      border: 1px solid rgba(26, 23, 20, 0.14);
+      background: rgba(255, 255, 255, 0.72);
+    }
+
+    .project-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .project-grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin: 26px 0 8px;
+    }
+
+    .project-grid-2 .project-image {
+      margin: 0;
+    }
+
+    .project-grid-3 {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin: 26px 0 8px;
+    }
+
+    .project-grid-3 .project-image {
+      margin: 0;
+    }
+
+    .project-caption {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--warm-mid);
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 28px;
+    }
+
+    .project-quote {
+      padding: 26px 30px;
+      margin: 20px 0;
+    }
+
+    .section-duration {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+      margin-bottom: 0;
+      padding-top: 5px;
+    }
+
+    .project-section-text .subsection-title {
+      margin-top: 36px;
+      font-size: 18px;
+    }
+
+    .project-section-text .subsection-title:first-child {
+      margin-top: 0;
+    }
+
+    .subsection-label {
+      font-size: 17px;
+      font-style: italic;
+      font-weight: 300;
+      color: var(--warm-mid);
+      margin-top: 28px;
+      margin-bottom: 6px;
+    }
+
+    .subsection-label:first-child {
+      margin-top: 0;
+    }
+
+    .inline-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--warm-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .inline-link:hover,
+    .inline-link:focus-visible {
+      color: var(--accent);
+    }
+
+    .project-grid-2--capped .project-image,
+    .project-image--capped {
+      height: 400px;
+      background: transparent;
+      border: none;
+    }
+
+    .project-grid-2--capped .project-image img,
+    .project-image--capped img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      object-position: top center;
+    }
+
+    /* Stats row */
+    .project-stats {
+      display: flex;
+      gap: 48px;
+      margin: 32px 0;
+    }
+
+    .project-stat-value {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--ink);
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .project-stat-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 300;
+      letter-spacing: 0.08em;
+      color: var(--warm-mid);
+      line-height: 1.4;
+    }
+
+    /* Permissions / score tables */
+    .project-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 24px 0;
+      font-family: 'DM Mono', monospace;
+      font-size: 13px;
+      font-weight: 300;
+    }
+
+    .project-table th {
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--light-rule);
+      color: var(--warm-mid);
+      letter-spacing: 0.06em;
+      font-weight: 400;
+    }
+
+    .project-table td {
+      padding: 10px 14px;
+      border-bottom: 1px solid var(--light-rule);
+      color: var(--ink);
+      vertical-align: top;
+    }
+
+    .project-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    /* Phase chips in process section */
+    .phase-list {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      margin: 28px 0;
+    }
+
+    .phase-item {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+    }
+
+    .phase-chip {
+      font-family: 'DM Mono', monospace;
+      font-size: 11px;
+      font-weight: 400;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+      color: var(--warm-mid);
+      border: 1px solid var(--light-rule);
+      border-radius: 20px;
+      padding: 4px 12px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .phase-body strong {
+      font-weight: 400;
+      color: var(--ink);
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .phase-body p {
+      margin: 0;
+      color: var(--warm-mid);
+      font-size: 15px;
+    }
+
+    /* SEQ bar chart */
+    .seq-chart {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin: 28px 0 36px;
+    }
+
+    .seq-row {
+      display: grid;
+      grid-template-columns: 180px 1fr 40px;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .seq-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--ink);
+      letter-spacing: 0.02em;
+    }
+
+    .seq-row--overall .seq-label,
+    .seq-row--overall .seq-score {
+      font-weight: 400;
+    }
+
+    .seq-bar-track {
+      height: 6px;
+      background: var(--light-rule);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+
+    .seq-bar {
+      height: 100%;
+      background: var(--ink);
+      border-radius: 3px;
+    }
+
+    .seq-score {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 300;
+      color: var(--ink);
+      text-align: right;
+    }
+
+    /* Findings 2×2 grid */
+    .findings-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin: 28px 0;
+    }
+
+    .finding-card {
+      border: 1px solid var(--light-rule);
+      border-radius: 6px;
+      padding: 20px 22px;
+    }
+
+    .finding-card strong {
+      font-family: 'DM Mono', monospace;
+      font-size: 12px;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      color: var(--ink);
+      display: block;
+      margin-bottom: 8px;
+    }
+
+    .finding-card p {
+      font-size: 14px;
+      color: var(--warm-mid);
+      margin: 0;
+      line-height: 1.55;
+    }
+
+    .finding-card--friction {
+      opacity: 0.65;
+    }
+
+    @media (max-width: 800px) {
+      .project-grid-2,
+      .project-grid-3 {
+        grid-template-columns: 1fr;
+      }
+
+      .project-quote {
+        padding: 20px 18px;
+        font-size: 17px;
+      }
+
+      .project-stats {
+        gap: 28px;
+        flex-wrap: wrap;
+      }
+
+      .seq-row {
+        grid-template-columns: 140px 1fr 36px;
+        gap: 10px;
+      }
+
+      .findings-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Image modal */
+    .image-modal {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(26, 23, 20, 0.9);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .image-modal.open {
+      display: flex;
+    }
+
+    .image-modal-content {
+      position: relative;
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .image-modal-image {
+      max-width: 100%;
+      max-height: 85vh;
+      object-fit: contain;
+      border-radius: 4px;
+    }
+
+    .image-modal-nav-zone {
+      position: absolute;
+      top: 0; bottom: 0;
+      width: 20%;
+      cursor: pointer;
+    }
+
+    .image-modal-prev-zone { left: 0; }
+    .image-modal-next-zone { right: 0; }
+
+    .image-modal-nav-zone:hover {
+      background: rgba(255, 255, 255, 0.04);
+    }
+
+    .image-modal-close {
+      position: fixed;
+      top: 20px; right: 24px;
+      background: none;
+      border: none;
+      color: rgba(255, 255, 255, 0.7);
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+      padding: 4px 8px;
+      transition: color 0.15s;
+      z-index: 1001;
+    }
+
+    .image-modal-close:hover { color: #fff; }
+
+    .project-image {
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .project-image:hover { opacity: 0.9; }
+  </style>
+</head>
+<body class="page-project-detail">
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Navigation loaded via fetch -->
+  <div id="nav-mount"></div>
+  <script>
+    fetch('../nav.html')
+      .then(r => r.text())
+      .then(function(html) {
+        var mount = document.getElementById('nav-mount');
+        mount.outerHTML = html;
+        setTimeout(function() {
+          const menuBtn = document.getElementById("mobileMenuBtn");
+          const mobileNav = document.getElementById("mobileNav");
+          if (menuBtn && mobileNav) {
+            const closeMobileMenu = () => {
+              menuBtn.setAttribute("aria-expanded", "false");
+              mobileNav.setAttribute("hidden", "");
+              mobileNav.classList.remove("open");
+              document.body.classList.remove("no-scroll");
+            };
+            menuBtn.addEventListener("click", () => {
+              const isOpen = menuBtn.getAttribute("aria-expanded") === "true";
+              menuBtn.setAttribute("aria-expanded", isOpen ? "false" : "true");
+              if (!isOpen) {
+                mobileNav.removeAttribute("hidden");
+                mobileNav.classList.add("open");
+                document.body.classList.add("no-scroll");
+              } else {
+                closeMobileMenu();
+              }
+            });
+            mobileNav.querySelectorAll("a").forEach(link => {
+              link.addEventListener("click", closeMobileMenu);
+            });
+            document.addEventListener("keydown", e => {
+              if (e.key === "Escape" && mobileNav.classList.contains("open")) {
+                closeMobileMenu();
+                menuBtn.focus();
+              }
+            });
+          }
+        }, 0);
+      });
+  </script>
+
+  <main id="main-content">
+    <a href="../index.html" class="project-back"><span aria-hidden="true">←</span> Back to work</a>
+
+    <div class="project-hero">
+      <div class="project-header">
+        <h1 class="project-title">Custom views</h1>
+        <p class="project-summary">How a navigation refresh became the foundation for navigation patterns across all of Jira.</p>
+      </div>
+
+      <div class="project-meta">
+        <div class="meta-item">
+          <div class="meta-label">Timeline</div>
+          <div class="meta-value">June 2023 – February 2025</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">My role</div>
+          <div class="meta-value">Lead product designer</div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- ── SUMMARY ── -->
+    <div class="tldr-strip">
+      <div class="tldr-card">
+        <span class="tldr-label">Summary</span>
+        <p class="tldr-value">In the competitive project management landscape, Jira's limited view customisation was a deal breaker for business teams. I led a three-phase strategic overhaul that transformed a rigid, cluttered interface into a flexible navigation system. This work unblocked critical features like Saved Views, directly helped 50,000+ users land on their preferred view, and established a new horizontal navigation standard adopted across all of Jira.</p>
+        <figure class="project-image" style="max-width: 65%; margin-left: auto; margin-right: auto; background: none; border: none;">
+            <img src="../assets/projects/custom-views/Jira.png" alt="Navigation across Jira">
+          <figcaption class="project-figure-caption" style="padding: 8px 0 10px; max-width: 100%; width: 100%;">Navigation across Jira</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <!-- ── OVERVIEW ── -->
+    <section class="project-section">
+      <h2 class="project-section-title">Overview</h2>
+      <div class="project-section-text">
+        <p>The Jira Work Management project navigation exposed up to 14 menu items in a static left-hand sidebar. Users couldn't reorder, hide, or customise them in any way and there was no mechanism for teams to share a consistent view of their project. I led the design of a two-part solution: first, replacing the sidebar with a horizontal tab system that admins could curate; then building saved views on top of that foundation so teams could persist and share their preferred view configurations.</p>
+      </div>
+    </section>
+
+    <!-- ── THE CHALLENGE ── -->
+    <section class="project-section">
+      <h2 class="project-section-title">The challenge</h2>
+      <div class="project-section-text">
+        <p>Jira Work Management projects could surface up to 14 different tabs in the sidebar, yet users had no way to customise them. The interface was static, verbose, and built for every user situation, but ultimately served no one effectively. For example, only 4% of unique users ever clicked the "shortcuts" tab, meaning roughly 365,000 users per week were seeing a tab they had no use for. And with new capabilities like Approvals on the roadmap, the navigation had no room to grow.</p>
+
+        <blockquote class="project-quote">"I'd be curious if it would be customisable to remove any one of these or add other ones into it. So, this could be fully customised. [I'd probably remove] goals and pages, forms… approvals probably would remove, not necessarily needed."</blockquote>
+
+        <p>SEQ baseline research confirmed what feedback channels had been signalling for years: the cluttered UI hindered users from completing basic tasks with confidence, contributing to approximately 43% of churn being attributed to usability problems. Additionally, because there was no mechanism to share a consistent view, team members often landed on different default views than their project leads, forcing teams into inefficient, manual "back-and-forth" sessions just to align on what they were looking at. This lack of flexibility affected 670,000 Monthly Active Users (MAU) and was the 5th most-upvoted request on Jira.</p>
+
+        <blockquote class="project-quote">"We have to sit next to each other and check how the other has set the list view and copy it manually."</blockquote>        
+
+        <p>Beyond the immediate UX debt, the problem had a second dimension. Without a customisable navigation, there was no viable path to future capabilities like multiple views, targeted templates, or project-level persistence.</p>
+
+        <div class="project-stats">
+          <div>
+            <div class="project-stat-value">~43%</div>
+            <div class="project-stat-label">of churn attributed to<br>usability problems</div>
+          </div>
+          <div>
+            <div class="project-stat-value">80%+</div>
+            <div class="project-stat-label">of new projects in last<br>18 months are Team Managed</div>
+          </div>
+          <div>
+            <div class="project-stat-value">670K</div>
+            <div class="project-stat-label">MAU affected by lack<br>of view customisation</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ── PROCESS ── -->
+    <section class="project-section">
+      <h2 class="project-section-title">Process</h2>
+      <div class="project-section-text">
+
+        <h3 class="subsection-title">Competitor analysis</h3>
+        <p>To inform feature prioritisation and draw inspiration from the market, I audited how direct competitors — Asana, ClickUp, and Jira Product Discovery — had approached customisable navigation. This gave us a clear signal that admin vs. user level permissions were table stakes, and helped anchor our own permission model decisions.</p>
+
+        <table class="project-table" aria-label="Competitor feature comparison">
+          <thead>
+            <tr>
+              <th>Feature</th>
+              <th>Asana</th>
+              <th>ClickUp</th>
+              <th>JPD</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Hide / show tab</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>Add multiple views</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>Set a default view</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>View favouriting</td>
+              <td>✗</td>
+              <td>✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>Rename view</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>Copy / duplicate view</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>Reorder views</td>
+              <td>✓</td>
+              <td>✓</td>
+              <td>✓</td>
+            </tr>
+            <tr>
+              <td>Admin vs. user permissions</td>
+              <td>Set at view creation</td>
+              <td>Per-view permissions</td>
+              <td>Per-view permissions</td>
+            </tr>
+          </tbody>
+        </table>
+
+      <div class="project-section-text">
+
+        <h3 class="subsection-title">The North star</h3>
+        <p>Before any phasing decisions were made, I designed a vision state so the team had a shared picture of where the navigation was heading. The delivery plan broke the vision into four sequential phases: multi-project sidebar, horizontal tabs, platform-wide adoption, and saved views.</p>
+
+
+
+        <div class="phase-list">
+          <div class="phase-item">
+            <span class="phase-chip">Phase 1</span>
+            <div class="phase-body">
+              <strong>Multi-project sidebar</strong>
+              <p>Exploring project-level navigation in the left rail by managing multiple projects in one place.</p>
+            </div>
+          </div>
+          <div class="phase-item">
+            <span class="phase-chip">Phase 2</span>
+            <div class="phase-body">
+              <strong>Horizontal navigation</strong>
+              <p>Redesigning the sidebar into horizontal tabs. Shifting from vertical nav items to admin-curated horizontal tabs, simplifying the mental model and reclaiming vertical space. Shipped together with Phase 1 after customer feedback revealed the phased approach lacked enough context to make sense on its own.</p>
+            </div>
+          </div>
+          <div class="phase-item">
+            <span class="phase-chip">Phase 3</span>
+            <div class="phase-body">
+              <strong>Platform adoption</strong>
+              <p>The pattern's success led to its adoption by all Jira project types, requiring deep cross-team consistency work.</p>
+            </div>
+          </div>
+          <div class="phase-item">
+            <span class="phase-chip">Phase 4</span>
+            <div class="phase-body">
+              <strong>Saved views</strong>
+              <p>Building on the new navigation to introduce view configuration persistence — letting admins define and share a project default and configure multiple views.</p>
+            </div>
+          </div>
+
+        <p>The intention was to roll out each phase as it was built, giving customers continuous improvement without waiting for the full system. But without the 'North Star' context, our incremental changes felt like noise to our users. When complaints started coming in, I went directly to the source, conducting sessions with affected customers. I discovered that their friction wasn't about the new layout, it was change aversion fuelled by a lack of direction. Recognising that we were 'moving the cheese' without showing the new house, we changed tack. We merged the first two phases to launch a more complete experience, ensuring that the first time users saw the new navigation, they also saw the value of the customisation it unlocked.</p>
+
+          <p>Being such a pivotal change, I made sure to incorporate research in the form of usability testing to validate the design, and gather qualitative feedback to guide the prioritisation of features in each milestone.</p>
+        </div>
+
+
+      </div>
+    </section>
+
+    <!-- ── THE NAVIGATION SHIFT ── -->
+    <section class="project-section">
+      <h2 class="project-section-title">The navigation shift</h2>
+      <div class="project-section-text">
+        <p>The first design direction explored bringing multiple projects into the static sidebar. It surfaced projects users had starred out of a top menu and let them switch between them without leaving the current context. An accordion pattern was used to display the menu items. This introduced flexibility, but also complexity: the sidebar became denser, and managing project-level vs view-level navigation in the same rail created cognitive overhead.</p>
+      </div>
+
+      <div class="project-section-text">
+        <p>The sidebar menu design implied hierarchy, when the views were simply different ways to see the same project data. The move to horizontal tabs helped in reframing this mental model.</p>
+      </div>
+
+        
+     
+
+      <div class="project-grid-3" style="align-items: center;">
+        <figure class="project-image" style="background: none; border: none; margin: 0;">
+          <img src="../assets/projects/custom-views/sidebar-og.png" alt="Before: cluttered vertical sidebar with up to 14 tabs including board, list, calendar, timeline and more">
+        </figure>
+        <figure class="project-image" style="background: none; border: none; margin: 0;">
+          <img src="../assets/projects/custom-views/sidebar-before.gif" alt="Before: cluttered vertical sidebar with up to 14 tabs including board, list, calendar, timeline and more">
+        </figure>
+        <figure class="project-image" style="background: none; border: none; margin: 0;">
+          <img src="../assets/projects/custom-views/E2EHQ-short.gif" alt="After: clean horizontal tab navigation showing Board, List, Calendar, Timeline as peer-level views">
+        </figure>
+      </div>
+      <p class="project-caption">Before → after: vertical sidebar replaced with horizontal tabs</p>
+
+      <div class="project-section-text">
+        <p>The horizontal tab pattern was validated quickly. 8,550 sites received customised navigation and the active site adoption rate grew by 2% week on week, accounting for approximately 7% of active sites. Of those who discovered the feature, 17% adopted it helping over 50,000 users find their desired project view — a strong signal given that navigation customisation is an admin action requiring deliberate intent. Additionally, the week four active site retention rate was 83%. Teams made the navigation their own: 22,000 tabs removed, 13,000 reordered, and 4,700 projects set a new default tab.</p>
+        
+        <p>The horizontal tabs became a platform-wide pattern, adopted by the other Jira products as part of the global navigation overhaul.
+        </p>
+        
+      </div>
+    </section>
+
+    <!-- ── SAVED VIEWS ── -->
+    <section class="project-section">
+      <h2 class="project-section-title">Saved views</h2>
+      <div class="project-section-text">
+        <p>
+        With horizontal tabs established as the navigation foundation, saved views became the natural next layer. The feature lets project admins save the full configuration of a view — column layout, filters, sort order, field visibility, grouping — as a named, shareable default that persists across the project.
+        </p>
+      </div>
+
+      <figure class="project-image" style="max-width: 70%; margin: 16px auto; border: none; background: none; border-radius: 0;">
+        <img src="../assets/projects/custom-views/SavedViews.gif" alt="Saved views end-to-end flow">
+        <figcaption class="project-figure-caption" style="padding: 8px 0 10px; max-width: 100%; width: 100%;">Saved views end-to-end flow</figcaption>
+      </figure>
+
+      <div class="project-section-text">
+        <p>The key design decision was around permissions. Rather than making every view configuration personal, we made saved views admin only. Having it at a project level created consistency for the whole team while giving end users a read-only reset path back to the 'default' state. This model, where admins author, team inherits, kept the MVP scope tight while directly addressing the problem of having teammates land on the same view as the project lead.
+        </p>
+
+        <table class="project-table" aria-label="View permissions by role">
+          <thead>
+            <tr>
+              <th>Functionality</th>
+              <th>End user</th>
+              <th>Project admin</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Create multiple views</td>
+              <td>No</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Rename a view</td>
+              <td>No</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Save view configuration</td>
+              <td>No</td>
+              <td>Yes</td>
+            </tr>
+            <tr>
+              <td>Reset to last saved state</td>
+              <td>Yes</td>
+              <td>Yes</td>
+            </tr>
+          </tbody>
+        </table>
+
+
+      </div>
+    </section>
+
+    <!-- ── IMPACT ── -->
+    <section class="project-section">
+      <h2 class="project-section-title">Impact</h2>
+      <div class="project-section-text">
+        <h3 class="subsection-title">Custom navigation rollout</h3>
+          <p>The custom nav was rolled out in May 2024 and was positively received — the launch announcement on the Atlassian Community drew over 10,000 views and 15 comments, with teams immediately sharing how they planned to adapt navigation for their workflows.</p>
+
+        <figure class="project-image" style="max-width: 65%; margin-left: auto; margin-right: auto;">
+          <a href="https://community.atlassian.com/forums/Jira-articles/Customize-your-navigation-in-Jira-business-projects/ba-p/2694438" target="_blank" rel="noopener">
+            <img src="../assets/projects/custom-views/community-article.png" alt="Atlassian Community article: Customize your navigation in Jira business projects, showing 10,012 views">
+          </a>
+          <figcaption class="project-figure-caption" style="padding: 8px 0 10px; max-width: 100%; width: 100%;">
+            <a href="https://community.atlassian.com/forums/Jira-articles/Customize-your-navigation-in-Jira-business-projects/ba-p/2694438" target="_blank" rel="noopener" class="inline-link">Launch announcement on the Atlassian Community</a>
+          </figcaption>
+        </figure>
+
+        <div class="project-stats" style="gap: 64px; margin-top: 40px;">
+          <div>
+            <div class="project-stat-value">8,550</div>
+            <div class="project-stat-label">sites customised their navigation after launch</div>
+          </div>
+          <div>
+            <div class="project-stat-value">50K+</div>
+            <div class="project-stat-label">users landed on their desired project view</div>
+          </div>
+          <div>
+            <div class="project-stat-value">83%</div>
+            <div class="project-stat-label">week 4 active site retention</div>
+          </div>
+        </div>
+
+        <p>Beyond the metrics, this project shifted Jira from a rigid tool to a flexible platform. By moving from a static sidebar to an extensible horizontal system, we provided the UI 'real estate' required for the next three years of the Jira Work Management roadmap.
+        </p>
+
+        <h3 class="subsection-title">Usability held up under testing</h3>
+        <p>For the saved views phase, all four tasks for milestone 1 scored above the 5.5 SEQ threshold. The refreshed look and feel scored above 5.5 for being clear, effective, and modern.</p>
+
+        <div class="seq-chart" role="img" aria-label="SEQ task scores bar chart">
+          <div class="seq-row">
+            <span class="seq-label">Add board view</span>
+            <div class="seq-bar-track"><div class="seq-bar" style="width: 78.6%"></div></div>
+            <span class="seq-score">5.5</span>
+          </div>
+          <div class="seq-row">
+            <span class="seq-label">Save view for everyone</span>
+            <div class="seq-bar-track"><div class="seq-bar" style="width: 83.3%"></div></div>
+            <span class="seq-score">5.83</span>
+          </div>
+          <div class="seq-row">
+            <span class="seq-label">Rename a view</span>
+            <div class="seq-bar-track"><div class="seq-bar" style="width: 92.9%"></div></div>
+            <span class="seq-score">6.5</span>
+          </div>
+          <div class="seq-row">
+            <span class="seq-label">Reset a view</span>
+            <div class="seq-bar-track"><div class="seq-bar" style="width: 81%"></div></div>
+            <span class="seq-score">5.67</span>
+          </div>
+        </div>
+        <p>Some of the key findings included:</p>
+        <div class="findings-grid">
+          <div class="finding-card">
+            <strong>Changeboarding aided discovery</strong>
+            <p>In-product changeboarding improved feature discoverability on tasks 1, 2, and 4 — users found functionality they wouldn't have otherwise noticed.</p>
+          </div>
+
+          <div class="finding-card">
+            <strong>Reset clarity needed work</strong>
+            <p>Users were unsure what "reset" would revert to, and whether it would affect other team members. Scope and consequence needed to be more explicit.</p>
+          </div>
+          <div class="finding-card">
+            <strong>Settings menus caused friction</strong>
+            <p>Multiple settings-type menus were the most common stumbling block for view configuration tasks throughout testing.</p>
+          </div>
+          <div class="finding-card">
+            <strong>Smaller teams less engaged</strong>
+            <p>The feature was less desired by teams already happy with CMP boards, signalling where the feature adds the most value.</p>
+          </div>
+        </div>
+      </div>
+        <p>Overall, all four phases were a massive success across both quantitative adoption and qualitative usability.</p>
+
+    </section>
+
+
+
+    <!-- ── REFLECTION ── -->
+    <section class="project-section">
+      <h2 class="project-section-title">Reflection</h2>
+      <div class="project-section-text">
+
+        <p><em>Per-project was the right starting point, but not the finish line.</em> After launch, the most consistent community request was for global or instance-wide defaults — admins supporting dozens of teams didn't want to configure each project individually. The per-project scope was the right constraint for an MVP, but framing it as "per-project first, with a clear path to global defaults" would have set better expectations with stakeholders and users from the start.</p>
+        <p><em>Template inheritance was an obvious gap in hindsight.</em> Users expected that customising a template project would carry those settings forward to new projects created from it. Designing the permission model with template propagation in mind would have made the feature feel complete rather than a step toward complete.</p>
+      </div>
+    </section>
+
+    <!-- Next Case Study -->
+    <section class="next-project" aria-label="Next case study">
+      <a href="broker-digital.html">
+        <p class="next-project-label">Next Case Study</p>
+        <h2 class="next-project-title">Broker digital</h2>
+        <div class="next-project-line"><span></span></div>
+      </a>
+    </section>
+
+  </main>
+
+  <div id="footer-mount"></div>
+  <script>
+    (function() {
+      var path = '../footer.html';
+      fetch(path).then(function(r) { return r.text(); }).then(function(html) {
+        var el = document.getElementById('footer-mount');
+        if (el) el.outerHTML = html;
+      });
+    })();
+  </script>
+
+  <div class="image-modal" id="imageModal">
+    <div class="image-modal-content">
+      <button class="image-modal-close" id="modalClose" aria-label="Close image">&times;</button>
+      <div class="image-modal-nav-zone image-modal-prev-zone" id="modalPrevZone" aria-hidden="true"></div>
+      <div class="image-modal-nav-zone image-modal-next-zone" id="modalNextZone" aria-hidden="true"></div>
+      <img class="image-modal-image" id="modalImage" src="" alt="">
+    </div>
+  </div>
+
+  <script>
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalClose = document.getElementById('modalClose');
+    const modalPrevZone = document.getElementById('modalPrevZone');
+    const modalNextZone = document.getElementById('modalNextZone');
+    const allImages = Array.from(document.querySelectorAll('.project-image img'));
+    let currentImageIndex = -1;
+
+    allImages.forEach((img, index) => {
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('role', 'button');
+      img.setAttribute('aria-haspopup', 'dialog');
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentImageIndex = index;
+        showImage(currentImageIndex);
+      });
+      img.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          currentImageIndex = index;
+          showImage(currentImageIndex);
+        }
+      });
+    });
+
+    function showImage(index) {
+      const img = allImages[index];
+      modalImage.src = img.src;
+      modalImage.alt = img.alt;
+      imageModal.classList.add('open');
+      document.body.classList.add('no-scroll');
+    }
+
+    function navigateImage(direction) {
+      const newIndex = currentImageIndex + direction;
+      if (newIndex >= 0 && newIndex < allImages.length) {
+        currentImageIndex = newIndex;
+        showImage(currentImageIndex);
+      }
+    }
+
+    modalPrevZone.addEventListener('click', (e) => { e.stopPropagation(); navigateImage(-1); });
+    modalNextZone.addEventListener('click', (e) => { e.stopPropagation(); navigateImage(1); });
+
+    modalClose.addEventListener('click', () => {
+      imageModal.classList.remove('open');
+      document.body.classList.remove('no-scroll');
+    });
+
+    imageModal.addEventListener('click', (e) => {
+      if (e.target === imageModal) {
+        imageModal.classList.remove('open');
+        document.body.classList.remove('no-scroll');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!imageModal.classList.contains('open')) return;
+      if (e.key === 'Escape') { imageModal.classList.remove('open'); document.body.classList.remove('no-scroll'); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); navigateImage(-1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); navigateImage(1); }
+    });
+  </script>
+</body>
+</html>

@@ -191,6 +191,18 @@
         font-size: 17px;
       }
     }
+    .image-modal { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: rgba(26,23,20,0.9); z-index: 1000; align-items: center; justify-content: center; padding: 20px; }
+    .image-modal.open { display: flex; }
+    .image-modal-content { position: relative; max-width: 90vw; max-height: 90vh; display: flex; align-items: center; justify-content: center; }
+    .image-modal-image { max-width: 100%; max-height: 85vh; object-fit: contain; border-radius: 4px; }
+    .image-modal-nav-zone { position: absolute; top: 0; bottom: 0; width: 20%; cursor: pointer; }
+    .image-modal-prev-zone { left: 0; }
+    .image-modal-next-zone { right: 0; }
+    .image-modal-nav-zone:hover { background: rgba(255,255,255,0.04); }
+    .image-modal-close { position: fixed; top: 20px; right: 24px; background: none; border: none; color: rgba(255,255,255,0.7); font-size: 28px; line-height: 1; cursor: pointer; padding: 4px 8px; transition: color 0.15s; z-index: 1001; }
+    .image-modal-close:hover { color: #fff; }
+    .project-image { cursor: pointer; transition: opacity 0.2s; }
+    .project-image:hover { opacity: 0.9; }
   </style>
 </head>
 <body class="page-project-detail">
@@ -391,6 +403,52 @@
         if (el) el.outerHTML = html;
       });
     })();
+  </script>
+
+  <div class="image-modal" id="imageModal">
+    <div class="image-modal-content">
+      <button class="image-modal-close" id="modalClose" aria-label="Close image">&times;</button>
+      <div class="image-modal-nav-zone image-modal-prev-zone" id="modalPrevZone" aria-hidden="true"></div>
+      <div class="image-modal-nav-zone image-modal-next-zone" id="modalNextZone" aria-hidden="true"></div>
+      <img class="image-modal-image" id="modalImage" src="" alt="">
+    </div>
+  </div>
+  <script>
+    const imageModal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    const modalClose = document.getElementById('modalClose');
+    const modalPrevZone = document.getElementById('modalPrevZone');
+    const modalNextZone = document.getElementById('modalNextZone');
+    const allImages = Array.from(document.querySelectorAll('.project-image img, img.project-image'));
+    let currentImageIndex = -1;
+    allImages.forEach((img, index) => {
+      img.setAttribute('tabindex', '0');
+      img.setAttribute('role', 'button');
+      img.setAttribute('aria-haspopup', 'dialog');
+      img.addEventListener('click', (e) => { e.stopPropagation(); currentImageIndex = index; showImage(currentImageIndex); });
+      img.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); currentImageIndex = index; showImage(currentImageIndex); } });
+    });
+    function showImage(index) {
+      const img = allImages[index];
+      modalImage.src = img.src;
+      modalImage.alt = img.alt;
+      imageModal.classList.add('open');
+      document.body.classList.add('no-scroll');
+    }
+    function navigateImage(direction) {
+      const newIndex = currentImageIndex + direction;
+      if (newIndex >= 0 && newIndex < allImages.length) { currentImageIndex = newIndex; showImage(currentImageIndex); }
+    }
+    modalPrevZone.addEventListener('click', (e) => { e.stopPropagation(); navigateImage(-1); });
+    modalNextZone.addEventListener('click', (e) => { e.stopPropagation(); navigateImage(1); });
+    modalClose.addEventListener('click', () => { imageModal.classList.remove('open'); document.body.classList.remove('no-scroll'); });
+    imageModal.addEventListener('click', (e) => { if (e.target === imageModal) { imageModal.classList.remove('open'); document.body.classList.remove('no-scroll'); } });
+    document.addEventListener('keydown', (e) => {
+      if (!imageModal.classList.contains('open')) return;
+      if (e.key === 'Escape') { imageModal.classList.remove('open'); document.body.classList.remove('no-scroll'); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); navigateImage(-1); }
+      if (e.key === 'ArrowRight') { e.preventDefault(); navigateImage(1); }
+    });
   </script>
 </body>
 </html>

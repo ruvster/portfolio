@@ -241,6 +241,36 @@
   width: 25%;
 }
 
+.project-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0 24px;
+  font-family: 'DM Mono', monospace;
+  font-size: 13px;
+  font-weight: 300;
+}
+
+.project-table th {
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--light-rule);
+  color: var(--warm-mid);
+  letter-spacing: 0.06em;
+  font-weight: 400;
+}
+
+.project-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--light-rule);
+  color: var(--ink);
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+.project-table tr:last-child td {
+  border-bottom: none;
+}
+
 .image-grid-2 {
   display: grid;
   grid-template-columns: 1fr 1fr;

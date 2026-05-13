@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Infusing AI Generative Experiences into Work Item | Ruvi Pitiyarachchi</title>
+  <title>Infusing AI into the Work Item | Ruvi Pitiyarachchi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
@@ -46,14 +46,14 @@
 
     <div class="project-hero">
       <div class="project-header">
-        <h1 class="project-title">Infusing AI generative experiences into the work item</h1>
+        <h1 class="project-title">Infusing AI into the Work Item</h1>
         <p class="project-summary">Designing intelligence into Jira's most-used surface.</p>
       </div>
 
       <div class="project-meta">
         <div class="meta-item">
           <div class="meta-label">Timeline</div>
-          <div class="meta-value">October 2025 - Present</div>
+          <div class="meta-value">October 2025 - March 2026</div>
         </div>
         <div class="meta-item">
           <div class="meta-label">Role</div>
@@ -64,6 +64,7 @@
       <div class="reflection-note">
         <div class="phase-kicker">Summary</div>
         <p>The Jira work item is where teams coordinate their most critical work, but the experience had grown cluttered, static, and unintuitive. I led the design exploration for how generative AI could transform it. My process spanned from foundational concept research into work item creation to building a scalable framework for AI-driven summaries and contextual integrations across the platform.</p>
+        <p style="margin-top: 12px; font-size: 13px; color: var(--warm-mid);">Note: some designs have been recreated for this case study due to access constraints and work not yet shipped to production.</p>
       </div>
     </div>
 
@@ -71,6 +72,7 @@
       <h2 class="project-section-title">Overview</h2>
       <div class="project-section-text">
         <p>Work items are the backbone of Jira, yet the interface has remained a "one-size-fits-all" scrolling form., used by millions daily to track everything from bugs to epics. As Jira evolved toward AI-driven experiences, this view emerged as a critical opportunity for transformation. Despite being a team's source of truth, work items often fluctuate between two extremes: too sparse to be useful, or too cluttered to be understood. This information density creates a paradox where more work leads to less clarity, forcing teams to hunt for answers: <em>What’s the status? What’s the next step? Who owns the momentum?</em></p>
+
       </div>
     </section>
 
@@ -138,7 +140,7 @@
       <div class="project-section-text">
         <p>Coming out of the research, a specific opportunity stood out: when users open an existing work item, they spend real time re-orienting. Scrolling through comments, checking what changed, figuring out what's blocking progress. For dense or long-running items, this can take minutes of reading before any actual work happens.</p>
         <p>An AI generated summary panel, at the top of the work item, promised to fast track that but only if it knew what to say.
-        A summary of an empty work item is useless while a summary of a year old task with 200 comments needs to be ruthlessly prioritised. The design problem wasn't "what does the summary look like" — it was "what should the summary be, given how much is actually there?"</p>
+        A summary of an empty work item is useless while a summary of a year old task with 200 comments needs to be ruthlessly prioritised. The design problem wasn't "what does the summary look like" it was "what should the summary be, given how much is actually there?"</p>
       </div>
     </section>
 
@@ -151,7 +153,11 @@
           <li><strong>Fragmentation.</strong> AI showed up in multiple places with inconsistent voice, surface, and interaction models.</li>
           <li><strong>Redundancy.</strong> Several features were quietly solving overlapping problems in slightly different ways.</li>
           <li><strong>No hierarchy.</strong> Users had no sense of which AI experience to reach for in which situation.</li>
-        </ul> 
+        </ul>
+      <figure class="figure-centered" style="max-width: 50%; margin-left: auto; margin-right: auto;">
+        <img src="../assets/projects/ai-work-item/Audit.png" alt="Audit of existing AI experiences" class="project-image">
+        <figcaption class="project-figure-caption">Lofi audit of existing AI experiences.</figcaption>
+      </figure>         
       </div>
     </section>
 
@@ -175,9 +181,9 @@
       <div class="project-section-text">
         <p>The framework helped in the following ways:</p>
         <ul class="detail-list">
-          <li><strong>It made the invisible explicit.</strong> "Summary" stopped being one thing and became five coordinated behaviours.</li>
-          <li><strong>It gave the team a shared vocabulary.</strong> PMs, engineers, and other designers could talk about "the moderately detailed state" and mean the same thing.</li>
-          <li><strong>It made the edge cases designable.</strong> Empty and dense states got the same rigour as the happy path.</li>
+          <li><strong>It made the invisible explicit:</strong> "Summary" stopped being one thing and became five coordinated behaviours.</li>
+          <li><strong>It gave the team a shared vocabulary:</strong> PMs, engineers, and other designers could talk about "the moderately detailed state" and mean the same thing.</li>
+          <li><strong>It made the edge cases designable:</strong> Empty and dense states got the same rigour as the happy path.</li>
         </ul>
       </div>
     </section>
@@ -186,10 +192,40 @@
       <h2 class="project-section-title">The visuals</h2>
 
       <div class="project-section-text">
-        <p>With the framework in place, the visual design became a series of focused problems rather than one overwhelming one.</p>
+        <p>With the framework in place, the design became a series of focused problems rather than one overwhelming one. I began by designing the end vision flows of where we wanted the experience to go. Then pared it back to an experience more achievable in the short run as our MVP.</p>
       </div>
 
-      <div class="subsection-block">
+
+
+      <figure class="figure-centered">
+        <div class="image-grid-2">
+          <img src="../assets/projects/ai-work-item/20.png" alt="AI summary design for the Jira work item" class="project-image">
+          <img src="../assets/projects/ai-work-item/18.png" alt="AI summary design for the Jira work item" class="project-image">
+        </div>
+      </figure>
+
+      <div class="project-section-text" style="margin-top: 8px;">
+        <table class="project-table" aria-label="Vision vs MVP comparison">
+          <thead>
+            <tr>
+              <th style="text-align: center;">Vision</th>
+              <th style="text-align: center;">MVP</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Surface next key actions</strong> — the AI skips the summary entirely and leads with what the user should do next, reducing time-to-action to near zero.</td>
+              <td><strong>Summarise the work item</strong> — the AI synthesises all context into a structured summary, giving users a clear read of where things stand before deciding what to do.</td>
+            </tr>
+            <tr>
+              <td>Requires high-confidence intent modelling across item types. Scoped out for the initial release.</td>
+              <td>Achievable with the current summarisation model. Builds user trust before introducing more directive AI behaviour.</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- <div class="subsection-block">
         <h3 class="subsection-title">Key decisions</h3>
         <div class="project-section-text">
           <ul class="detail-list">
@@ -200,17 +236,8 @@
             <li><strong>Restraint on the empty state.</strong> The biggest temptation was to over-design the empty state with a cheerful AI flourish. Empty work items get a quiet, functional nudge — because the user's next step is a task, not a delight moment.</li>
           </ul>
         </div>
-      </div>
-
-      <!-- <figure class="figure-centered">
-        <div class="image-grid-2">
-          <img src="../assets/projects/ai-work-item/ai-summary-flow-1.jpg" alt="AI summarization feature showing work item with AI-generated summary displayed inline" class="project-image">
-          <img src="../assets/projects/ai-work-item/ai-summary-flow-2.jpg" alt="Work item view showing the structured AI summary with current state, key decisions, next actions, and open questions sections" class="project-image">
-        </div>
-        <figcaption class="project-figure-caption">The AI summarization feature displayed in the work item view, synthesizing scattered context into a clear, actionable summary.</figcaption>
-      </figure> -->
+      </div> -->
     </section>
-
 
     <section class="project-section">
       <h2 class="project-section-title">Other AI experiences</h2>
@@ -223,11 +250,10 @@
           <div class="phase-kicker">Experience 1</div>
           <h3 class="phase-title">Intelligent card covers</h3>
           <p>AI-generated imagery for work item cards, by allowing users to provide a prompt. Gives teams a faster visual scan across boards without any manual effort.</p>
-          <figure class="phase-card-figure">
-            <div class="image-grid-2">
-              <img src="../assets/projects/ai-work-item/CoverImages2.png" alt="AI-generated card cover images for Jira work items" class="project-image">
-              <img src="../assets/projects/ai-work-item/CoverImages.png" alt="AI-generated card cover images for Jira work items" class="project-image">
-            </div>
+          <figure class="phase-card-figure" style="display: flex; flex-direction: row; gap: 16px; align-items: center;">
+            <iframe style="border: 1px solid rgba(0, 0, 0, 0.1); border-radius: 12px; flex: 1; min-width: 0; aspect-ratio: 16/9; height: auto;" src="https://embed.figma.com/proto/5ND51cI3sWGSShXJ3Yn1DN/Cover-images--Copy-?node-id=110-141051&viewport=-550%2C-612%2C0.3&t=lQK8yD3BDRu0ucMg-8&scaling=scale-down-width&content-scaling=fixed&starting-point-node-id=110%3A53062&page-id=64%3A108048&hide-ui=1&embed-host=share" allowfullscreen></iframe>
+            <img src="../assets/projects/ai-work-item/CoverImages.png" alt="AI-generated card cover images for Jira work items" class="project-image" style="flex: 1; min-width: 0; width: 100%; max-width: 100%;">
+          
           </figure>
         </article>
 
@@ -274,7 +300,7 @@
     <section class="next-project" aria-label="Next case study">
       <a href="jira-ui-kit.html">
         <p class="next-project-label">Next Case Study</p>
-        <h2 class="next-project-title">Jira UI kit</h2>
+        <h2 class="next-project-title">Jira UI Kit</h2>
         <div class="next-project-line"><span></span></div>
       </a>
     </section>

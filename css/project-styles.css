@@ -51,8 +51,8 @@
 }
 
 .meta-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-family: var(--font-label);
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -81,7 +81,7 @@
 .project-section-title {
   grid-column: 1;
   grid-row: 1;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--font-label);
   font-size: 11px;
   font-weight: 400;
   letter-spacing: 0.14em;
@@ -122,7 +122,7 @@
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--font-label);
   font-size: 12px;
   font-weight: 300;
   letter-spacing: 0.08em;
@@ -154,7 +154,7 @@
 
 .quote-attribution {
   margin-top: 16px;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--font-label);
   font-size: 12px;
   font-weight: 400;
   color: var(--warm-mid);
@@ -201,7 +201,7 @@
 }
 
 .finding-kicker {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--font-label);
   font-weight: 600;
   font-size: 11px;
   letter-spacing: 0.12em;
@@ -245,7 +245,7 @@
   width: 100%;
   border-collapse: collapse;
   margin: 8px 0 24px;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--font-label);
   font-size: 13px;
   font-weight: 300;
 }
@@ -303,8 +303,8 @@
 }
 
 .phase-kicker {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-family: var(--font-label);
+  font-size: 12px;
   font-weight: 400;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -373,7 +373,7 @@
 
 .phase-card-testimonial footer {
   font-style: normal;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--font-label);
   font-size: 11px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
@@ -543,7 +543,7 @@
 }
 
 .metric-label {
-  font-family: 'DM Mono', monospace;
+  font-family: var(--font-label);
   font-size: 11px;
   font-weight: 300;
   letter-spacing: 0.08em;
@@ -568,7 +568,7 @@
 
 .tldr-label {
   display: block;
-  font-family: 'DM Mono', monospace;
+  font-family: var(--font-label);
   font-size: 11px;
   font-weight: 300;
   letter-spacing: 0.08em;
@@ -668,8 +668,8 @@
 }
 
 .next-project-label {
-  font-family: 'DM Mono', monospace;
-  font-size: 10px;
+  font-family: var(--font-label);
+  font-size: 12px;
   font-weight: 300;
   text-transform: uppercase;
   letter-spacing: 0.3em;

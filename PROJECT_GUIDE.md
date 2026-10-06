@@ -6,7 +6,7 @@ Project detail pages are located in `projects/` folder. The Broker Digital proje
 ## Structure
 Each project page has these main sections:
 1. **Hero** - Project title, role, duration, team
-2. **Sections** - Content organized with headings, text, images, and quotes
+2. **Sections** - Content organised with headings, text, images, and quotes
 
 ## How to Update Content
 
@@ -143,7 +143,7 @@ Example project card:
 - Responsive images: automatically scale with container
 - Grids automatically adjust on mobile (2-col → 1-col, 3-col → 1-col)
 - Quotes have subtle background and accent border
-- Captions use monospace gray text
+- Captions use monospace grey text
 
 ## File Structure
 ```
